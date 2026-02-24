@@ -8,6 +8,11 @@ on:
   # 允許手動觸發
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
@@ -15,7 +20,9 @@ jobs:
     steps:
     - name: 檢出程式碼
       uses: actions/checkout@v4
-      
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: 設定 Python 環境
       uses: actions/setup-python@v5
       with:
@@ -30,25 +37,6 @@ jobs:
       run: |
         python main.py
         
-    - name: 設定 Git
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        
-    - name: 提交更新的報告
-      run: |
-        git add -A
-        git commit -m "📊 更新就業市場監控報告 - $(date +'%Y-%m-%d')" || echo "無變更需要提交"
-        git push || echo "無變更需要推送"
-      
-    - name: 部署到 GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./report
-        publish_branch: gh-pages
-        
     - name: 上傳資料檔案為 Artifact
       uses: actions/upload-artifact@v4
       with:
@@ -57,3 +45,22 @@ jobs:
           data/
           report/
         retention-days: 90
+        
+    - name: 部署到 GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./report
+        publish_branch: gh-pages
+        force_orphan: true
+        
+    - name: 提交更新的報告到 main 分支
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/ report/
+        git diff --staged --quiet || git commit -m "[Auto] 更新就業市場監控報告 - $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

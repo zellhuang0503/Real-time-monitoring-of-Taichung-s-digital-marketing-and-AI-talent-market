@@ -1,5 +1,5 @@
 """
-HTML 報告生成器
+HTML 報告生成器 - UiUX Max Pro 設計優化版
 生成單一 HTML 檔案的互動式儀表板
 """
 
@@ -98,10 +98,19 @@ class HTMLReportGenerator:
             'data': [c['count'] for c in skill_combos],
         }
         
+        # 6. 產業別分布 - 為進度條準備
+        company_analysis = analysis.get('company_analysis', {})
+        industries = company_analysis.get('top_industries', [])[:10]
+        charts['industries'] = {
+            'labels': [i.get('industry_name', i['industry']) for i in industries],
+            'data': [i['count'] for i in industries],
+            'percentages': [i['percentage'] for i in industries],
+        }
+        
         return charts
     
     def _get_html_template(self) -> Template:
-        """取得 HTML 模板"""
+        """取得 HTML 模板 - Data-Dense Dashboard Style"""
         html = '''<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -109,18 +118,26 @@ class HTMLReportGenerator:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台中中部數位人才就業市場監控報告 - 第{{ week_number }}週</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #10b981;
-            --accent: #f59e0b;
+            --primary: #1E40AF;
+            --primary-dark: #1e3a8a;
+            --primary-light: #3B82F6;
+            --secondary: #3B82F6;
+            --accent: #F59E0B;
+            --accent-light: #fbbf24;
             --danger: #ef4444;
-            --bg: #f8fafc;
+            --success: #10b981;
+            --bg: #F8FAFC;
             --card: #ffffff;
             --text: #1e293b;
             --text-light: #64748b;
+            --text-muted: #94a3b8;
             --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            --font-sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
         }
         
         * {
@@ -130,462 +147,826 @@ class HTMLReportGenerator:
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: var(--font-sans);
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 14px;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px;
         }
         
+        /* Header - Data Dense Style */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 40px 20px;
-            margin: -20px -20px 30px -20px;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            padding: 32px 28px;
+            margin: -24px -24px 32px -24px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
         
         .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .meta {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .card h2 {
-            font-size: 1.25rem;
+            font-size: 1rem;
+            opacity: 0.85;
+            font-weight: 400;
             margin-bottom: 16px;
-            color: var(--text);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 10px;
         }
         
-        .metric {
+        .header-meta {
             display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin: 12px 0;
-        }
-        
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .metric-label {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-        
-        .chart-container {
-            position: relative;
-            height: 300px;
-            margin: 20px 0;
-        }
-        
-        .chart-container.large {
-            height: 400px;
-        }
-        
-        .insight-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 4px solid var(--accent);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .insight-box h3 {
-            color: #92400e;
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-        
-        .insight-box p {
-            color: #78350f;
-            font-size: 0.95rem;
-        }
-        
-        .recommendation {
-            background: #eff6ff;
-            border-left: 4px solid var(--primary);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 12px 0;
-        }
-        
-        .recommendation h4 {
-            color: var(--primary-dark);
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-        
-        .priority-high {
-            border-left-color: var(--danger);
-            background: #fef2f2;
-        }
-        
-        .priority-high h4 {
-            color: var(--danger);
-        }
-        
-        .skill-tag {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
+            gap: 24px;
             font-size: 0.85rem;
-            margin: 4px;
+            opacity: 0.7;
+            font-family: var(--font-mono);
         }
         
-        .skill-tag.secondary {
-            background: var(--secondary);
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         
-        .skill-tag.accent {
-            background: var(--accent);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            font-size: 0.9rem;
-        }
-        
-        th, td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        th {
-            background: var(--bg);
-            font-weight: 600;
-            color: var(--text-light);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
-        }
-        
-        tr:hover {
-            background: var(--bg);
-        }
-        
-        .trend-up {
-            color: var(--secondary);
-        }
-        
-        .trend-down {
-            color: var(--danger);
-        }
-        
+        /* Section Layout */
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 32px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
         }
         
         .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
             color: var(--text);
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        .badge-primary {
+        .section-title .icon {
+            width: 32px;
+            height: 32px;
             background: var(--primary);
             color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
         }
         
-        .badge-secondary {
-            background: var(--secondary);
+        /* Grid System */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+        
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
+        
+        @media (max-width: 1200px) {
+            .col-3 { grid-column: span 6; }
+        }
+        
+        @media (max-width: 768px) {
+            .col-3, .col-4, .col-6, .col-8 { grid-column: span 12; }
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(to bottom, #fafbfc, var(--card));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: 0.3px;
+        }
+        
+        .card-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .card-badge.primary { background: rgba(30, 64, 175, 0.1); color: var(--primary); }
+        .card-badge.accent { background: rgba(245, 158, 11, 0.1); color: var(--accent); }
+        .card-badge.success { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        /* KPI Cards */
+        .kpi-card {
+            background: var(--card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .kpi-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.08);
+        }
+        
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .kpi-card.accent::before { background: var(--accent); }
+        .kpi-card.success::before { background: var(--success); }
+        
+        .kpi-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .kpi-value {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        
+        .kpi-subtext {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .kpi-trend {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .kpi-trend.up { color: var(--success); }
+        .kpi-trend.down { color: var(--danger); }
+        
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 280px;
+        }
+        
+        .chart-container.large {
+            height: 360px;
+        }
+        
+        /* Insight Box */
+        .insight-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .insight-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .insight-box h3 {
+            font-size: 0.8rem;
+            color: #92400e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .insight-box p {
+            color: #78350f;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Recommendations */
+        .recommendation {
+            background: #eff6ff;
+            border: 1px solid rgba(30, 64, 175, 0.15);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .recommendation:hover {
+            border-color: var(--primary);
+            box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
+        }
+        
+        .recommendation::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .recommendation.priority-high {
+            background: #fef2f2;
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+        
+        .recommendation.priority-high::before {
+            background: var(--danger);
+        }
+        
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .priority-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .priority-badge.high {
+            background: var(--danger);
             color: white;
         }
         
-        .badge-accent {
+        .priority-badge.medium {
             background: var(--accent);
             color: white;
         }
         
+        .priority-badge.low {
+            background: var(--success);
+            color: white;
+        }
+        
+        .recommendation h4 {
+            font-size: 0.95rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .recommendation p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        
+        .recommendation p strong {
+            color: var(--text);
+        }
+        
+        /* Skill Tags */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 500;
+            background: rgba(30, 64, 175, 0.08);
+            color: var(--primary);
+            border: 1px solid rgba(30, 64, 175, 0.15);
+        }
+        
+        .skill-tag.secondary {
+            background: rgba(16, 185, 129, 0.08);
+            color: var(--success);
+            border-color: rgba(16, 185, 129, 0.15);
+        }
+        
+        .skill-tag.accent {
+            background: rgba(245, 158, 11, 0.08);
+            color: var(--accent);
+            border-color: rgba(245, 158, 11, 0.15);
+        }
+        
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        
+        thead {
+            background: var(--bg);
+        }
+        
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text);
+        }
+        
+        tr:hover {
+            background: var(--bg);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Progress Bars for Industries */
+        .progress-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+            min-width: 80px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-fill.primary { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
+        .progress-fill.accent { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+        .progress-fill.secondary { background: linear-gradient(90deg, var(--secondary), #60a5fa); }
+        
+        .progress-value {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            min-width: 45px;
+            text-align: right;
+        }
+        
+        .industry-code {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .industry-name {
+            font-weight: 500;
+        }
+        
+        /* Salary values */
+        .salary-value {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .salary-unit {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-left: 2px;
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
-            color: var(--text-light);
-            font-size: 0.85rem;
+            padding: 32px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
             border-top: 1px solid var(--border);
             margin-top: 40px;
         }
         
+        footer p {
+            margin: 4px 0;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 16px;
+            }
+            
+            header {
+                margin: -16px -16px 24px -16px;
+                padding: 24px 20px;
             }
             
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
-            .metric-value {
-                font-size: 2rem;
+            .header-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .kpi-value {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <header>
-            <h1>台中中部數位人才就業市場監控報告</h1>
-            <div class="subtitle">新尖兵計畫課程規劃決策支持系統</div>
-            <div class="meta">第 {{ week_number }} 週報告 | 資料日期: {{ report_date }}</div>
+            <div class="header-content">
+                <h1>台中中部數位人才就業市場監控報告</h1>
+                <div class="subtitle">新尖兵計畫課程規劃決策支持系統</div>
+                <div class="header-meta">
+                    <span>📅 第 {{ week_number }} 週報告</span>
+                    <span>🕐 資料日期: {{ report_date }}</span>
+                    <span>📍 監控範圍: 台中、彰化、南投</span>
+                </div>
+            </div>
         </header>
         
-        <!-- 執行摘要 -->
+        <!-- Executive Summary -->
         <div class="section">
-            <h2 class="section-title">
-                <span>📊</span> 執行摘要
-            </h2>
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon">📊</div>
+                    執行摘要
+                </div>
+            </div>
+            
             <div class="insight-box">
                 <h3>🎯 核心洞察</h3>
                 <p>{{ recommendations.executive_summary.key_insight }}</p>
             </div>
             
             <div class="grid">
-                <div class="card">
-                    <div class="metric">
-                        <span class="metric-value">{{ analysis.summary.total_jobs }}</span>
-                        <span class="metric-label">相關職缺總數</span>
+                <div class="col-4">
+                    <div class="kpi-card">
+                        <div class="kpi-label">相關職缺總數</div>
+                        <div class="kpi-value">{{ "{:,}".format(analysis.summary.total_jobs) }}</div>
+                        <div class="kpi-subtext">台中、彰化、南投三地區</div>
                     </div>
-                    <p style="color: var(--text-light); font-size: 0.9rem;">
-                        監控範圍：台中、彰化、南投三地區
-                    </p>
                 </div>
                 
-                <div class="card">
-                    <div class="metric">
-                        <span class="metric-value">{{ "{:,}".format(analysis.salary_analysis.median_salary) if analysis.salary_analysis.median_salary else "N/A" }}</span>
-                        <span class="metric-label">中位數月薪 (元)</span>
+                <div class="col-4">
+                    <div class="kpi-card accent">
+                        <div class="kpi-label">中位數月薪</div>
+                        <div class="kpi-value">{{ "{:,}".format(analysis.salary_analysis.median_salary) if analysis.salary_analysis.median_salary else "N/A" }}</div>
+                        <div class="kpi-subtext">基於 {{ analysis.salary_analysis.has_salary_info }} 個職缺</div>
                     </div>
-                    <p style="color: var(--text-light); font-size: 0.9rem;">
-                        基於 {{ analysis.salary_analysis.has_salary_info }} 個有薪資資訊的職缺
-                    </p>
                 </div>
                 
-                <div class="card">
-                    <div class="metric">
-                        <span class="metric-value">{{ "{:.0f}".format(analysis.experience_requirements.entry_level_friendly.percentage) }}%</span>
-                        <span class="metric-label">接受新人職缺比例</span>
+                <div class="col-4">
+                    <div class="kpi-card success">
+                        <div class="kpi-label">接受新人比例</div>
+                        <div class="kpi-value">{{ "{:.0f}".format(analysis.experience_requirements.entry_level_friendly.percentage) }}%</div>
+                        <div class="kpi-subtext">經驗不拘或1年以下</div>
                     </div>
-                    <p style="color: var(--text-light); font-size: 0.9rem;">
-                        經驗不拘或1年以下經驗可
-                    </p>
                 </div>
             </div>
         </div>
         
-        <!-- 優先建議 -->
+        <!-- Priority Recommendations -->
         <div class="section">
-            <h2 class="section-title">
-                <span>💡</span> 課程調整優先建議
-            </h2>
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon">💡</div>
+                    課程調整優先建議
+                </div>
+            </div>
+            
             {% for rec in recommendations.priority_recommendations %}
             <div class="recommendation {% if rec.priority == '高' %}priority-high{% endif %}">
-                <h4>
-                    {% if rec.priority == '高' %}🔴{% elif rec.priority == '中' %}🟡{% else %}🟢{% endif %}
-                    [{{ rec.priority }}] {{ rec.title }}
-                </h4>
+                <div class="recommendation-header">
+                    <span class="priority-badge {% if rec.priority == '高' %}high{% elif rec.priority == '中' %}medium{% else %}low{% endif %}">
+                        {{ rec.priority }}
+                    </span>
+                    <h4>{{ rec.title }}</h4>
+                </div>
                 <p><strong>原因：</strong>{{ rec.reason }}</p>
                 <p><strong>建議行動：</strong>{{ rec.action }}</p>
             </div>
             {% endfor %}
         </div>
         
-        <!-- 技能需求分析 -->
+        <!-- Skill Analysis -->
         <div class="section">
-            <h2 class="section-title">
-                <span>🔧</span> 技能需求分析
-            </h2>
-            
-            <div class="grid">
-                <div class="card" style="grid-column: span 2;">
-                    <h2>Top 15 熱門技能需求</h2>
-                    <div class="chart-container">
-                        <canvas id="skillsChart"></canvas>
-                    </div>
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon">🔧</div>
+                    技能需求分析
                 </div>
             </div>
             
-            <div class="card">
-                <h2>必備技能清單</h2>
-                <p style="margin-bottom: 15px; color: var(--text-light);">
-                    以下技能在超過 30 個職缺中被提及，建議納入必修
-                </p>
-                {% for skill in recommendations.skill_focus.must_have_skills[:8] %}
-                <span class="skill-tag">{{ skill.skill }}</span>
-                {% endfor %}
-            </div>
-            
-            <div class="card">
-                <h2>加分技能清單</h2>
-                <p style="margin-bottom: 15px; color: var(--text-light);">
-                    掌握這些技能能提升競爭力
-                </p>
-                {% for skill in recommendations.skill_focus.nice_to_have_skills[:8] %}
-                <span class="skill-tag secondary">{{ skill.skill }}</span>
-                {% endfor %}
-            </div>
-        </div>
-        
-        <!-- 薪資分析 -->
-        <div class="section">
-            <h2 class="section-title">
-                <span>💰</span> 薪資市場分析
-            </h2>
-            
             <div class="grid">
-                <div class="card">
-                    <h2>薪資區間分布</h2>
-                    <div class="chart-container">
-                        <canvas id="salaryChart"></canvas>
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Top 15 熱門技能需求</div>
+                            <span class="card-badge primary">需求排行</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="skillsChart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card">
-                    <h2>經驗要求分布</h2>
-                    <div class="chart-container">
-                        <canvas id="experienceChart"></canvas>
+                <div class="col-4">
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title">必備技能</div>
+                            <span class="card-badge success">>30 職缺</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="skill-tags">
+                                {% for skill in recommendations.skill_focus.must_have_skills[:8] %}
+                                <span class="skill-tag">{{ skill.skill }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">加分技能</div>
+                            <span class="card-badge accent">競爭力</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="skill-tags">
+                                {% for skill in recommendations.skill_focus.nice_to_have_skills[:8] %}
+                                <span class="skill-tag accent">{{ skill.skill }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="card">
-                <h2>高薪技能排行 (中位數薪資)</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>技能</th>
-                            <th>職缺數</th>
-                            <th>中位數薪資</th>
-                            <th>平均薪資</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for skill in analysis.salary_by_skill.top_paying_skills[:10] %}
-                        <tr>
-                            <td><strong>{{ skill.skill }}</strong></td>
-                            <td>{{ skill.job_count }}</td>
-                            <td>{{ "{:,}".format(skill.median_salary) }} 元</td>
-                            <td>{{ "{:,}".format(skill.mean_salary) }} 元</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
         </div>
         
-        <!-- 職缺分布 -->
+        <!-- Salary Analysis -->
         <div class="section">
-            <h2 class="section-title">
-                <span>📈</span> 職缺類別分布
-            </h2>
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon">💰</div>
+                    薪資市場分析
+                </div>
+            </div>
             
             <div class="grid">
-                <div class="card">
-                    <h2>各領域職缺數量</h2>
-                    <div class="chart-container">
-                        <canvas id="jobCategoriesChart"></canvas>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">薪資區間分布</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="salaryChart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card">
-                    <h2>熱門技能組合</h2>
-                    <div class="chart-container">
-                        <canvas id="skillComboChart"></canvas>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">經驗要求分布</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="experienceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">職缺類別分布</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="jobCategoriesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <div class="card-header">
+                    <div class="card-title">高薪技能排行 (中位數薪資)</div>
+                    <span class="card-badge accent">Top 10</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>技能名稱</th>
+                                    <th>職缺數</th>
+                                    <th>中位數薪資</th>
+                                    <th>平均薪資</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for skill in analysis.salary_by_skill.top_paying_skills[:10] %}
+                                <tr>
+                                    <td><strong>{{ skill.skill }}</strong></td>
+                                    <td>{{ skill.job_count }}</td>
+                                    <td><span class="salary-value">{{ "{:,}".format(skill.median_salary) }}</span><span class="salary-unit">元</span></td>
+                                    <td><span class="salary-value">{{ "{:,}".format(skill.mean_salary) }}</span><span class="salary-unit">元</span></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- 詳細數據表格 -->
+        <!-- Skill Combinations -->
         <div class="section">
-            <h2 class="section-title">
-                <span>📋</span> 詳細數據
-            </h2>
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon">🔗</div>
+                    技能組合分析
+                </div>
+            </div>
             
-            <div class="card">
-                <h2>產業別分布</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>產業別代碼</th>
-                            <th>產業別名稱</th>
-                            <th>職缺數</th>
-                            <th>占比</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for ind in analysis.company_analysis.top_industries[:10] %}
-                        <tr>
-                            <td><code>{{ ind.industry }}</code></td>
-                            <td><strong>{{ ind.industry_name }}</strong></td>
-                            <td>{{ ind.count }}</td>
-                            <td>{{ ind.percentage }}%</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+            <div class="grid">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">熱門技能組合</div>
+                            <span class="card-badge primary">出現頻率</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container large">
+                                <canvas id="skillComboChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">產業別分布</div>
+                            <span class="card-badge primary">Top 10</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>產業別</th>
+                                            <th>職缺數</th>
+                                            <th>占比</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ind in analysis.company_analysis.top_industries[:10] %}
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <span class="industry-name">{{ ind.industry_name }}</span>
+                                                    <br>
+                                                    <span class="industry-code">{{ ind.industry }}</span>
+                                                </div>
+                                            </td>
+                                            <td style="font-family: var(--font-mono);">{{ ind.count }}</td>
+                                            <td>
+                                                <div class="progress-cell">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill {% if loop.index == 1 %}primary{% elif loop.index == 2 %}accent{% else %}secondary{% endif %}" 
+                                                             style="width: {{ ind.percentage }}%"></div>
+                                                    </div>
+                                                    <span class="progress-value">{{ ind.percentage }}%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
         <footer>
-            <p>© 梵亞行銷 | 台中教育大學新尖兵計畫</p>
+            <p><strong>梵亞行銷 | 台中教育大學新尖兵計畫</strong></p>
             <p>本報告由自動化監控系統生成 | 資料來源：104人力銀行、1111人力銀行、518人力銀行</p>
         </footer>
     </div>
@@ -593,6 +974,17 @@ class HTMLReportGenerator:
     <script>
         // 圖表資料
         const chartsData = {{ charts_data | tojson }};
+        
+        // 顏色配置
+        const colors = {
+            primary: '#1E40AF',
+            primaryLight: '#3B82F6',
+            accent: '#F59E0B',
+            accentLight: '#fbbf24',
+            success: '#10b981',
+            danger: '#ef4444',
+            secondary: '#64748b'
+        };
         
         // 技能需求圖表
         new Chart(document.getElementById('skillsChart'), {
@@ -602,20 +994,37 @@ class HTMLReportGenerator:
                 datasets: [{
                     label: '職缺提及次數',
                     data: chartsData.skills.data,
-                    backgroundColor: 'rgba(99, 102, 241, 0.8)',
-                    borderColor: 'rgba(99, 102, 241, 1)',
-                    borderWidth: 1
+                    backgroundColor: colors.primary,
+                    borderColor: colors.primaryDark,
+                    borderWidth: 0,
+                    borderRadius: 4,
+                    hoverBackgroundColor: colors.primaryLight
                 }]
             },
             options: {
+                indexAxis: 'y',
                 responsive: true,
                 maintainAspectRatio: false,
-                indexAxis: 'y',
                 plugins: {
-                    legend: { display: false }
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        padding: 12,
+                        cornerRadius: 6,
+                        titleFont: { family: 'Fira Sans', size: 13 },
+                        bodyFont: { family: 'Fira Code', size: 12 }
+                    }
                 },
                 scales: {
-                    x: { beginAtZero: true }
+                    x: { 
+                        beginAtZero: true,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Fira Sans', size: 12, weight: 500 } }
+                    }
                 }
             }
         });
@@ -628,21 +1037,41 @@ class HTMLReportGenerator:
                 datasets: [{
                     data: chartsData.salary.data,
                     backgroundColor: [
-                        '#ef4444',
-                        '#f59e0b',
-                        '#10b981',
-                        '#3b82f6',
-                        '#6366f1',
-                        '#8b5cf6'
-                    ]
+                        colors.primary,
+                        colors.primaryLight,
+                        colors.accent,
+                        colors.accentLight,
+                        colors.success,
+                        colors.secondary
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                cutout: '65%',
                 plugins: {
                     legend: {
-                        position: 'bottom'
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: { family: 'Fira Sans', size: 11 },
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        padding: 12,
+                        callbacks: {
+                            label: function(context) {
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((context.raw / total) * 100).toFixed(1);
+                                return `${context.label}: ${context.raw} (${percentage}%)`;
+                            }
+                        }
                     }
                 }
             }
@@ -656,13 +1085,16 @@ class HTMLReportGenerator:
                 datasets: [{
                     data: chartsData.experience.data,
                     backgroundColor: [
-                        '#10b981',
-                        '#3b82f6',
-                        '#f59e0b',
-                        '#ef4444',
-                        '#6366f1',
-                        '#94a3b8'
-                    ]
+                        colors.success,
+                        colors.primaryLight,
+                        colors.accent,
+                        colors.accentLight,
+                        colors.primary,
+                        colors.secondary
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff',
+                    hoverOffset: 4
                 }]
             },
             options: {
@@ -670,7 +1102,17 @@ class HTMLReportGenerator:
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        position: 'bottom'
+                        position: 'right',
+                        labels: {
+                            padding: 12,
+                            font: { family: 'Fira Sans', size: 11 },
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        padding: 12
                     }
                 }
             }
@@ -684,19 +1126,34 @@ class HTMLReportGenerator:
                 datasets: [{
                     label: '職缺數',
                     data: chartsData.job_categories.data,
-                    backgroundColor: 'rgba(16, 185, 129, 0.8)',
-                    borderColor: 'rgba(16, 185, 129, 1)',
-                    borderWidth: 1
+                    backgroundColor: colors.success,
+                    borderRadius: 4,
+                    hoverBackgroundColor: '#34d399'
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false }
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        padding: 12
+                    }
                 },
                 scales: {
-                    y: { beginAtZero: true }
+                    y: { 
+                        beginAtZero: true,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { 
+                            font: { family: 'Fira Sans', size: 10 },
+                            maxRotation: 45
+                        }
+                    }
                 }
             }
         });
@@ -709,20 +1166,35 @@ class HTMLReportGenerator:
                 datasets: [{
                     label: '出現次數',
                     data: chartsData.skill_combinations.data,
-                    backgroundColor: 'rgba(245, 158, 11, 0.8)',
-                    borderColor: 'rgba(245, 158, 11, 1)',
-                    borderWidth: 1
+                    backgroundColor: colors.accent,
+                    borderRadius: 4,
+                    hoverBackgroundColor: colors.accentLight
                 }]
             },
             options: {
+                indexAxis: 'y',
                 responsive: true,
                 maintainAspectRatio: false,
-                indexAxis: 'y',
                 plugins: {
-                    legend: { display: false }
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        padding: 12
+                    }
                 },
                 scales: {
-                    x: { beginAtZero: true }
+                    x: { 
+                        beginAtZero: true,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { 
+                            font: { family: 'Fira Sans', size: 11 },
+                            maxWidth: 150
+                        }
+                    }
                 }
             }
         });

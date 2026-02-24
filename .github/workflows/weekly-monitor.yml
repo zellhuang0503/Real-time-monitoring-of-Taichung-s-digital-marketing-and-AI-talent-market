@@ -22,6 +22,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
         
     - name: 設定 Python 環境
       uses: actions/setup-python@v5
@@ -61,6 +62,8 @@ jobs:
         git config --local user.name "GitHub Action"
         git add data/ report/
         git diff --staged --quiet || git commit -m "[Auto] 更新就業市場監控報告 - $(date +'%Y-%m-%d %H:%M:%S')"
-        git push
+        # 先拉取最新變更再推送
+        git pull origin main --rebase || true
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

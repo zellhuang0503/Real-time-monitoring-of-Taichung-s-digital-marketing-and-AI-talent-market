@@ -564,7 +564,8 @@ class HTMLReportGenerator:
                 <table>
                     <thead>
                         <tr>
-                            <th>產業別</th>
+                            <th>產業別代碼</th>
+                            <th>產業別名稱</th>
                             <th>職缺數</th>
                             <th>占比</th>
                         </tr>
@@ -572,7 +573,8 @@ class HTMLReportGenerator:
                     <tbody>
                         {% for ind in analysis.company_analysis.top_industries[:10] %}
                         <tr>
-                            <td>{{ ind.industry }}</td>
+                            <td><code>{{ ind.industry }}</code></td>
+                            <td><strong>{{ ind.industry_name }}</strong></td>
                             <td>{{ ind.count }}</td>
                             <td>{{ ind.percentage }}%</td>
                         </tr>

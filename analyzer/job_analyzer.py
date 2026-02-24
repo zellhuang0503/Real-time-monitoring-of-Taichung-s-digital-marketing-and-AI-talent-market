@@ -11,6 +11,7 @@ import os
 
 from .skill_extractor import SkillExtractor
 from .salary_analyzer import SalaryAnalyzer
+from config import INDUSTRY_CODE_MAPPING
 
 
 class JobAnalyzer:
@@ -119,6 +120,19 @@ class JobAnalyzer:
             if industry and industry != '未註明':
                 industry_counter[industry] += 1
         
+        # 轉譯產業別代碼為中文名稱
+        def translate_industry(industry_code):
+            """將產業代碼轉譯為中文名稱"""
+            if not industry_code or industry_code == '未註明':
+                return '未分類'
+            # 轉為字串以確保類型一致
+            code_str = str(industry_code)
+            # 查詢對照表
+            if code_str in INDUSTRY_CODE_MAPPING:
+                return INDUSTRY_CODE_MAPPING[code_str]
+            # 若無對照，顯示原始代碼
+            return f"其他產業({code_str})"
+        
         # 招聘最多的公司
         company_counter = Counter(job.get('company', '未知') for job in jobs)
         
@@ -128,7 +142,12 @@ class JobAnalyzer:
         return {
             'total_companies': len(company_counter),
             'top_industries': [
-                {'industry': ind, 'count': count, 'percentage': round(count / len(jobs) * 100, 1)}
+                {
+                    'industry': ind, 
+                    'industry_name': translate_industry(ind),  # 新增：中文產業名稱
+                    'count': count, 
+                    'percentage': round(count / len(jobs) * 100, 1)
+                }
                 for ind, count in industry_counter.most_common(15)
             ],
             'top_hiring_companies': [

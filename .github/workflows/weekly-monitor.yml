@@ -46,24 +46,24 @@ jobs:
           data/
           report/
         retention-days: 90
-        
-    - name: 部署到 GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./report
-        publish_branch: gh-pages
-        force_orphan: true
-        
-    - name: 提交更新的報告到 main 分支
+
+    - name: 設定 Git
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+
+    - name: 提交更新的報告到 main 分支
+      run: |
         git add data/ report/
         git diff --staged --quiet || git commit -m "[Auto] 更新就業市場監控報告 - $(date +'%Y-%m-%d %H:%M:%S')"
-        # 先拉取最新變更再推送
         git pull origin main --rebase || true
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: 部署到 GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: ./report
+        branch: gh-pages
+        clean: true

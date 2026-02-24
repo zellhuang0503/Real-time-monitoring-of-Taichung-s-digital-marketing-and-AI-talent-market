@@ -1,0 +1,719 @@
+{
+  "analysis_date": "2026-02-24T08:46:43.667891",
+  "summary": {
+    "total_jobs": 3326,
+    "sources_distribution": {
+      "104": 3326
+    },
+    "area_distribution": {
+      "taichung": 1967,
+      "changhua": 782,
+      "nantou": 577
+    },
+    "salary_coverage": {
+      "with_salary": 0,
+      "without_salary": 3326,
+      "coverage_rate": 0.0
+    },
+    "date_range": {
+      "earliest": "20250413",
+      "latest": "20260224"
+    }
+  },
+  "job_distribution": {
+    "by_search_keyword": [
+      {
+        "keyword": "社群媒體",
+        "count": 723,
+        "percentage": 21.7
+      },
+      {
+        "keyword": "UX 設計",
+        "count": 695,
+        "percentage": 20.9
+      },
+      {
+        "keyword": "Python",
+        "count": 418,
+        "percentage": 12.6
+      },
+      {
+        "keyword": "資料分析",
+        "count": 368,
+        "percentage": 11.1
+      },
+      {
+        "keyword": "Java",
+        "count": 316,
+        "percentage": 9.5
+      },
+      {
+        "keyword": "SEO",
+        "count": 238,
+        "percentage": 7.2
+      },
+      {
+        "keyword": "後端",
+        "count": 237,
+        "percentage": 7.1
+      },
+      {
+        "keyword": "Figma",
+        "count": 149,
+        "percentage": 4.5
+      },
+      {
+        "keyword": "GA4",
+        "count": 92,
+        "percentage": 2.8
+      },
+      {
+        "keyword": "LLM",
+        "count": 90,
+        "percentage": 2.7
+      }
+    ],
+    "by_job_category": [
+      {
+        "category": "",
+        "count": 3326,
+        "percentage": 100.0
+      }
+    ]
+  },
+  "skill_analysis": {
+    "total_jobs_analyzed": 3326,
+    "unique_skills_found": 12,
+    "top_skills": [
+      {
+        "skill": "Illustrator",
+        "count": 31,
+        "percentage": 0.9
+      },
+      {
+        "skill": "SEO",
+        "count": 22,
+        "percentage": 0.7
+      },
+      {
+        "skill": "Python",
+        "count": 15,
+        "percentage": 0.5
+      },
+      {
+        "skill": "Vue",
+        "count": 4,
+        "percentage": 0.1
+      },
+      {
+        "skill": "JavaScript",
+        "count": 3,
+        "percentage": 0.1
+      },
+      {
+        "skill": "Node.js",
+        "count": 3,
+        "percentage": 0.1
+      },
+      {
+        "skill": "Premiere",
+        "count": 2,
+        "percentage": 0.1
+      },
+      {
+        "skill": "Google Ads",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "After Effects",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "Shopify",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "Photoshop",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "React",
+        "count": 1,
+        "percentage": 0.0
+      }
+    ],
+    "skill_by_category": {
+      "": [
+        {
+          "skill": "Illustrator",
+          "count": 31
+        },
+        {
+          "skill": "SEO",
+          "count": 22
+        },
+        {
+          "skill": "Python",
+          "count": 15
+        },
+        {
+          "skill": "Vue",
+          "count": 4
+        },
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "Node.js",
+          "count": 3
+        },
+        {
+          "skill": "Premiere",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "After Effects",
+          "count": 1
+        },
+        {
+          "skill": "Shopify",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "skill_combinations": [
+    {
+      "skills": [
+        "Illustrator",
+        "Python"
+      ],
+      "count": 3,
+      "description": "Illustrator + Python"
+    },
+    {
+      "skills": [
+        "JavaScript",
+        "Node.js"
+      ],
+      "count": 3,
+      "description": "JavaScript + Node.js"
+    }
+  ],
+  "salary_analysis": {
+    "total_analyzed": 0,
+    "has_salary_info": 0,
+    "message": "無法解析薪資資訊"
+  },
+  "salary_by_skill": {
+    "total_skills_analyzed": 0,
+    "top_paying_skills": [],
+    "skill_salary_details": []
+  },
+  "company_analysis": {
+    "total_companies": 1702,
+    "top_industries": [
+      {
+        "industry": 1001001002,
+        "industry_name": "網路相關",
+        "count": 351,
+        "percentage": 10.6
+      },
+      {
+        "industry": 1001003003,
+        "industry_name": "數位內容",
+        "count": 194,
+        "percentage": 5.8
+      },
+      {
+        "industry": 1001001003,
+        "industry_name": "電子商務",
+        "count": 143,
+        "percentage": 4.3
+      },
+      {
+        "industry": 1001001001,
+        "industry_name": "電腦軟體",
+        "count": 133,
+        "percentage": 4.0
+      },
+      {
+        "industry": 1006003001,
+        "industry_name": "電子製造",
+        "count": 129,
+        "percentage": 3.9
+      },
+      {
+        "industry": 1003001015,
+        "industry_name": "銀行",
+        "count": 94,
+        "percentage": 2.8
+      },
+      {
+        "industry": 1008003001,
+        "industry_name": "機械設備",
+        "count": 65,
+        "percentage": 2.0
+      },
+      {
+        "industry": 1012001001,
+        "industry_name": "餐飲業",
+        "count": 63,
+        "percentage": 1.9
+      },
+      {
+        "industry": 1001001006,
+        "industry_name": "電信相關",
+        "count": 60,
+        "percentage": 1.8
+      },
+      {
+        "industry": 1001001004,
+        "industry_name": "其他產業(1001001004)",
+        "count": 56,
+        "percentage": 1.7
+      },
+      {
+        "industry": 1003002013,
+        "industry_name": "其他產業(1003002013)",
+        "count": 54,
+        "percentage": 1.6
+      },
+      {
+        "industry": 1011003002,
+        "industry_name": "其他產業(1011003002)",
+        "count": 54,
+        "percentage": 1.6
+      },
+      {
+        "industry": 1002014005,
+        "industry_name": "其他產業(1002014005)",
+        "count": 51,
+        "percentage": 1.5
+      },
+      {
+        "industry": 1002011010,
+        "industry_name": "其他產業(1002011010)",
+        "count": 51,
+        "percentage": 1.5
+      },
+      {
+        "industry": 1016002001,
+        "industry_name": "醫療服務",
+        "count": 50,
+        "percentage": 1.5
+      }
+    ],
+    "top_hiring_companies": [
+      {
+        "company": "環鴻科技股份有限公司",
+        "job_count": 163
+      },
+      {
+        "company": "工研院 _財團法人工業技術研究院",
+        "job_count": 23
+      },
+      {
+        "company": "智生活科技股份有限公司",
+        "job_count": 14
+      },
+      {
+        "company": "秀傳醫療體系_秀傳醫療社團法人秀傳紀念醫院",
+        "job_count": 14
+      },
+      {
+        "company": "劦辰傳媒有限公司",
+        "job_count": 14
+      },
+      {
+        "company": "大立光電股份有限公司",
+        "job_count": 13
+      },
+      {
+        "company": "網銀國際股份有限公司",
+        "job_count": 12
+      },
+      {
+        "company": "寶成工業股份有限公司",
+        "job_count": 11
+      },
+      {
+        "company": "弈樂科技股份有限公司",
+        "job_count": 11
+      },
+      {
+        "company": "聯成電腦股份有限公司(聯成電腦/聯成外語)",
+        "job_count": 11
+      },
+      {
+        "company": "赫爾墨思行銷有限公司",
+        "job_count": 11
+      },
+      {
+        "company": "宸薪有限公司",
+        "job_count": 11
+      },
+      {
+        "company": "艾鉅有限公司",
+        "job_count": 11
+      },
+      {
+        "company": "巨鷗科技股份有限公司",
+        "job_count": 10
+      },
+      {
+        "company": "彰化基督教醫療財團法人彰化基督教醫院",
+        "job_count": 10
+      },
+      {
+        "company": "喬崴進科技股份有限公司",
+        "job_count": 10
+      },
+      {
+        "company": "怡利電子工業股份有限公司",
+        "job_count": 10
+      },
+      {
+        "company": "皮克網路有限公司",
+        "job_count": 9
+      },
+      {
+        "company": "詮釋新媒體事業有限公司",
+        "job_count": 9
+      },
+      {
+        "company": "搜樂數位行銷有限公司",
+        "job_count": 8
+      }
+    ],
+    "company_size_distribution": {
+      "large_scale": 17,
+      "medium_scale": 316,
+      "small_scale": 1369
+    }
+  },
+  "experience_requirements": {
+    "distribution": [
+      {
+        "experience": "其他/未註明",
+        "count": 3326,
+        "percentage": 100.0
+      }
+    ],
+    "entry_level_friendly": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "education_requirements": {
+    "distribution": [
+      {
+        "education": "其他/未註明",
+        "count": 3326,
+        "percentage": 100.0
+      }
+    ]
+  },
+  "trend_analysis": {
+    "job_count_change": {
+      "current": 3326,
+      "previous": 1326,
+      "change": 2000,
+      "change_percentage": 150.8
+    },
+    "skill_trends": {
+      "rising_skills": [
+        {
+          "skill": "SEO",
+          "current_count": 22,
+          "previous_count": 7,
+          "change": 15,
+          "change_percentage": 214.3,
+          "trend": "up"
+        },
+        {
+          "skill": "Python",
+          "current_count": 15,
+          "previous_count": 6,
+          "change": 9,
+          "change_percentage": 150.0,
+          "trend": "up"
+        },
+        {
+          "skill": "Node.js",
+          "current_count": 3,
+          "previous_count": 0,
+          "change": 3,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "JavaScript",
+          "current_count": 3,
+          "previous_count": 0,
+          "change": 3,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "Premiere",
+          "current_count": 2,
+          "previous_count": 0,
+          "change": 2,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "Vue",
+          "current_count": 4,
+          "previous_count": 2,
+          "change": 2,
+          "change_percentage": 100.0,
+          "trend": "up"
+        },
+        {
+          "skill": "React",
+          "current_count": 1,
+          "previous_count": 0,
+          "change": 1,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "Google Ads",
+          "current_count": 1,
+          "previous_count": 0,
+          "change": 1,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "After Effects",
+          "current_count": 1,
+          "previous_count": 0,
+          "change": 1,
+          "change_percentage": null,
+          "trend": "up"
+        }
+      ],
+      "declining_skills": [
+        {
+          "skill": "Illustrator",
+          "current_count": 31,
+          "previous_count": 53,
+          "change": -22,
+          "change_percentage": -41.5,
+          "trend": "down"
+        },
+        {
+          "skill": "Canva",
+          "current_count": 0,
+          "previous_count": 1,
+          "change": -1,
+          "change_percentage": -100.0,
+          "trend": "down"
+        }
+      ],
+      "all_trends": [
+        {
+          "skill": "Illustrator",
+          "current_count": 31,
+          "previous_count": 53,
+          "change": -22,
+          "change_percentage": -41.5,
+          "trend": "down"
+        },
+        {
+          "skill": "SEO",
+          "current_count": 22,
+          "previous_count": 7,
+          "change": 15,
+          "change_percentage": 214.3,
+          "trend": "up"
+        },
+        {
+          "skill": "Python",
+          "current_count": 15,
+          "previous_count": 6,
+          "change": 9,
+          "change_percentage": 150.0,
+          "trend": "up"
+        },
+        {
+          "skill": "Node.js",
+          "current_count": 3,
+          "previous_count": 0,
+          "change": 3,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "JavaScript",
+          "current_count": 3,
+          "previous_count": 0,
+          "change": 3,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "Premiere",
+          "current_count": 2,
+          "previous_count": 0,
+          "change": 2,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "Vue",
+          "current_count": 4,
+          "previous_count": 2,
+          "change": 2,
+          "change_percentage": 100.0,
+          "trend": "up"
+        },
+        {
+          "skill": "Canva",
+          "current_count": 0,
+          "previous_count": 1,
+          "change": -1,
+          "change_percentage": -100.0,
+          "trend": "down"
+        },
+        {
+          "skill": "React",
+          "current_count": 1,
+          "previous_count": 0,
+          "change": 1,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "Google Ads",
+          "current_count": 1,
+          "previous_count": 0,
+          "change": 1,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "After Effects",
+          "current_count": 1,
+          "previous_count": 0,
+          "change": 1,
+          "change_percentage": null,
+          "trend": "up"
+        },
+        {
+          "skill": "Photoshop",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Shopify",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        }
+      ]
+    },
+    "salary_trends": {
+      "has_data": false,
+      "message": "資料不足以比較薪資趨勢"
+    }
+  },
+  "emerging_jobs": [
+    {
+      "keyword": "後端",
+      "current_count": 174,
+      "previous_count": 10,
+      "growth_rate": 1640.0,
+      "trend": "fast_growing",
+      "description": "\"後端\"類職缺增長 1640%"
+    },
+    {
+      "keyword": "電商",
+      "current_count": 113,
+      "previous_count": 72,
+      "growth_rate": 56.9,
+      "trend": "fast_growing",
+      "description": "\"電商\"類職缺增長 57%"
+    },
+    {
+      "keyword": "前端",
+      "current_count": 73,
+      "previous_count": 10,
+      "growth_rate": 630.0,
+      "trend": "fast_growing",
+      "description": "\"前端\"類職缺增長 630%"
+    },
+    {
+      "keyword": "SEO",
+      "current_count": 55,
+      "previous_count": 17,
+      "growth_rate": 223.5,
+      "trend": "fast_growing",
+      "description": "\"SEO\"類職缺增長 224%"
+    },
+    {
+      "keyword": "全端",
+      "current_count": 50,
+      "previous_count": 4,
+      "growth_rate": 1150.0,
+      "trend": "fast_growing",
+      "description": "\"全端\"類職缺增長 1150%"
+    },
+    {
+      "keyword": "自動化",
+      "current_count": 31,
+      "previous_count": 12,
+      "growth_rate": 158.3,
+      "trend": "fast_growing",
+      "description": "\"自動化\"類職缺增長 158%"
+    },
+    {
+      "keyword": "數據分析",
+      "current_count": 23,
+      "previous_count": 5,
+      "growth_rate": 360.0,
+      "trend": "fast_growing",
+      "description": "\"數據分析\"類職缺增長 360%"
+    },
+    {
+      "keyword": "Python",
+      "current_count": 22,
+      "previous_count": 7,
+      "growth_rate": 214.3,
+      "trend": "fast_growing",
+      "description": "\"Python\"類職缺增長 214%"
+    },
+    {
+      "keyword": "社群經營",
+      "current_count": 18,
+      "previous_count": 7,
+      "growth_rate": 157.1,
+      "trend": "fast_growing",
+      "description": "\"社群經營\"類職缺增長 157%"
+    },
+    {
+      "keyword": "React",
+      "current_count": 3,
+      "previous_count": 0,
+      "trend": "new_emerging",
+      "description": "\"React\"類職缺本期新增 3 個"
+    }
+  ]
+}

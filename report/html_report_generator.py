@@ -688,6 +688,7 @@ class HTMLReportGenerator:
                     <span>📅 第 {{ week_number }} 週報告</span>
                     <span>🕐 資料日期: {{ report_date }}</span>
                     <span>📍 監控範圍: 台中、彰化、南投</span>
+                    <span style="margin-left: auto;"><a href="history.html" style="color: white; text-decoration: none; opacity: 0.8;">📈 查看歷史趨勢 →</a></span>
                 </div>
             </div>
         </header>

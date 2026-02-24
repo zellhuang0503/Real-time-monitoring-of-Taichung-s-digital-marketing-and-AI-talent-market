@@ -66,4 +66,4 @@ jobs:
       with:
         folder: ./report
         branch: gh-pages
-        clean: true
+        clean: false

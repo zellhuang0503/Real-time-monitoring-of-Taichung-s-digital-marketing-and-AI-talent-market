@@ -24,6 +24,7 @@ from config import JOB_KEYWORDS, MONITORING_AREAS, OUTPUT_CONFIG
 from scrapers import Scraper104, Scraper1111, Scraper518
 from analyzer import JobAnalyzer, CourseRecommender
 from report import HTMLReportGenerator
+from report.history_generator import HistoryGenerator
 
 
 def collect_jobs(test_mode: bool = False) -> list:
@@ -255,14 +256,24 @@ def main():
         week_number=week_number
     )
     
+    # 步驟 5: 生成歷史報告索引
+    print("\n" + "="*60)
+    print("[Main] 生成歷史報告索引...")
+    print("="*60)
+    
+    history_generator = HistoryGenerator()
+    history_path = history_generator.generate_history_page()
+    
     print("\n" + "="*60)
     print("[Main] 執行完成！")
     print("="*60)
     print(f"\n[職缺資料] {jobs_filepath}")
     print(f"[分析結果] {analysis_filepath}")
-    print(f"[HTML報告] {report_path}")
+    print(f"[週報告] {report_path}")
     print(f"[最新報告] {latest_report_path}")
+    print(f"[歷史索引] {history_path}")
     print(f"\n總計收集 {len(jobs)} 筆職缺資料")
+    print(f"目前累積 {week_number} 週歷史資料")
     print("="*60)
 
 

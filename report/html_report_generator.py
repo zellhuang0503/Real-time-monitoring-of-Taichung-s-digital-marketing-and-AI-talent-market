@@ -110,7 +110,7 @@ class HTMLReportGenerator:
         return charts
     
     def _get_html_template(self) -> Template:
-        """取得 HTML 模板 - Data-Dense Dashboard Style"""
+        """取得 HTML 模板 - 溫暖舒適、充滿活力的設計大師 Oliver 風格"""
         html = '''<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -118,26 +118,26 @@ class HTMLReportGenerator:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台中中部數位人才就業市場監控報告 - 第{{ week_number }}週</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1E40AF;
-            --primary-dark: #1e3a8a;
-            --primary-light: #3B82F6;
-            --secondary: #3B82F6;
-            --accent: #F59E0B;
-            --accent-light: #fbbf24;
-            --danger: #ef4444;
-            --success: #10b981;
-            --bg: #F8FAFC;
+            --primary: #F07167;      /* 溫暖珊瑚紅 */
+            --primary-dark: #E05D53;
+            --primary-light: #F8AD9D;
+            --secondary: #F4A261;    /* 溫暖橙色 */
+            --accent: #2A9D8F;       /* 舒服的藍綠色，用來點綴 */
+            --accent-light: #8ABEB7;
+            --danger: #E76F51;
+            --success: #2A9D8F;
+            --bg: #FFFDF9;           /* 非常淺的暖白底色 */
             --card: #ffffff;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --text-muted: #94a3b8;
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
-            --font-sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+            --text: #4A403A;         /* 暖深灰色，比純黑柔和 */
+            --text-light: #8A7E78;
+            --text-muted: #BDB5B1;
+            --border: #F3EAE3;
+            --border-light: #FAF5F0;
+            --font-sans: 'Nunito', 'Noto Sans TC', sans-serif;
+            --font-mono: 'Nunito', monospace; /* Keep it soft */
         }
         
         * {
@@ -150,64 +150,70 @@ class HTMLReportGenerator:
             font-family: var(--font-sans);
             background: var(--bg);
             color: var(--text);
-            line-height: 1.5;
-            font-size: 14px;
+            line-height: 1.6;
+            font-size: 15px;
         }
         
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 30px;
         }
         
-        /* Header - Data Dense Style */
+        /* Header - Warm & Soft Style */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 32px 28px;
-            margin: -24px -24px 32px -24px;
+            background: linear-gradient(135deg, #FFDAB9 0%, #F8AD9D 100%);
+            border-radius: 24px;
+            color: var(--text);
+            padding: 40px 32px;
+            margin-bottom: 40px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(240, 113, 103, 0.1);
         }
         
-        header::before {
-            content: '';
+        header::after {
+            content: '✨';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
+            top: -20px;
+            right: 20px;
+            font-size: 120px;
+            opacity: 0.15;
+            transform: rotate(15deg);
             pointer-events: none;
         }
         
         .header-content {
-            max-width: 1600px;
-            margin: 0 auto;
             position: relative;
             z-index: 1;
         }
         
         h1 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
+            color: #3D332D;
         }
         
         .subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.85;
-            font-weight: 400;
-            margin-bottom: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
         }
         
         .header-meta {
             display: flex;
-            gap: 24px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-            font-family: var(--font-mono);
+            gap: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #5C4D45;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-flex;
+            flex-wrap: wrap;
         }
         
         .header-meta span {
@@ -218,44 +224,43 @@ class HTMLReportGenerator:
         
         /* Section Layout */
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
         
         .section-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border);
+            margin-bottom: 24px;
         }
         
         .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--text);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .section-title .icon {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
+            width: 36px;
+            height: 36px;
+            background: var(--primary-light);
             color: white;
-            border-radius: 6px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(248, 173, 157, 0.4);
         }
         
         /* Grid System */
         .grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
         
         .col-3 { grid-column: span 3; }
@@ -275,105 +280,94 @@ class HTMLReportGenerator:
         /* Cards */
         .card {
             background: var(--card);
-            border-radius: 8px;
+            border-radius: 20px;
             border: 1px solid var(--border);
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
         }
         
         .card-header {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border-light);
-            background: linear-gradient(to bottom, #fafbfc, var(--card));
+            padding: 20px 24px;
+            border-bottom: 1px dashed var(--border);
+            background: var(--card);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         
         .card-title {
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             color: var(--text);
-            letter-spacing: 0.3px;
         }
         
         .card-badge {
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
             letter-spacing: 0.5px;
         }
         
-        .card-badge.primary { background: rgba(30, 64, 175, 0.1); color: var(--primary); }
-        .card-badge.accent { background: rgba(245, 158, 11, 0.1); color: var(--accent); }
-        .card-badge.success { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .card-badge.primary { background: var(--primary-light); color: #fff; }
+        .card-badge.accent { background: var(--secondary); color: #fff; }
+        .card-badge.success { background: var(--success); color: #fff; }
         
         .card-body {
-            padding: 20px;
+            padding: 24px;
         }
         
         /* KPI Cards */
         .kpi-card {
             background: var(--card);
-            border-radius: 8px;
+            border-radius: 20px;
             border: 1px solid var(--border);
-            padding: 20px;
+            padding: 24px;
             position: relative;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
         
         .kpi-card:hover {
             border-color: var(--primary-light);
-            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.08);
+            box-shadow: 0 8px 30px rgba(240, 113, 103, 0.1);
+            transform: translateY(-3px);
         }
         
-        .kpi-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary);
+        .kpi-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
         }
-        
-        .kpi-card.accent::before { background: var(--accent); }
-        .kpi-card.success::before { background: var(--success); }
         
         .kpi-label {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 8px;
         }
         
         .kpi-value {
-            font-family: var(--font-mono);
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         
         .kpi-subtext {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
+            background: var(--bg);
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
         }
-        
-        .kpi-trend {
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .kpi-trend.up { color: var(--success); }
-        .kpi-trend.down { color: var(--danger); }
         
         /* Charts */
         .chart-container {
@@ -387,152 +381,118 @@ class HTMLReportGenerator:
         
         /* Insight Box */
         .insight-box {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: #FFF5F3;
+            border: none;
+            border-radius: 20px;
+            padding: 24px 30px;
+            margin-bottom: 24px;
             position: relative;
-        }
-        
-        .insight-box::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent);
-            border-radius: 8px 0 0 8px;
+            box-shadow: inset 0 0 0 2px var(--primary-light);
         }
         
         .insight-box h3 {
-            font-size: 0.8rem;
-            color: #92400e;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .insight-box p {
-            color: #78350f;
-            font-size: 0.95rem;
+            color: var(--text);
+            font-size: 1.05rem;
             line-height: 1.6;
         }
         
         /* Recommendations */
         .recommendation {
-            background: #eff6ff;
-            border: 1px solid rgba(30, 64, 175, 0.15);
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
             position: relative;
             transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         
         .recommendation:hover {
-            border-color: var(--primary);
-            box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
-        }
-        
-        .recommendation::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary);
-            border-radius: 8px 0 0 8px;
+            border-color: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(240, 113, 103, 0.08);
+            transform: translateX(4px);
         }
         
         .recommendation.priority-high {
-            background: #fef2f2;
-            border-color: rgba(239, 68, 68, 0.2);
-        }
-        
-        .recommendation.priority-high::before {
-            background: var(--danger);
+            background: #FFF0ED;
+            border-color: #FFD2C9;
         }
         
         .recommendation-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
         
         .priority-badge {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 12px;
             letter-spacing: 0.5px;
         }
         
-        .priority-badge.high {
-            background: var(--danger);
-            color: white;
-        }
-        
-        .priority-badge.medium {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .priority-badge.low {
-            background: var(--success);
-            color: white;
-        }
+        .priority-badge.high { background: var(--danger); color: white; }
+        .priority-badge.medium { background: var(--secondary); color: white; }
+        .priority-badge.low { background: var(--success); color: white; }
         
         .recommendation h4 {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text);
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .recommendation p {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: var(--text-light);
             margin: 6px 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         .recommendation p strong {
             color: var(--text);
+            font-weight: 600;
         }
         
         /* Skill Tags */
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
         
         .skill-tag {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-weight: 500;
-            background: rgba(30, 64, 175, 0.08);
-            color: var(--primary);
-            border: 1px solid rgba(30, 64, 175, 0.15);
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            background: #F3F4F6;
+            color: var(--text);
+            transition: all 0.2s ease;
+            display: inline-block;
         }
         
-        .skill-tag.secondary {
-            background: rgba(16, 185, 129, 0.08);
-            color: var(--success);
-            border-color: rgba(16, 185, 129, 0.15);
+        .skill-tag:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: scale(1.05);
         }
         
         .skill-tag.accent {
-            background: rgba(245, 158, 11, 0.08);
-            color: var(--accent);
-            border-color: rgba(245, 158, 11, 0.15);
+            background: #FEF3C7;
+            color: #D97706;
         }
         
         /* Tables */
@@ -542,8 +502,9 @@ class HTMLReportGenerator:
         
         table {
             width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.95rem;
         }
         
         thead {
@@ -552,23 +513,20 @@ class HTMLReportGenerator:
         
         th {
             text-align: left;
-            padding: 12px 16px;
-            font-weight: 600;
+            padding: 16px;
+            font-weight: 700;
             color: var(--text-light);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 2px solid var(--border);
             white-space: nowrap;
         }
         
         td {
-            padding: 14px 16px;
+            padding: 16px;
             border-bottom: 1px solid var(--border-light);
             color: var(--text);
         }
         
-        tr:hover {
+        tr:hover td {
             background: var(--bg);
         }
         
@@ -576,7 +534,7 @@ class HTMLReportGenerator:
             border-bottom: none;
         }
         
-        /* Progress Bars for Industries */
+        /* Progress Bars */
         .progress-cell {
             display: flex;
             align-items: center;
@@ -585,95 +543,77 @@ class HTMLReportGenerator:
         
         .progress-bar {
             flex: 1;
-            height: 8px;
-            background: var(--border-light);
-            border-radius: 4px;
+            height: 10px;
+            background: var(--border);
+            border-radius: 5px;
             overflow: hidden;
             min-width: 80px;
         }
         
         .progress-fill {
             height: 100%;
-            border-radius: 4px;
+            border-radius: 5px;
             transition: width 0.5s ease;
         }
         
-        .progress-fill.primary { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
-        .progress-fill.accent { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
-        .progress-fill.secondary { background: linear-gradient(90deg, var(--secondary), #60a5fa); }
+        .progress-fill.primary { background: var(--primary); }
+        .progress-fill.accent { background: var(--secondary); }
+        .progress-fill.secondary { background: var(--accent); }
         
         .progress-value {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--text-light);
             min-width: 45px;
             text-align: right;
         }
         
         .industry-code {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             background: var(--bg);
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+            display: inline-block;
         }
         
         .industry-name {
-            font-weight: 500;
+            font-weight: 600;
         }
         
         /* Salary values */
         .salary-value {
-            font-family: var(--font-mono);
-            font-weight: 600;
-            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
         }
         
         .salary-unit {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-left: 2px;
+            margin-left: 4px;
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 32px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border);
+            padding: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
             margin-top: 40px;
         }
         
         footer p {
-            margin: 4px 0;
+            margin: 6px 0;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 16px;
-            }
-            
-            header {
-                margin: -16px -16px 24px -16px;
-                padding: 24px 20px;
-            }
-            
-            h1 {
-                font-size: 1.4rem;
-            }
-            
-            .header-meta {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .kpi-value {
-                font-size: 1.5rem;
-            }
+            .container { padding: 20px; }
+            header { padding: 30px 20px; border-radius: 20px; }
+            h1 { font-size: 1.6rem; }
+            .kpi-value { font-size: 2rem; }
         }
     </style>
 </head>
@@ -685,10 +625,12 @@ class HTMLReportGenerator:
                 <h1>台中中部數位人才就業市場監控報告</h1>
                 <div class="subtitle">新尖兵計畫課程規劃決策支持系統</div>
                 <div class="header-meta">
-                    <span>📅 第 {{ week_number }} 週報告</span>
-                    <span>🕐 資料日期: {{ report_date }}</span>
+                    <span>🗓️ 第 {{ week_number }} 週報告</span>
+                    <span>🕐 更新時間: {{ report_date }}</span>
                     <span>📍 監控範圍: 台中、彰化、南投</span>
-                    <span style="margin-left: auto;"><a href="history.html" style="color: white; text-decoration: none; opacity: 0.8;">📈 查看歷史趨勢 →</a></span>
+                    <span style="margin-left: auto; background: rgba(0,0,0,0.05); border-radius: 12px; padding: 4px 12px;">
+                        <a href="history.html" style="color: var(--text); text-decoration: none; font-weight: 700;">📈 查看歷史趨勢 →</a>
+                    </span>
                 </div>
             </div>
         </header>
@@ -697,7 +639,7 @@ class HTMLReportGenerator:
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">📊</div>
+                    <div class="icon">✨</div>
                     執行摘要
                 </div>
             </div>
@@ -710,6 +652,7 @@ class HTMLReportGenerator:
             <div class="grid">
                 <div class="col-4">
                     <div class="kpi-card">
+                        <div class="kpi-icon">💼</div>
                         <div class="kpi-label">相關職缺總數</div>
                         <div class="kpi-value">{{ "{:,}".format(analysis.summary.total_jobs) }}</div>
                         <div class="kpi-subtext">台中、彰化、南投三地區</div>
@@ -717,7 +660,8 @@ class HTMLReportGenerator:
                 </div>
                 
                 <div class="col-4">
-                    <div class="kpi-card accent">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">💰</div>
                         <div class="kpi-label">中位數月薪</div>
                         <div class="kpi-value">{{ "{:,}".format(analysis.salary_analysis.median_salary) if analysis.salary_analysis.median_salary else "N/A" }}</div>
                         <div class="kpi-subtext">基於 {{ analysis.salary_analysis.has_salary_info }} 個職缺</div>
@@ -725,7 +669,8 @@ class HTMLReportGenerator:
                 </div>
                 
                 <div class="col-4">
-                    <div class="kpi-card success">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🌱</div>
                         <div class="kpi-label">接受新人比例</div>
                         <div class="kpi-value">{{ "{:.0f}".format(analysis.experience_requirements.entry_level_friendly.percentage) }}%</div>
                         <div class="kpi-subtext">經驗不拘或1年以下</div>
@@ -751,8 +696,8 @@ class HTMLReportGenerator:
                     </span>
                     <h4>{{ rec.title }}</h4>
                 </div>
-                <p><strong>原因：</strong>{{ rec.reason }}</p>
-                <p><strong>建議行動：</strong>{{ rec.action }}</p>
+                <p><strong>🤔 原因：</strong>{{ rec.reason }}</p>
+                <p><strong>🎯 建議行動：</strong>{{ rec.action }}</p>
             </div>
             {% endfor %}
         </div>
@@ -761,7 +706,7 @@ class HTMLReportGenerator:
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">🔧</div>
+                    <div class="icon">🛠️</div>
                     技能需求分析
                 </div>
             </div>
@@ -782,7 +727,7 @@ class HTMLReportGenerator:
                 </div>
                 
                 <div class="col-4">
-                    <div class="card" style="margin-bottom: 20px;">
+                    <div class="card" style="margin-bottom: 24px;">
                         <div class="card-header">
                             <div class="card-title">必備技能</div>
                             <span class="card-badge success">>30 職缺</span>
@@ -817,7 +762,7 @@ class HTMLReportGenerator:
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">💰</div>
+                    <div class="icon">📈</div>
                     薪資市場分析
                 </div>
             </div>
@@ -863,7 +808,7 @@ class HTMLReportGenerator:
                 </div>
             </div>
             
-            <div class="card" style="margin-top: 20px;">
+            <div class="card" style="margin-top: 24px;">
                 <div class="card-header">
                     <div class="card-title">高薪技能排行 (中位數薪資)</div>
                     <span class="card-badge accent">Top 10</span>
@@ -899,7 +844,7 @@ class HTMLReportGenerator:
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">🔗</div>
+                    <div class="icon">🧩</div>
                     技能組合分析
                 </div>
             </div>
@@ -945,7 +890,7 @@ class HTMLReportGenerator:
                                                     <span class="industry-code">{{ ind.industry }}</span>
                                                 </div>
                                             </td>
-                                            <td style="font-family: var(--font-mono);">{{ ind.count }}</td>
+                                            <td><strong>{{ ind.count }}</strong></td>
                                             <td>
                                                 <div class="progress-cell">
                                                     <div class="progress-bar">
@@ -967,8 +912,9 @@ class HTMLReportGenerator:
         </div>
         
         <footer>
-            <p><strong>梵亞行銷 | 台中教育大學新尖兵計畫</strong></p>
-            <p>本報告由自動化監控系統生成 | 資料來源：104人力銀行、1111人力銀行、518人力銀行</p>
+            <p><strong>🎨 設計提供：Oliver (UI/UX 體驗優化版)</strong></p>
+            <p>梵亞行銷 | 台中教育大學新尖兵計畫</p>
+            <p>本報告由自動化監控系統生成 | 資料來源：104、1111、518 人力銀行</p>
         </footer>
     </div>
     
@@ -976,15 +922,20 @@ class HTMLReportGenerator:
         // 圖表資料
         const chartsData = {{ charts_data | tojson }};
         
-        // 顏色配置
+        // 溫暖色系配置
         const colors = {
-            primary: '#1E40AF',
-            primaryLight: '#3B82F6',
-            accent: '#F59E0B',
-            accentLight: '#fbbf24',
-            success: '#10b981',
-            danger: '#ef4444',
-            secondary: '#64748b'
+            primary: '#F07167',
+            primaryLight: '#F8AD9D',
+            accent: '#F4A261',
+            accentLight: '#E7C8A0',
+            success: '#2A9D8F',
+            danger: '#E76F51',
+            secondary: '#A8DADC'
+        };
+        
+        // 字體配置
+        const fontConfig = {
+            family: "'Nunito', 'Noto Sans TC', sans-serif"
         };
         
         // 技能需求圖表
@@ -996,9 +947,7 @@ class HTMLReportGenerator:
                     label: '職缺提及次數',
                     data: chartsData.skills.data,
                     backgroundColor: colors.primary,
-                    borderColor: colors.primaryDark,
-                    borderWidth: 0,
-                    borderRadius: 4,
+                    borderRadius: 8,
                     hoverBackgroundColor: colors.primaryLight
                 }]
             },
@@ -1009,22 +958,22 @@ class HTMLReportGenerator:
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
                         padding: 12,
-                        cornerRadius: 6,
-                        titleFont: { family: 'Fira Sans', size: 13 },
-                        bodyFont: { family: 'Fira Code', size: 12 }
+                        cornerRadius: 10,
+                        titleFont: { family: fontConfig.family, size: 14, weight: 700 },
+                        bodyFont: { family: fontConfig.family, size: 13 }
                     }
                 },
                 scales: {
                     x: { 
                         beginAtZero: true,
-                        grid: { color: '#f1f5f9' },
-                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                        grid: { color: '#F3EAE3' },
+                        ticks: { font: { family: fontConfig.family, size: 12 } }
                     },
                     y: {
                         grid: { display: false },
-                        ticks: { font: { family: 'Fira Sans', size: 12, weight: 500 } }
+                        ticks: { font: { family: fontConfig.family, size: 13, weight: 600 } }
                     }
                 }
             }
@@ -1039,14 +988,14 @@ class HTMLReportGenerator:
                     data: chartsData.salary.data,
                     backgroundColor: [
                         colors.primary,
-                        colors.primaryLight,
                         colors.accent,
-                        colors.accentLight,
                         colors.success,
-                        colors.secondary
+                        colors.primaryLight,
+                        colors.secondary,
+                        '#E9C46A'
                     ],
                     borderWidth: 0,
-                    hoverOffset: 4
+                    hoverOffset: 6
                 }]
             },
             options: {
@@ -1057,20 +1006,21 @@ class HTMLReportGenerator:
                     legend: {
                         position: 'bottom',
                         labels: {
-                            padding: 15,
-                            font: { family: 'Fira Sans', size: 11 },
+                            padding: 16,
+                            font: { family: fontConfig.family, size: 12, weight: 600 },
                             usePointStyle: true,
                             pointStyle: 'circle'
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
                         padding: 12,
+                        cornerRadius: 10,
                         callbacks: {
                             label: function(context) {
                                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
                                 const percentage = ((context.raw / total) * 100).toFixed(1);
-                                return `${context.label}: ${context.raw} (${percentage}%)`;
+                                return ` ${context.label}: ${context.raw} (${percentage}%)`;
                             }
                         }
                     }
@@ -1089,13 +1039,13 @@ class HTMLReportGenerator:
                         colors.success,
                         colors.primaryLight,
                         colors.accent,
-                        colors.accentLight,
+                        colors.secondary,
                         colors.primary,
-                        colors.secondary
+                        '#E9C46A'
                     ],
-                    borderWidth: 2,
-                    borderColor: '#fff',
-                    hoverOffset: 4
+                    borderWidth: 3,
+                    borderColor: '#ffffff',
+                    hoverOffset: 6
                 }]
             },
             options: {
@@ -1105,15 +1055,16 @@ class HTMLReportGenerator:
                     legend: {
                         position: 'right',
                         labels: {
-                            padding: 12,
-                            font: { family: 'Fira Sans', size: 11 },
+                            padding: 16,
+                            font: { family: fontConfig.family, size: 12, weight: 600 },
                             usePointStyle: true,
                             pointStyle: 'circle'
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                        padding: 12
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
+                        padding: 12,
+                        cornerRadius: 10
                     }
                 }
             }
@@ -1128,8 +1079,8 @@ class HTMLReportGenerator:
                     label: '職缺數',
                     data: chartsData.job_categories.data,
                     backgroundColor: colors.success,
-                    borderRadius: 4,
-                    hoverBackgroundColor: '#34d399'
+                    borderRadius: 8,
+                    hoverBackgroundColor: '#45B6A8'
                 }]
             },
             options: {
@@ -1138,20 +1089,21 @@ class HTMLReportGenerator:
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                        padding: 12
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
+                        padding: 12,
+                        cornerRadius: 10
                     }
                 },
                 scales: {
                     y: { 
                         beginAtZero: true,
-                        grid: { color: '#f1f5f9' },
-                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                        grid: { color: '#F3EAE3' },
+                        ticks: { font: { family: fontConfig.family, size: 12 } }
                     },
                     x: {
                         grid: { display: false },
                         ticks: { 
-                            font: { family: 'Fira Sans', size: 10 },
+                            font: { family: fontConfig.family, size: 11, weight: 600 },
                             maxRotation: 45
                         }
                     }
@@ -1168,8 +1120,8 @@ class HTMLReportGenerator:
                     label: '出現次數',
                     data: chartsData.skill_combinations.data,
                     backgroundColor: colors.accent,
-                    borderRadius: 4,
-                    hoverBackgroundColor: colors.accentLight
+                    borderRadius: 8,
+                    hoverBackgroundColor: '#FFB870'
                 }]
             },
             options: {
@@ -1179,20 +1131,21 @@ class HTMLReportGenerator:
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                        padding: 12
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
+                        padding: 12,
+                        cornerRadius: 10
                     }
                 },
                 scales: {
                     x: { 
                         beginAtZero: true,
-                        grid: { color: '#f1f5f9' },
-                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                        grid: { color: '#F3EAE3' },
+                        ticks: { font: { family: fontConfig.family, size: 12 } }
                     },
                     y: {
                         grid: { display: false },
                         ticks: { 
-                            font: { family: 'Fira Sans', size: 11 },
+                            font: { family: fontConfig.family, size: 12, weight: 600 },
                             maxWidth: 150
                         }
                     }

@@ -1,9 +1,9 @@
 name: 台中中部數位人才就業市場監控
 
 on:
-  # 每週一早上 9 點自動執行
+  # 每週二早上 9 點自動執行
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: '0 9 * * 2'
   
   # 允許手動觸發
   workflow_dispatch:

@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台中中部數位人才就業市場監控報告 - 第8週</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1E40AF;
-            --primary-dark: #1e3a8a;
-            --primary-light: #3B82F6;
-            --secondary: #3B82F6;
-            --accent: #F59E0B;
-            --accent-light: #fbbf24;
-            --danger: #ef4444;
-            --success: #10b981;
-            --bg: #F8FAFC;
+            --primary: #F07167;      /* 溫暖珊瑚紅 */
+            --primary-dark: #E05D53;
+            --primary-light: #F8AD9D;
+            --secondary: #F4A261;    /* 溫暖橙色 */
+            --accent: #2A9D8F;       /* 舒服的藍綠色，用來點綴 */
+            --accent-light: #8ABEB7;
+            --danger: #E76F51;
+            --success: #2A9D8F;
+            --bg: #FFFDF9;           /* 非常淺的暖白底色 */
             --card: #ffffff;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --text-muted: #94a3b8;
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
-            --font-sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+            --text: #4A403A;         /* 暖深灰色，比純黑柔和 */
+            --text-light: #8A7E78;
+            --text-muted: #BDB5B1;
+            --border: #F3EAE3;
+            --border-light: #FAF5F0;
+            --font-sans: 'Nunito', 'Noto Sans TC', sans-serif;
+            --font-mono: 'Nunito', monospace; /* Keep it soft */
         }
         
         * {
@@ -37,64 +37,70 @@
             font-family: var(--font-sans);
             background: var(--bg);
             color: var(--text);
-            line-height: 1.5;
-            font-size: 14px;
+            line-height: 1.6;
+            font-size: 15px;
         }
         
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 30px;
         }
         
-        /* Header - Data Dense Style */
+        /* Header - Warm & Soft Style */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 32px 28px;
-            margin: -24px -24px 32px -24px;
+            background: linear-gradient(135deg, #FFDAB9 0%, #F8AD9D 100%);
+            border-radius: 24px;
+            color: var(--text);
+            padding: 40px 32px;
+            margin-bottom: 40px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(240, 113, 103, 0.1);
         }
         
-        header::before {
-            content: '';
+        header::after {
+            content: '✨';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
+            top: -20px;
+            right: 20px;
+            font-size: 120px;
+            opacity: 0.15;
+            transform: rotate(15deg);
             pointer-events: none;
         }
         
         .header-content {
-            max-width: 1600px;
-            margin: 0 auto;
             position: relative;
             z-index: 1;
         }
         
         h1 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
+            color: #3D332D;
         }
         
         .subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.85;
-            font-weight: 400;
-            margin-bottom: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
         }
         
         .header-meta {
             display: flex;
-            gap: 24px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-            font-family: var(--font-mono);
+            gap: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #5C4D45;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-flex;
+            flex-wrap: wrap;
         }
         
         .header-meta span {
@@ -105,44 +111,43 @@
         
         /* Section Layout */
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
         
         .section-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border);
+            margin-bottom: 24px;
         }
         
         .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--text);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .section-title .icon {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
+            width: 36px;
+            height: 36px;
+            background: var(--primary-light);
             color: white;
-            border-radius: 6px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(248, 173, 157, 0.4);
         }
         
         /* Grid System */
         .grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
         
         .col-3 { grid-column: span 3; }
@@ -162,105 +167,94 @@
         /* Cards */
         .card {
             background: var(--card);
-            border-radius: 8px;
+            border-radius: 20px;
             border: 1px solid var(--border);
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
         }
         
         .card-header {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border-light);
-            background: linear-gradient(to bottom, #fafbfc, var(--card));
+            padding: 20px 24px;
+            border-bottom: 1px dashed var(--border);
+            background: var(--card);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         
         .card-title {
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             color: var(--text);
-            letter-spacing: 0.3px;
         }
         
         .card-badge {
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
             letter-spacing: 0.5px;
         }
         
-        .card-badge.primary { background: rgba(30, 64, 175, 0.1); color: var(--primary); }
-        .card-badge.accent { background: rgba(245, 158, 11, 0.1); color: var(--accent); }
-        .card-badge.success { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .card-badge.primary { background: var(--primary-light); color: #fff; }
+        .card-badge.accent { background: var(--secondary); color: #fff; }
+        .card-badge.success { background: var(--success); color: #fff; }
         
         .card-body {
-            padding: 20px;
+            padding: 24px;
         }
         
         /* KPI Cards */
         .kpi-card {
             background: var(--card);
-            border-radius: 8px;
+            border-radius: 20px;
             border: 1px solid var(--border);
-            padding: 20px;
+            padding: 24px;
             position: relative;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
         
         .kpi-card:hover {
             border-color: var(--primary-light);
-            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.08);
+            box-shadow: 0 8px 30px rgba(240, 113, 103, 0.1);
+            transform: translateY(-3px);
         }
         
-        .kpi-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary);
+        .kpi-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
         }
-        
-        .kpi-card.accent::before { background: var(--accent); }
-        .kpi-card.success::before { background: var(--success); }
         
         .kpi-label {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 8px;
         }
         
         .kpi-value {
-            font-family: var(--font-mono);
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         
         .kpi-subtext {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
+            background: var(--bg);
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
         }
-        
-        .kpi-trend {
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .kpi-trend.up { color: var(--success); }
-        .kpi-trend.down { color: var(--danger); }
         
         /* Charts */
         .chart-container {
@@ -274,152 +268,118 @@
         
         /* Insight Box */
         .insight-box {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: #FFF5F3;
+            border: none;
+            border-radius: 20px;
+            padding: 24px 30px;
+            margin-bottom: 24px;
             position: relative;
-        }
-        
-        .insight-box::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent);
-            border-radius: 8px 0 0 8px;
+            box-shadow: inset 0 0 0 2px var(--primary-light);
         }
         
         .insight-box h3 {
-            font-size: 0.8rem;
-            color: #92400e;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .insight-box p {
-            color: #78350f;
-            font-size: 0.95rem;
+            color: var(--text);
+            font-size: 1.05rem;
             line-height: 1.6;
         }
         
         /* Recommendations */
         .recommendation {
-            background: #eff6ff;
-            border: 1px solid rgba(30, 64, 175, 0.15);
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
             position: relative;
             transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         
         .recommendation:hover {
-            border-color: var(--primary);
-            box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
-        }
-        
-        .recommendation::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary);
-            border-radius: 8px 0 0 8px;
+            border-color: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(240, 113, 103, 0.08);
+            transform: translateX(4px);
         }
         
         .recommendation.priority-high {
-            background: #fef2f2;
-            border-color: rgba(239, 68, 68, 0.2);
-        }
-        
-        .recommendation.priority-high::before {
-            background: var(--danger);
+            background: #FFF0ED;
+            border-color: #FFD2C9;
         }
         
         .recommendation-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
         
         .priority-badge {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 12px;
             letter-spacing: 0.5px;
         }
         
-        .priority-badge.high {
-            background: var(--danger);
-            color: white;
-        }
-        
-        .priority-badge.medium {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .priority-badge.low {
-            background: var(--success);
-            color: white;
-        }
+        .priority-badge.high { background: var(--danger); color: white; }
+        .priority-badge.medium { background: var(--secondary); color: white; }
+        .priority-badge.low { background: var(--success); color: white; }
         
         .recommendation h4 {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text);
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .recommendation p {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: var(--text-light);
             margin: 6px 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         .recommendation p strong {
             color: var(--text);
+            font-weight: 600;
         }
         
         /* Skill Tags */
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
         
         .skill-tag {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-weight: 500;
-            background: rgba(30, 64, 175, 0.08);
-            color: var(--primary);
-            border: 1px solid rgba(30, 64, 175, 0.15);
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            background: #F3F4F6;
+            color: var(--text);
+            transition: all 0.2s ease;
+            display: inline-block;
         }
         
-        .skill-tag.secondary {
-            background: rgba(16, 185, 129, 0.08);
-            color: var(--success);
-            border-color: rgba(16, 185, 129, 0.15);
+        .skill-tag:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: scale(1.05);
         }
         
         .skill-tag.accent {
-            background: rgba(245, 158, 11, 0.08);
-            color: var(--accent);
-            border-color: rgba(245, 158, 11, 0.15);
+            background: #FEF3C7;
+            color: #D97706;
         }
         
         /* Tables */
@@ -429,8 +389,9 @@
         
         table {
             width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.95rem;
         }
         
         thead {
@@ -439,23 +400,20 @@
         
         th {
             text-align: left;
-            padding: 12px 16px;
-            font-weight: 600;
+            padding: 16px;
+            font-weight: 700;
             color: var(--text-light);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 2px solid var(--border);
             white-space: nowrap;
         }
         
         td {
-            padding: 14px 16px;
+            padding: 16px;
             border-bottom: 1px solid var(--border-light);
             color: var(--text);
         }
         
-        tr:hover {
+        tr:hover td {
             background: var(--bg);
         }
         
@@ -463,7 +421,7 @@
             border-bottom: none;
         }
         
-        /* Progress Bars for Industries */
+        /* Progress Bars */
         .progress-cell {
             display: flex;
             align-items: center;
@@ -472,95 +430,77 @@
         
         .progress-bar {
             flex: 1;
-            height: 8px;
-            background: var(--border-light);
-            border-radius: 4px;
+            height: 10px;
+            background: var(--border);
+            border-radius: 5px;
             overflow: hidden;
             min-width: 80px;
         }
         
         .progress-fill {
             height: 100%;
-            border-radius: 4px;
+            border-radius: 5px;
             transition: width 0.5s ease;
         }
         
-        .progress-fill.primary { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
-        .progress-fill.accent { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
-        .progress-fill.secondary { background: linear-gradient(90deg, var(--secondary), #60a5fa); }
+        .progress-fill.primary { background: var(--primary); }
+        .progress-fill.accent { background: var(--secondary); }
+        .progress-fill.secondary { background: var(--accent); }
         
         .progress-value {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--text-light);
             min-width: 45px;
             text-align: right;
         }
         
         .industry-code {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             background: var(--bg);
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+            display: inline-block;
         }
         
         .industry-name {
-            font-weight: 500;
+            font-weight: 600;
         }
         
         /* Salary values */
         .salary-value {
-            font-family: var(--font-mono);
-            font-weight: 600;
-            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
         }
         
         .salary-unit {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-left: 2px;
+            margin-left: 4px;
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 32px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border);
+            padding: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
             margin-top: 40px;
         }
         
         footer p {
-            margin: 4px 0;
+            margin: 6px 0;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 16px;
-            }
-            
-            header {
-                margin: -16px -16px 24px -16px;
-                padding: 24px 20px;
-            }
-            
-            h1 {
-                font-size: 1.4rem;
-            }
-            
-            .header-meta {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .kpi-value {
-                font-size: 1.5rem;
-            }
+            .container { padding: 20px; }
+            header { padding: 30px 20px; border-radius: 20px; }
+            h1 { font-size: 1.6rem; }
+            .kpi-value { font-size: 2rem; }
         }
     </style>
 </head>
@@ -572,9 +512,12 @@
                 <h1>台中中部數位人才就業市場監控報告</h1>
                 <div class="subtitle">新尖兵計畫課程規劃決策支持系統</div>
                 <div class="header-meta">
-                    <span>📅 第 8 週報告</span>
-                    <span>🕐 資料日期: 2026年02月24日</span>
+                    <span>🗓️ 第 8 週報告</span>
+                    <span>🕐 更新時間: 2026年02月26日</span>
                     <span>📍 監控範圍: 台中、彰化、南投</span>
+                    <span style="margin-left: auto; background: rgba(0,0,0,0.05); border-radius: 12px; padding: 4px 12px;">
+                        <a href="history.html" style="color: var(--text); text-decoration: none; font-weight: 700;">📈 查看歷史趨勢 →</a>
+                    </span>
                 </div>
             </div>
         </header>
@@ -583,27 +526,29 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">📊</div>
+                    <div class="icon">✨</div>
                     執行摘要
                 </div>
             </div>
             
             <div class="insight-box">
                 <h3>🎯 核心洞察</h3>
-                <p>職缺數量大幅增長 150.8%，顯示市場需求旺盛；新興職位趨勢: 後端, 電商</p>
+                <p>市場狀況穩定，建議維持現有課程架構並持續觀察</p>
             </div>
             
             <div class="grid">
                 <div class="col-4">
                     <div class="kpi-card">
+                        <div class="kpi-icon">💼</div>
                         <div class="kpi-label">相關職缺總數</div>
-                        <div class="kpi-value">3,326</div>
+                        <div class="kpi-value">1,321</div>
                         <div class="kpi-subtext">台中、彰化、南投三地區</div>
                     </div>
                 </div>
                 
                 <div class="col-4">
-                    <div class="kpi-card accent">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">💰</div>
                         <div class="kpi-label">中位數月薪</div>
                         <div class="kpi-value">N/A</div>
                         <div class="kpi-subtext">基於 0 個職缺</div>
@@ -611,7 +556,8 @@
                 </div>
                 
                 <div class="col-4">
-                    <div class="kpi-card success">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🌱</div>
                         <div class="kpi-label">接受新人比例</div>
                         <div class="kpi-value">0%</div>
                         <div class="kpi-subtext">經驗不拘或1年以下</div>
@@ -619,6 +565,8 @@
                 </div>
             </div>
         </div>
+
+        
         
         <!-- Priority Recommendations -->
         <div class="section">
@@ -637,19 +585,8 @@
                     </span>
                     <h4>優先教學: Illustrator</h4>
                 </div>
-                <p><strong>原因：</strong>這些技能在 31 個職缺中被提及，為市場剛需</p>
-                <p><strong>建議行動：</strong>調整課程比重，增加實作時數</p>
-            </div>
-            
-            <div class="recommendation ">
-                <div class="recommendation-header">
-                    <span class="priority-badge medium">
-                        中
-                    </span>
-                    <h4>關注趨勢: 後端</h4>
-                </div>
-                <p><strong>原因：</strong>"後端"類職缺增長 1640%</p>
-                <p><strong>建議行動：</strong>開設工作坊或邀請業師分享</p>
+                <p><strong>🤔 原因：</strong>這些技能在 53 個職缺中被提及，為市場剛需</p>
+                <p><strong>🎯 建議行動：</strong>調整課程比重，增加實作時數</p>
             </div>
             
         </div>
@@ -658,7 +595,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">🔧</div>
+                    <div class="icon">🛠️</div>
                     技能需求分析
                 </div>
             </div>
@@ -679,7 +616,7 @@
                 </div>
                 
                 <div class="col-4">
-                    <div class="card" style="margin-bottom: 20px;">
+                    <div class="card" style="margin-bottom: 24px;">
                         <div class="card-header">
                             <div class="card-title">必備技能</div>
                             <span class="card-badge success">>30 職缺</span>
@@ -701,10 +638,6 @@
                         <div class="card-body">
                             <div class="skill-tags">
                                 
-                                <span class="skill-tag accent">SEO</span>
-                                
-                                <span class="skill-tag accent">Python</span>
-                                
                             </div>
                         </div>
                     </div>
@@ -716,7 +649,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">💰</div>
+                    <div class="icon">📈</div>
                     薪資市場分析
                 </div>
             </div>
@@ -762,7 +695,7 @@
                 </div>
             </div>
             
-            <div class="card" style="margin-top: 20px;">
+            <div class="card" style="margin-top: 24px;">
                 <div class="card-header">
                     <div class="card-title">高薪技能排行 (中位數薪資)</div>
                     <span class="card-badge accent">Top 10</span>
@@ -791,7 +724,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <div class="icon">🔗</div>
+                    <div class="icon">🧩</div>
                     技能組合分析
                 </div>
             </div>
@@ -832,119 +765,19 @@
                                         <tr>
                                             <td>
                                                 <div>
-                                                    <span class="industry-name">網路相關</span>
-                                                    <br>
-                                                    <span class="industry-code">1001001002</span>
-                                                </div>
-                                            </td>
-                                            <td style="font-family: var(--font-mono);">351</td>
-                                            <td>
-                                                <div class="progress-cell">
-                                                    <div class="progress-bar">
-                                                        <div class="progress-fill primary" 
-                                                             style="width: 10.6%"></div>
-                                                    </div>
-                                                    <span class="progress-value">10.6%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <span class="industry-name">數位內容</span>
-                                                    <br>
-                                                    <span class="industry-code">1001003003</span>
-                                                </div>
-                                            </td>
-                                            <td style="font-family: var(--font-mono);">194</td>
-                                            <td>
-                                                <div class="progress-cell">
-                                                    <div class="progress-bar">
-                                                        <div class="progress-fill accent" 
-                                                             style="width: 5.8%"></div>
-                                                    </div>
-                                                    <span class="progress-value">5.8%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <span class="industry-name">電子商務</span>
-                                                    <br>
-                                                    <span class="industry-code">1001001003</span>
-                                                </div>
-                                            </td>
-                                            <td style="font-family: var(--font-mono);">143</td>
-                                            <td>
-                                                <div class="progress-cell">
-                                                    <div class="progress-bar">
-                                                        <div class="progress-fill secondary" 
-                                                             style="width: 4.3%"></div>
-                                                    </div>
-                                                    <span class="progress-value">4.3%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <span class="industry-name">電腦軟體</span>
-                                                    <br>
-                                                    <span class="industry-code">1001001001</span>
-                                                </div>
-                                            </td>
-                                            <td style="font-family: var(--font-mono);">133</td>
-                                            <td>
-                                                <div class="progress-cell">
-                                                    <div class="progress-bar">
-                                                        <div class="progress-fill secondary" 
-                                                             style="width: 4.0%"></div>
-                                                    </div>
-                                                    <span class="progress-value">4.0%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <span class="industry-name">電子製造</span>
-                                                    <br>
-                                                    <span class="industry-code">1006003001</span>
-                                                </div>
-                                            </td>
-                                            <td style="font-family: var(--font-mono);">129</td>
-                                            <td>
-                                                <div class="progress-cell">
-                                                    <div class="progress-bar">
-                                                        <div class="progress-fill secondary" 
-                                                             style="width: 3.9%"></div>
-                                                    </div>
-                                                    <span class="progress-value">3.9%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <span class="industry-name">銀行</span>
+                                                    <span class="industry-name"></span>
                                                     <br>
                                                     <span class="industry-code">1003001015</span>
                                                 </div>
                                             </td>
-                                            <td style="font-family: var(--font-mono);">94</td>
+                                            <td><strong>58</strong></td>
                                             <td>
                                                 <div class="progress-cell">
                                                     <div class="progress-bar">
-                                                        <div class="progress-fill secondary" 
-                                                             style="width: 2.8%"></div>
+                                                        <div class="progress-fill primary" 
+                                                             style="width: 4.4%"></div>
                                                     </div>
-                                                    <span class="progress-value">2.8%</span>
+                                                    <span class="progress-value">4.4%</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -952,19 +785,19 @@
                                         <tr>
                                             <td>
                                                 <div>
-                                                    <span class="industry-name">機械設備</span>
+                                                    <span class="industry-name"></span>
                                                     <br>
-                                                    <span class="industry-code">1008003001</span>
+                                                    <span class="industry-code">1001001003</span>
                                                 </div>
                                             </td>
-                                            <td style="font-family: var(--font-mono);">65</td>
+                                            <td><strong>56</strong></td>
                                             <td>
                                                 <div class="progress-cell">
                                                     <div class="progress-bar">
-                                                        <div class="progress-fill secondary" 
-                                                             style="width: 2.0%"></div>
+                                                        <div class="progress-fill accent" 
+                                                             style="width: 4.2%"></div>
                                                     </div>
-                                                    <span class="progress-value">2.0%</span>
+                                                    <span class="progress-value">4.2%</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -972,19 +805,19 @@
                                         <tr>
                                             <td>
                                                 <div>
-                                                    <span class="industry-name">餐飲業</span>
+                                                    <span class="industry-name"></span>
                                                     <br>
-                                                    <span class="industry-code">1012001001</span>
+                                                    <span class="industry-code">1006003001</span>
                                                 </div>
                                             </td>
-                                            <td style="font-family: var(--font-mono);">63</td>
+                                            <td><strong>55</strong></td>
                                             <td>
                                                 <div class="progress-cell">
                                                     <div class="progress-bar">
                                                         <div class="progress-fill secondary" 
-                                                             style="width: 1.9%"></div>
+                                                             style="width: 4.2%"></div>
                                                     </div>
-                                                    <span class="progress-value">1.9%</span>
+                                                    <span class="progress-value">4.2%</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -992,19 +825,79 @@
                                         <tr>
                                             <td>
                                                 <div>
-                                                    <span class="industry-name">電信相關</span>
+                                                    <span class="industry-name"></span>
+                                                    <br>
+                                                    <span class="industry-code">1001001002</span>
+                                                </div>
+                                            </td>
+                                            <td><strong>54</strong></td>
+                                            <td>
+                                                <div class="progress-cell">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill secondary" 
+                                                             style="width: 4.1%"></div>
+                                                    </div>
+                                                    <span class="progress-value">4.1%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <span class="industry-name"></span>
+                                                    <br>
+                                                    <span class="industry-code">1001003003</span>
+                                                </div>
+                                            </td>
+                                            <td><strong>42</strong></td>
+                                            <td>
+                                                <div class="progress-cell">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill secondary" 
+                                                             style="width: 3.2%"></div>
+                                                    </div>
+                                                    <span class="progress-value">3.2%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <span class="industry-name"></span>
+                                                    <br>
+                                                    <span class="industry-code">1016001001</span>
+                                                </div>
+                                            </td>
+                                            <td><strong>41</strong></td>
+                                            <td>
+                                                <div class="progress-cell">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill secondary" 
+                                                             style="width: 3.1%"></div>
+                                                    </div>
+                                                    <span class="progress-value">3.1%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <span class="industry-name"></span>
                                                     <br>
                                                     <span class="industry-code">1001001006</span>
                                                 </div>
                                             </td>
-                                            <td style="font-family: var(--font-mono);">60</td>
+                                            <td><strong>31</strong></td>
                                             <td>
                                                 <div class="progress-cell">
                                                     <div class="progress-bar">
                                                         <div class="progress-fill secondary" 
-                                                             style="width: 1.8%"></div>
+                                                             style="width: 2.3%"></div>
                                                     </div>
-                                                    <span class="progress-value">1.8%</span>
+                                                    <span class="progress-value">2.3%</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1012,19 +905,59 @@
                                         <tr>
                                             <td>
                                                 <div>
-                                                    <span class="industry-name">其他產業(1001001004)</span>
+                                                    <span class="industry-name"></span>
                                                     <br>
-                                                    <span class="industry-code">1001001004</span>
+                                                    <span class="industry-code">1016002001</span>
                                                 </div>
                                             </td>
-                                            <td style="font-family: var(--font-mono);">56</td>
+                                            <td><strong>29</strong></td>
                                             <td>
                                                 <div class="progress-cell">
                                                     <div class="progress-bar">
                                                         <div class="progress-fill secondary" 
-                                                             style="width: 1.7%"></div>
+                                                             style="width: 2.2%"></div>
                                                     </div>
-                                                    <span class="progress-value">1.7%</span>
+                                                    <span class="progress-value">2.2%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <span class="industry-name"></span>
+                                                    <br>
+                                                    <span class="industry-code">1003002016</span>
+                                                </div>
+                                            </td>
+                                            <td><strong>29</strong></td>
+                                            <td>
+                                                <div class="progress-cell">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill secondary" 
+                                                             style="width: 2.2%"></div>
+                                                    </div>
+                                                    <span class="progress-value">2.2%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <span class="industry-name"></span>
+                                                    <br>
+                                                    <span class="industry-code">1012001001</span>
+                                                </div>
+                                            </td>
+                                            <td><strong>29</strong></td>
+                                            <td>
+                                                <div class="progress-cell">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill secondary" 
+                                                             style="width: 2.2%"></div>
+                                                    </div>
+                                                    <span class="progress-value">2.2%</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1039,24 +972,30 @@
         </div>
         
         <footer>
-            <p><strong>梵亞行銷 | 台中教育大學新尖兵計畫</strong></p>
-            <p>本報告由自動化監控系統生成 | 資料來源：104人力銀行、1111人力銀行、518人力銀行</p>
+            <p><strong>🎨 設計提供：Oliver (UI/UX 體驗優化版)</strong></p>
+            <p>梵亞行銷 | 台中教育大學新尖兵計畫</p>
+            <p>本報告由自動化監控系統生成 | 資料來源：104、1111、518 人力銀行</p>
         </footer>
     </div>
     
     <script>
         // 圖表資料
-        const chartsData = {"experience": {"data": [3326], "labels": ["\u5176\u4ed6/\u672a\u8a3b\u660e"]}, "industries": {"data": [351, 194, 143, 133, 129, 94, 65, 63, 60, 56], "labels": ["\u7db2\u8def\u76f8\u95dc", "\u6578\u4f4d\u5167\u5bb9", "\u96fb\u5b50\u5546\u52d9", "\u96fb\u8166\u8edf\u9ad4", "\u96fb\u5b50\u88fd\u9020", "\u9280\u884c", "\u6a5f\u68b0\u8a2d\u5099", "\u9910\u98f2\u696d", "\u96fb\u4fe1\u76f8\u95dc", "\u5176\u4ed6\u7522\u696d(1001001004)"], "percentages": [10.6, 5.8, 4.3, 4.0, 3.9, 2.8, 2.0, 1.9, 1.8, 1.7]}, "job_categories": {"data": [723, 695, 418, 368, 316, 238, 237, 149, 92, 90], "labels": ["\u793e\u7fa4\u5a92\u9ad4", "UX \u8a2d\u8a08", "Python", "\u8cc7\u6599\u5206\u6790", "Java", "SEO", "\u5f8c\u7aef", "Figma", "GA4", "LLM"]}, "salary": {"data": [], "labels": []}, "skill_combinations": {"data": [3, 3], "labels": ["Illustrator + Python", "JavaScript + Node.js"]}, "skills": {"data": [31, 22, 15, 4, 3, 3, 2, 1, 1, 1, 1, 1], "labels": ["Illustrator", "SEO", "Python", "Vue", "JavaScript", "Node.js", "Premiere", "Google Ads", "After Effects", "Shopify", "Photoshop", "React"]}};
+        const chartsData = {"experience": {"data": [1321], "labels": ["\u5176\u4ed6/\u672a\u8a3b\u660e"]}, "industries": {"data": [58, 56, 55, 54, 42, 41, 31, 29, 29, 29], "labels": [1003001015, 1001001003, 1006003001, 1001001002, 1001003003, 1016001001, 1001001006, 1016002001, 1003002016, 1012001001], "percentages": [4.4, 4.2, 4.2, 4.1, 3.2, 3.1, 2.3, 2.2, 2.2, 2.2]}, "job_categories": {"data": [869, 452], "labels": ["\u6578\u4f4d\u884c\u92b7", "AI"]}, "salary": {"data": [], "labels": []}, "skill_combinations": {"data": [3, 1], "labels": ["Illustrator + Python", "Canva + Illustrator"]}, "skills": {"data": [53, 7, 6, 2, 1, 1, 1], "labels": ["Illustrator", "SEO", "Python", "Vue", "Shopify", "Photoshop", "Canva"]}};
         
-        // 顏色配置
+        // 溫暖色系配置
         const colors = {
-            primary: '#1E40AF',
-            primaryLight: '#3B82F6',
-            accent: '#F59E0B',
-            accentLight: '#fbbf24',
-            success: '#10b981',
-            danger: '#ef4444',
-            secondary: '#64748b'
+            primary: '#F07167',
+            primaryLight: '#F8AD9D',
+            accent: '#F4A261',
+            accentLight: '#E7C8A0',
+            success: '#2A9D8F',
+            danger: '#E76F51',
+            secondary: '#A8DADC'
+        };
+        
+        // 字體配置
+        const fontConfig = {
+            family: "'Nunito', 'Noto Sans TC', sans-serif"
         };
         
         // 技能需求圖表
@@ -1068,9 +1007,7 @@
                     label: '職缺提及次數',
                     data: chartsData.skills.data,
                     backgroundColor: colors.primary,
-                    borderColor: colors.primaryDark,
-                    borderWidth: 0,
-                    borderRadius: 4,
+                    borderRadius: 8,
                     hoverBackgroundColor: colors.primaryLight
                 }]
             },
@@ -1081,22 +1018,22 @@
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
                         padding: 12,
-                        cornerRadius: 6,
-                        titleFont: { family: 'Fira Sans', size: 13 },
-                        bodyFont: { family: 'Fira Code', size: 12 }
+                        cornerRadius: 10,
+                        titleFont: { family: fontConfig.family, size: 14, weight: 700 },
+                        bodyFont: { family: fontConfig.family, size: 13 }
                     }
                 },
                 scales: {
                     x: { 
                         beginAtZero: true,
-                        grid: { color: '#f1f5f9' },
-                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                        grid: { color: '#F3EAE3' },
+                        ticks: { font: { family: fontConfig.family, size: 12 } }
                     },
                     y: {
                         grid: { display: false },
-                        ticks: { font: { family: 'Fira Sans', size: 12, weight: 500 } }
+                        ticks: { font: { family: fontConfig.family, size: 13, weight: 600 } }
                     }
                 }
             }
@@ -1111,14 +1048,14 @@
                     data: chartsData.salary.data,
                     backgroundColor: [
                         colors.primary,
-                        colors.primaryLight,
                         colors.accent,
-                        colors.accentLight,
                         colors.success,
-                        colors.secondary
+                        colors.primaryLight,
+                        colors.secondary,
+                        '#E9C46A'
                     ],
                     borderWidth: 0,
-                    hoverOffset: 4
+                    hoverOffset: 6
                 }]
             },
             options: {
@@ -1129,20 +1066,21 @@
                     legend: {
                         position: 'bottom',
                         labels: {
-                            padding: 15,
-                            font: { family: 'Fira Sans', size: 11 },
+                            padding: 16,
+                            font: { family: fontConfig.family, size: 12, weight: 600 },
                             usePointStyle: true,
                             pointStyle: 'circle'
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
                         padding: 12,
+                        cornerRadius: 10,
                         callbacks: {
                             label: function(context) {
                                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
                                 const percentage = ((context.raw / total) * 100).toFixed(1);
-                                return `${context.label}: ${context.raw} (${percentage}%)`;
+                                return ` ${context.label}: ${context.raw} (${percentage}%)`;
                             }
                         }
                     }
@@ -1161,13 +1099,13 @@
                         colors.success,
                         colors.primaryLight,
                         colors.accent,
-                        colors.accentLight,
+                        colors.secondary,
                         colors.primary,
-                        colors.secondary
+                        '#E9C46A'
                     ],
-                    borderWidth: 2,
-                    borderColor: '#fff',
-                    hoverOffset: 4
+                    borderWidth: 3,
+                    borderColor: '#ffffff',
+                    hoverOffset: 6
                 }]
             },
             options: {
@@ -1177,15 +1115,16 @@
                     legend: {
                         position: 'right',
                         labels: {
-                            padding: 12,
-                            font: { family: 'Fira Sans', size: 11 },
+                            padding: 16,
+                            font: { family: fontConfig.family, size: 12, weight: 600 },
                             usePointStyle: true,
                             pointStyle: 'circle'
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                        padding: 12
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
+                        padding: 12,
+                        cornerRadius: 10
                     }
                 }
             }
@@ -1200,8 +1139,8 @@
                     label: '職缺數',
                     data: chartsData.job_categories.data,
                     backgroundColor: colors.success,
-                    borderRadius: 4,
-                    hoverBackgroundColor: '#34d399'
+                    borderRadius: 8,
+                    hoverBackgroundColor: '#45B6A8'
                 }]
             },
             options: {
@@ -1210,20 +1149,21 @@
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                        padding: 12
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
+                        padding: 12,
+                        cornerRadius: 10
                     }
                 },
                 scales: {
                     y: { 
                         beginAtZero: true,
-                        grid: { color: '#f1f5f9' },
-                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                        grid: { color: '#F3EAE3' },
+                        ticks: { font: { family: fontConfig.family, size: 12 } }
                     },
                     x: {
                         grid: { display: false },
                         ticks: { 
-                            font: { family: 'Fira Sans', size: 10 },
+                            font: { family: fontConfig.family, size: 11, weight: 600 },
                             maxRotation: 45
                         }
                     }
@@ -1240,8 +1180,8 @@
                     label: '出現次數',
                     data: chartsData.skill_combinations.data,
                     backgroundColor: colors.accent,
-                    borderRadius: 4,
-                    hoverBackgroundColor: colors.accentLight
+                    borderRadius: 8,
+                    hoverBackgroundColor: '#FFB870'
                 }]
             },
             options: {
@@ -1251,20 +1191,21 @@
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                        padding: 12
+                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
+                        padding: 12,
+                        cornerRadius: 10
                     }
                 },
                 scales: {
                     x: { 
                         beginAtZero: true,
-                        grid: { color: '#f1f5f9' },
-                        ticks: { font: { family: 'Fira Code', size: 11 } }
+                        grid: { color: '#F3EAE3' },
+                        ticks: { font: { family: fontConfig.family, size: 12 } }
                     },
                     y: {
                         grid: { display: false },
                         ticks: { 
-                            font: { family: 'Fira Sans', size: 11 },
+                            font: { family: fontConfig.family, size: 12, weight: 600 },
                             maxWidth: 150
                         }
                     }

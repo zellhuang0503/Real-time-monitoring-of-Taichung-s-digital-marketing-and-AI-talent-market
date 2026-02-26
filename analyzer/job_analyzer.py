@@ -98,8 +98,10 @@ class JobAnalyzer:
             # 處理 list 或其他非字串類型
             if isinstance(category, list):
                 category = category[0] if category else '未分類'
-            elif not isinstance(category, str):
-                category = str(category) if category else '未分類'
+            
+            # 強制轉換為字串
+            category = str(category) if category is not None else '未分類'
+                
             # 如果類別太長，取主要部分
             if len(category) > 30:
                 category = category[:30] + '...'

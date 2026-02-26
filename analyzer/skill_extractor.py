@@ -83,7 +83,11 @@ class SkillExtractor:
         for job in jobs:
             description = job.get('job_description', '')
             title = job.get('title', '')
+            
             category = job.get('job_category', '其他')
+            if isinstance(category, list):
+                category = category[0] if category else '其他'
+            category = str(category) if category is not None else '其他'
             
             # 從描述和標題萃取技能（如果描述為空，只用標題）
             skills = self.extract_skills(description or None, title)

@@ -55,6 +55,9 @@ class SalaryAnalyzer:
             
             # 按類別分組
             category = job.get('job_category', '未分類')
+            if isinstance(category, list):
+                category = category[0] if category else '未分類'
+            category = str(category) if category is not None else '未分類'
             salary_by_category[category].append(avg_salary)
             
             # 按經驗分組

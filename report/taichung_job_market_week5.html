@@ -1189,6 +1189,8 @@
                             </thead>
                             <tbody>
                                 
+                                <tr><td colspan="4" style="text-align:center; color:var(--text-muted); padding: 24px;">目前薪資揭露職缺數不足，無法進行技能薪資分析</td></tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -1456,7 +1458,7 @@
     
     <script>
         // 圖表資料
-        const chartsData = {"experience": {"data": [3326], "labels": ["\u5176\u4ed6/\u672a\u8a3b\u660e"]}, "industries": {"data": [351, 194, 143, 133, 129, 94, 65, 63, 60, 56], "labels": ["\u7db2\u8def\u76f8\u95dc", "\u6578\u4f4d\u5167\u5bb9", "\u96fb\u5b50\u5546\u52d9", "\u96fb\u8166\u8edf\u9ad4", "\u96fb\u5b50\u88fd\u9020", "\u9280\u884c", "\u6a5f\u68b0\u8a2d\u5099", "\u9910\u98f2\u696d", "\u96fb\u4fe1\u76f8\u95dc", "\u5176\u4ed6\u7522\u696d(1001001004)"], "percentages": [10.6, 5.8, 4.3, 4.0, 3.9, 2.8, 2.0, 1.9, 1.8, 1.7]}, "job_categories": {"data": [723, 695, 418, 368, 316, 238, 237, 149, 92, 90], "labels": ["\u793e\u7fa4\u5a92\u9ad4", "UX \u8a2d\u8a08", "Python", "\u8cc7\u6599\u5206\u6790", "Java", "SEO", "\u5f8c\u7aef", "Figma", "GA4", "LLM"]}, "salary": {"data": [], "labels": []}, "skill_combinations": {"data": [3, 3], "labels": ["Illustrator + Python", "JavaScript + Node.js"]}, "skills": {"data": [31, 22, 15, 4, 3, 3, 2, 1, 1, 1, 1, 1], "labels": ["Illustrator", "SEO", "Python", "Vue", "JavaScript", "Node.js", "Premiere", "Google Ads", "After Effects", "Shopify", "Photoshop", "React"]}};
+        const chartsData = {"experience": {"data": [3326], "labels": ["\u5176\u4ed6/\u672a\u8a3b\u660e"]}, "industries": {"data": [351, 194, 143, 133, 129, 94, 65, 63, 60, 56], "labels": ["\u7db2\u8def\u76f8\u95dc", "\u6578\u4f4d\u5167\u5bb9", "\u96fb\u5b50\u5546\u52d9", "\u96fb\u8166\u8edf\u9ad4", "\u96fb\u5b50\u88fd\u9020", "\u9280\u884c", "\u6a5f\u68b0\u8a2d\u5099", "\u9910\u98f2\u696d", "\u96fb\u4fe1\u76f8\u95dc", "\u5176\u4ed6\u7522\u696d(1001001004)"], "percentages": [10.6, 5.8, 4.3, 4.0, 3.9, 2.8, 2.0, 1.9, 1.8, 1.7]}, "job_categories": {"data": [723, 695, 418, 368, 316, 238, 237, 149, 92, 90], "labels": ["\u793e\u7fa4\u5a92\u9ad4", "UX \u8a2d\u8a08", "Python", "\u8cc7\u6599\u5206\u6790", "Java", "SEO", "\u5f8c\u7aef", "Figma", "GA4", "LLM"]}, "salary": {"data": [], "labels": []}, "salary_by_skill": {"top_paying_skills": []}, "skill_combinations": {"data": [3, 3], "labels": ["Illustrator + Python", "JavaScript + Node.js"]}, "skills": {"data": [31, 22, 15, 4, 3, 3, 2, 1, 1, 1, 1, 1], "labels": ["Illustrator", "SEO", "Python", "Vue", "JavaScript", "Node.js", "Premiere", "Google Ads", "After Effects", "Shopify", "Photoshop", "React"]}};
         
         // 溫暖色系配置
         const colors = {

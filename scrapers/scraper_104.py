@@ -199,9 +199,26 @@ class Scraper104:
         salary_min, salary_max = self._parse_salary_v2(salary_text)
         
         # 處理經驗要求
-        exp_period = job.get('period', '')
+        # 104 API 的 period 是數字代碼，periodDesc 才是文字（但通常為空）
+        # period 代碼對照：0=不拘, 1=1年以下, 2=1-3年, 3=3-5年, 4=5-10年, 5=10年以上
+        # 其他代碼（6-11）在104實際代表「不拘」或「無經驗要求」
+        PERIOD_MAP = {
+            '0': '不拘',
+            '1': '1年以下',
+            '2': '1-3年',
+            '3': '3-5年',
+            '4': '5-10年',
+            '5': '10年以上',
+            '6': '不拘',
+            '7': '1年以下',
+            '8': '1-3年',
+            '9': '3-5年',
+            '10': '5-10年',
+            '11': '10年以上',
+        }
+        exp_period = str(job.get('period', ''))
         exp_desc = job.get('periodDesc', '')
-        experience = exp_desc if exp_desc else str(exp_period)
+        experience = exp_desc if exp_desc else PERIOD_MAP.get(exp_period, exp_period)
         
         # 處理學歷
         edu_code = job.get('optionEdu', '')

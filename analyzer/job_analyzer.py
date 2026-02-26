@@ -178,18 +178,29 @@ class JobAnalyzer:
         exp_counter = Counter()
         
         for job in jobs:
-            exp = job.get('experience', '未註明')
-            # 簡化分類
-            if '不拘' in exp or '不限' in exp:
+            raw_exp = job.get('experience', '')
+            
+            # 統一轉成字串
+            if raw_exp is None or raw_exp == '':
+                exp = ''
+            else:
+                exp = str(raw_exp).strip()
+            
+            # 分類
+            if not exp:
+                exp_counter['其他/未註明'] += 1
+            elif any(k in exp for k in ('不拘', '不限', '無')):
                 exp_counter['經驗不拘'] += 1
-            elif '1年' in exp or '1 年' in exp:
+            elif exp == '1年以下' or exp == '1年' or '1年以下' in exp:
                 exp_counter['1年以下'] += 1
-            elif '3年' in exp or '3 年' in exp:
+            elif exp == '1-3年' or '1-3年' in exp or '3年' in exp:
                 exp_counter['1-3年'] += 1
-            elif '5年' in exp or '5 年' in exp:
+            elif exp == '3-5年' or '3-5年' in exp or '5年' in exp:
                 exp_counter['3-5年'] += 1
-            elif '10年' in exp or '10 年' in exp:
+            elif exp == '5-10年' or '5-10年' in exp or '10年' in exp:
                 exp_counter['5-10年'] += 1
+            elif exp == '10年以上' or '10年以上' in exp:
+                exp_counter['10年以上'] += 1
             else:
                 exp_counter['其他/未註明'] += 1
         

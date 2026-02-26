@@ -107,6 +107,13 @@ class HTMLReportGenerator:
             'percentages': [i['percentage'] for i in industries],
         }
         
+        # 7. 高薪技能 (salary_by_skill)
+        salary_by_skill = analysis.get('salary_by_skill', {})
+        top_paying = salary_by_skill.get('top_paying_skills', [])[:10]
+        charts['salary_by_skill'] = {
+            'top_paying_skills': top_paying
+        }
+        
         return charts
     
     def _get_html_template(self) -> Template:
@@ -982,7 +989,8 @@ class HTMLReportGenerator:
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for skill in analysis.salary_by_skill.top_paying_skills[:10] %}
+                                {% if charts_data.salary_by_skill.top_paying_skills %}
+                                {% for skill in charts_data.salary_by_skill.top_paying_skills %}
                                 <tr>
                                     <td><strong>{{ skill.skill }}</strong></td>
                                     <td>{{ skill.job_count }}</td>
@@ -990,6 +998,9 @@ class HTMLReportGenerator:
                                     <td><span class="salary-value">{{ "{:,}".format(skill.mean_salary) }}</span><span class="salary-unit">元</span></td>
                                 </tr>
                                 {% endfor %}
+                                {% else %}
+                                <tr><td colspan="4" style="text-align:center; color:var(--text-muted); padding: 24px;">目前薪資揭露職缺數不足，無法進行技能薪資分析</td></tr>
+                                {% endif %}
                             </tbody>
                         </table>
                     </div>

@@ -1,6 +1,5 @@
 """
-歷史報告與趨勢分析生成器
-生成歷史報告索引頁面與趨勢分析
+歷史報告與趨勢分析生成器 - Oliver 溫暖風格版
 """
 
 import json
@@ -12,583 +11,410 @@ from typing import Dict, List, Any
 
 
 class HistoryGenerator:
-    """
-    歷史報告生成器
-    生成歷史報告索引與趨勢分析頁面
-    """
-    
     def __init__(self, report_dir: str = "report", data_dir: str = "data"):
         self.report_dir = Path(report_dir)
         self.data_dir = Path(data_dir)
-    
+
     def generate_history_page(self) -> str:
+        reports = self._build_reports()
+        trend_data = self._analyze_trends(reports)
+        html = self._render_html(reports, trend_data)
+
+        out = self.report_dir / "history.html"
+        with open(out, 'w', encoding='utf-8') as f:
+            f.write(html)
+
+        print(f"[History] 歷史報告索引已生成: {out}")
+        return str(out)
+
+    # ------------------------------------------------------------------ #
+    # 資料讀取：analysis JSON 按時間排序，依序對應週次
+    # ------------------------------------------------------------------ #
+    def _build_reports(self) -> List[Dict]:
         """
-        生成歷史報告索引頁面
-        
-        Returns:
-            HTML 檔案路徑
+        將 analysis_*.json 按建立時間排序，依序對應
+        taichung_job_market_week{n}.html 報告檔。
         """
-        # 掃描所有週報告
-        weekly_reports = self._scan_weekly_reports()
-        
-        # 讀取趨勢資料
-        trend_data = self._analyze_trends(weekly_reports)
-        
-        # 生成 HTML
-        html_content = self._generate_history_html(weekly_reports, trend_data)
-        
-        # 儲存檔案
-        output_path = self.report_dir / "history.html"
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(html_content)
-        
-        print(f"[History] 歷史報告索引已生成: {output_path}")
-        return str(output_path)
-    
-    def _scan_weekly_reports(self) -> List[Dict]:
-        """掃描所有週報告"""
+        # 取得所有分析 JSON（排序：舊到新）
+        analysis_files = sorted(self.data_dir.glob("analysis_*.json"))
+
+        # 取得所有週報告 HTML（排序：週次小到大）
+        week_pattern = re.compile(r'taichung_job_market_week(\d+)\.html')
+        week_files: Dict[int, str] = {}
+        for f in self.report_dir.glob("taichung_job_market_week*.html"):
+            m = week_pattern.match(f.name)
+            if m:
+                week_files[int(m.group(1))] = f.name
+        sorted_weeks = sorted(week_files.keys())
+
         reports = []
-        
-        # 掃描 report 資料夾中的週報告
-        pattern = re.compile(r'taichung_job_market_week(\d+)\.html')
-        
-        for file in self.report_dir.glob("taichung_job_market_week*.html"):
-            match = pattern.match(file.name)
-            if match:
-                week_num = int(match.group(1))
-                
-                # 嘗試讀取對應的分析資料
-                analysis_data = self._load_analysis_for_week(week_num)
-                
-                reports.append({
-                    'week': week_num,
-                    'file': file.name,
-                    'date': analysis_data.get('report_date', 'Unknown'),
-                    'total_jobs': analysis_data.get('total_jobs', 0),
-                    'top_skill': analysis_data.get('top_skill', 'N/A'),
-                    'median_salary': analysis_data.get('median_salary', 'N/A')
-                })
-        
-        # 按週數排序
+        for i, week_num in enumerate(sorted_weeks):
+            analysis: Dict = {}
+            if i < len(analysis_files):
+                try:
+                    with open(analysis_files[i], 'r', encoding='utf-8') as fp:
+                        raw = json.load(fp)
+                    summary = raw.get('summary', {})
+                    top_skills = raw.get('skill_analysis', {}).get('top_skills', [])
+                    top_skill = top_skills[0].get('skill', 'N/A') if top_skills else 'N/A'
+                    median_salary = raw.get('salary_analysis', {}).get('median_salary')
+
+                    # 從檔名取得日期
+                    fname = analysis_files[i].name  # e.g. analysis_20260226_212141.json
+                    date_str = fname.split('_')[1]   # 20260226
+                    try:
+                        report_date = datetime.strptime(date_str, '%Y%m%d').strftime('%Y/%m/%d')
+                    except Exception:
+                        report_date = date_str
+
+                    analysis = {
+                        'total_jobs': summary.get('total_jobs', 0),
+                        'top_skill': top_skill,
+                        'median_salary': median_salary,
+                        'report_date': report_date,
+                        'sources': summary.get('sources_distribution', {}),
+                    }
+                except Exception:
+                    pass
+
+            reports.append({
+                'week': week_num,
+                'file': week_files[week_num],
+                'date': analysis.get('report_date', '待更新'),
+                'total_jobs': analysis.get('total_jobs', 0),
+                'top_skill': analysis.get('top_skill', 'N/A'),
+                'median_salary': analysis.get('median_salary', 'N/A'),
+                'sources': analysis.get('sources', {}),
+            })
+
+        # 最新的排在前面
         reports.sort(key=lambda x: x['week'], reverse=True)
         return reports
-    
-    def _load_analysis_for_week(self, week_num: int) -> Dict:
-        """載入特定週的分析資料"""
-        # 尋找對應的分析檔案
-        for file in self.data_dir.glob(f"analysis_*.json"):
-            try:
-                with open(file, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    if data.get('summary', {}).get('week_number') == week_num:
-                        return {
-                            'report_date': data.get('summary', {}).get('report_date', 'Unknown'),
-                            'total_jobs': data.get('summary', {}).get('total_jobs', 0),
-                            'top_skill': data.get('skill_analysis', {}).get('top_skills', [{}])[0].get('skill', 'N/A'),
-                            'median_salary': data.get('salary_analysis', {}).get('median_salary', 'N/A')
-                        }
-            except:
-                continue
-        return {}
-    
+
     def _analyze_trends(self, reports: List[Dict]) -> Dict:
-        """分析趨勢資料"""
-        if len(reports) < 2:
-            return {'has_trend': False}
-        
-        # 按週數排序（舊到新）
-        sorted_reports = sorted(reports, key=lambda x: x['week'])
-        
-        # 計算職缺數趨勢
-        job_counts = [r['total_jobs'] for r in sorted_reports]
-        
-        trend = {
+        sorted_r = sorted(reports, key=lambda x: x['week'])
+        counts = [r['total_jobs'] for r in sorted_r]
+        weeks = [r['week'] for r in sorted_r]
+        dates = [r['date'] for r in sorted_r]
+
+        if len(sorted_r) < 2:
+            return {
+                'has_trend': False,
+                'weeks': weeks,
+                'job_counts': counts,
+                'dates': dates,
+            }
+
+        change = counts[-1] - counts[0]
+        change_pct = round((change / counts[0] * 100), 1) if counts[0] > 0 else 0
+
+        return {
             'has_trend': True,
-            'weeks': [r['week'] for r in sorted_reports],
-            'job_counts': job_counts,
-            'job_change': job_counts[-1] - job_counts[0] if len(job_counts) >= 2 else 0,
-            'job_change_percent': round(((job_counts[-1] - job_counts[0]) / job_counts[0] * 100), 1) if job_counts[0] > 0 else 0,
-            'latest_week': sorted_reports[-1]['week'],
-            'latest_jobs': sorted_reports[-1]['total_jobs']
+            'weeks': weeks,
+            'job_counts': counts,
+            'dates': dates,
+            'job_change': change,
+            'job_change_pct': change_pct,
+            'latest_week': sorted_r[-1]['week'],
+            'latest_jobs': sorted_r[-1]['total_jobs'],
         }
-        
-        return trend
-    
-    def _generate_history_html(self, reports: List[Dict], trend: Dict) -> str:
-        """生成歷史報告 HTML"""
-        
-        # 生成報告列表 HTML
-        reports_html = ""
-        for report in reports:
-            salary_display = f"{report['median_salary']:,}" if isinstance(report['median_salary'], int) else report['median_salary']
-            
-            reports_html += f"""
+
+    # ------------------------------------------------------------------ #
+    # HTML 渲染 — Oliver 溫暖風格
+    # ------------------------------------------------------------------ #
+    def _render_html(self, reports: List[Dict], trend: Dict) -> str:
+        rows_html = ""
+        for r in reports:
+            salary_disp = f"{r['median_salary']:,}" if isinstance(r['median_salary'], (int, float)) else (r['median_salary'] or 'N/A')
+            total_jobs_disp = f"{r['total_jobs']:,}" if r['total_jobs'] else '0'
+            rows_html += f"""
                 <tr>
-                    <td><span class="week-badge">第 {report['week']} 週</span></td>
-                    <td>{report['date']}</td>
-                    <td class="numeric">{report['total_jobs']:,}</td>
-                    <td><span class="skill-tag">{report['top_skill']}</span></td>
-                    <td class="numeric">{salary_display}</td>
-                    <td>
-                        <a href="{report['file']}" class="btn-view" target="_blank">
-                            查看報告 →
-                        </a>
-                    </td>
-                </tr>
-            """
-        
-        # 預計算趨勢顯示值
-        latest_week_file = f"taichung_job_market_week{trend['latest_week']}.html" if trend['has_trend'] else "taichung_job_market_week1.html"
-        latest_jobs_display = f"{trend['latest_jobs']:,}" if trend['has_trend'] else 'N/A'
-        job_change_class = ''
-        job_change_percent_display = 'N/A'
-        if trend['has_trend']:
-            if trend['job_change'] > 0:
-                job_change_class = 'trend-up'
-            elif trend['job_change'] < 0:
-                job_change_class = 'trend-down'
-            job_change_percent_display = f"{trend['job_change_percent']:+.1f}%"
-        latest_week_display = str(trend['latest_week']) if trend['has_trend'] else 'N/A'
-        
-        # 生成趨勢圖表資料
-        trend_chart_data = json.dumps(trend) if trend['has_trend'] else '{}'
-        
-        html = f'''<!DOCTYPE html>
+                    <td><span class="week-badge">第 {r['week']} 週</span></td>
+                    <td>{r['date']}</td>
+                    <td class="num">{total_jobs_disp}</td>
+                    <td><span class="skill-tag">{r['top_skill']}</span></td>
+                    <td class="num">{salary_disp}</td>
+                    <td><a href="{r['file']}" class="btn-view" target="_blank">查看報告 →</a></td>
+                </tr>"""
+
+        latest_week = trend.get('latest_week', 'N/A')
+        latest_jobs = f"{trend['latest_jobs']:,}" if trend.get('has_trend') else 'N/A'
+        change_pct = f"{trend['job_change_pct']:+.1f}%" if trend.get('has_trend') else 'N/A'
+        change_class = ''
+        if trend.get('has_trend'):
+            change_class = 'up' if trend['job_change'] > 0 else ('down' if trend['job_change'] < 0 else '')
+
+        trend_json = json.dumps(trend)
+
+        return f'''<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歷史報告與趨勢分析 | 台中中部數位人才就業市場監控</title>
+    <title>歷史趨勢 | 台中數位人才市場監控</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --primary: #1E40AF;
-            --primary-dark: #1e3a8a;
-            --primary-light: #3B82F6;
-            --secondary: #3B82F6;
-            --accent: #F59E0B;
-            --accent-light: #fbbf24;
-            --danger: #ef4444;
-            --success: #10b981;
-            --bg: #F8FAFC;
+            --primary: #F07167;
+            --primary-dark: #E05D53;
+            --primary-light: #F8AD9D;
+            --secondary: #F4A261;
+            --accent: #2A9D8F;
+            --danger: #E76F51;
+            --success: #2A9D8F;
+            --bg: #FFFDF9;
             --card: #ffffff;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --text-muted: #94a3b8;
-            --border: #e2e8f0;
-            --font-sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+            --text: #4A403A;
+            --text-light: #8A7E78;
+            --text-muted: #BDB5B1;
+            --border: #F3EAE3;
+            --border-light: #FAF5F0;
+            --font: 'Nunito', 'Noto Sans TC', sans-serif;
         }}
-        
-        * {{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }}
-        
-        body {{
-            font-family: var(--font-sans);
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
-            font-size: 14px;
-        }}
-        
-        .container {{
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 24px;
-        }}
-        
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{ font-family: var(--font); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }}
+        .container {{ max-width: 1400px; margin: 0 auto; padding: 30px; }}
+
         /* Header */
         header {{
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 32px 28px;
-            margin: -24px -24px 32px -24px;
+            background: linear-gradient(135deg, #FFDAB9 0%, #F8AD9D 100%);
+            border-radius: 24px;
+            padding: 40px 32px;
+            margin-bottom: 40px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(240,113,103,.1);
         }}
-        
-        header::before {{
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
+        header::after {{
+            content: '📈';
+            position: absolute; top: -20px; right: 20px;
+            font-size: 120px; opacity: .13; transform: rotate(10deg);
             pointer-events: none;
         }}
-        
-        .header-content {{
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+        header h1 {{ font-size: 2rem; font-weight: 800; color: #3D332D; margin-bottom: 8px; }}
+        header .sub {{ font-size: 1rem; color: #5C4D45; font-weight: 500; margin-bottom: 20px; }}
+        .nav-pills {{ display: flex; gap: 12px; flex-wrap: wrap; }}
+        .nav-pill {{
+            color: #5C4D45; text-decoration: none;
+            padding: 8px 18px;
+            background: rgba(255,255,255,.45); border-radius: 20px;
+            font-weight: 700; font-size: 0.9rem;
+            transition: background .2s;
         }}
-        
-        h1 {{
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }}
-        
-        .subtitle {{
-            font-size: 1rem;
-            opacity: 0.85;
-            font-weight: 400;
-        }}
-        
-        .nav-links {{
-            margin-top: 20px;
-            display: flex;
-            gap: 16px;
-        }}
-        
-        .nav-link {{
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 6px;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }}
-        
-        .nav-link:hover {{
-            background: rgba(255,255,255,0.25);
-        }}
-        
-        /* Stats Grid */
-        .stats-grid {{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 32px;
-        }}
-        
-        @media (max-width: 992px) {{
-            .stats-grid {{
-                grid-template-columns: repeat(2, 1fr);
-            }}
-        }}
-        
-        @media (max-width: 576px) {{
-            .stats-grid {{
-                grid-template-columns: 1fr;
-            }}
-        }}
-        
-        .stat-card {{
-            background: var(--card);
-            border-radius: 8px;
+        .nav-pill:hover {{ background: rgba(255,255,255,.7); }}
+
+        /* KPI row */
+        .kpi-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 36px; }}
+        @media(max-width:900px) {{ .kpi-grid {{ grid-template-columns: repeat(2,1fr); }} }}
+        @media(max-width:500px) {{ .kpi-grid {{ grid-template-columns: 1fr; }} }}
+
+        .kpi-card {{
+            background: var(--card); border-radius: 20px;
             border: 1px solid var(--border);
-            padding: 20px;
-            text-align: center;
+            padding: 24px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,.02);
+            transition: transform .2s, box-shadow .2s;
         }}
-        
-        .stat-value {{
-            font-family: var(--font-mono);
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }}
-        
-        .stat-value.trend-up {{
-            color: var(--success);
-        }}
-        
-        .stat-value.trend-down {{
-            color: var(--danger);
-        }}
-        
-        .stat-label {{
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }}
-        
-        /* Chart Section */
-        .chart-section {{
-            background: var(--card);
-            border-radius: 8px;
+        .kpi-card:hover {{ transform: translateY(-3px); box-shadow: 0 8px 25px rgba(240,113,103,.08); }}
+        .kpi-icon {{ font-size: 2rem; margin-bottom: 10px; }}
+        .kpi-value {{ font-size: 2.2rem; font-weight: 800; color: var(--text); margin-bottom: 4px; }}
+        .kpi-value.up {{ color: var(--danger); }}
+        .kpi-value.down {{ color: var(--accent); }}
+        .kpi-label {{ font-size: 0.85rem; color: var(--text-light); font-weight: 600; }}
+
+        /* Chart card */
+        .card {{
+            background: var(--card); border-radius: 20px;
             border: 1px solid var(--border);
-            padding: 24px;
-            margin-bottom: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.02);
+            overflow: hidden; margin-bottom: 28px;
         }}
-        
-        .chart-header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+        .card-header {{
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 20px 26px; border-bottom: 1px dashed var(--border);
         }}
-        
-        .chart-title {{
-            font-size: 1.1rem;
-            font-weight: 600;
+        .card-title {{ font-size: 1.05rem; font-weight: 700; color: var(--text); }}
+        .badge {{
+            font-size: 0.75rem; font-weight: 700; padding: 4px 12px;
+            border-radius: 20px; background: var(--primary-light); color: #fff;
         }}
-        
-        .chart-container {{
-            height: 350px;
-            position: relative;
-        }}
-        
-        /* Table Section */
-        .table-section {{
-            background: var(--card);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }}
-        
-        .table-header {{
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--border);
-            background: linear-gradient(to bottom, #fafbfc, var(--card));
-        }}
-        
-        .table-title {{
-            font-size: 1.1rem;
-            font-weight: 600;
-        }}
-        
-        .table-container {{
-            overflow-x: auto;
-        }}
-        
-        table {{
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }}
-        
-        thead {{
-            background: var(--bg);
-        }}
-        
-        th {{
-            text-align: left;
-            padding: 14px 24px;
-            font-weight: 600;
-            color: var(--text-light);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--border);
-            white-space: nowrap;
-        }}
-        
-        td {{
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-light);
-        }}
-        
-        tr:hover {{
-            background: var(--bg);
-        }}
-        
-        tr:last-child td {{
-            border-bottom: none;
-        }}
-        
-        .numeric {{
-            font-family: var(--font-mono);
-            text-align: right;
-        }}
-        
+        .card-body {{ padding: 26px; }}
+        .chart-wrap {{ height: 320px; position: relative; }}
+
+        /* Table */
+        .table-wrap {{ overflow-x: auto; }}
+        table {{ width: 100%; border-collapse: separate; border-spacing: 0; font-size: .95rem; }}
+        thead {{ background: var(--bg); }}
+        th {{ padding: 16px 20px; font-weight: 700; color: var(--text-light); border-bottom: 2px solid var(--border); white-space: nowrap; text-align: left; }}
+        td {{ padding: 16px 20px; border-bottom: 1px solid var(--border-light); }}
+        tr:hover td {{ background: var(--bg); }}
+        tr:last-child td {{ border-bottom: none; }}
+        .num {{ text-align: right; font-weight: 700; }}
         .week-badge {{
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            background: var(--primary); color: #fff;
+            padding: 4px 12px; border-radius: 20px; font-size: .85rem; font-weight: 700;
         }}
-        
         .skill-tag {{
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-            background: rgba(30, 64, 175, 0.08);
-            color: var(--primary);
+            background: #FEF3C7; color: #D97706;
+            padding: 4px 10px; border-radius: 12px; font-size: .85rem; font-weight: 600;
         }}
-        
         .btn-view {{
-            display: inline-block;
-            padding: 6px 16px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            transition: background 0.2s;
+            display: inline-block; padding: 6px 16px;
+            background: var(--primary); color: #fff;
+            text-decoration: none; border-radius: 12px;
+            font-size: .85rem; font-weight: 700;
+            transition: background .2s, transform .15s;
         }}
-        
-        .btn-view:hover {{
-            background: var(--primary-dark);
+        .btn-view:hover {{ background: var(--primary-dark); transform: translateX(2px); }}
+
+        /* Empty state */
+        .empty-chart {{
+            display: flex; justify-content: center; align-items: center;
+            height: 320px; color: var(--text-muted); font-size: 1rem; font-weight: 600;
         }}
-        
-        /* Footer */
-        footer {{
-            text-align: center;
-            padding: 32px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border);
-            margin-top: 40px;
-        }}
+
+        footer {{ text-align: center; padding: 40px 0 20px; color: var(--text-muted); font-size: .88rem; }}
+        footer p {{ margin: 4px 0; }}
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1>📈 歷史報告與趨勢分析</h1>
-                <div class="subtitle">台中中部數位人才就業市場長期追蹤</div>
-                <div class="nav-links">
-                    <a href="index.html" class="nav-link">← 回到最新報告</a>
-                    <a href="{latest_week_file}" class="nav-link">最新週報告</a>
-                </div>
-            </div>
-        </header>
-        
-        <!-- Stats Summary -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-value">{len(reports)}</div>
-                <div class="stat-label">累計週數</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">{latest_jobs_display}</div>
-                <div class="stat-label">最新職缺數</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value {job_change_class}">{job_change_percent_display}</div>
-                <div class="stat-label">職缺數變化（累計）</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">{latest_week_display}</div>
-                <div class="stat-label">當前週次</div>
-            </div>
+<div class="container">
+
+    <header>
+        <h1>歷史趨勢報告</h1>
+        <div class="sub">台中中部數位人才就業市場 — 長期追蹤分析</div>
+        <div class="nav-pills">
+            <a href="index.html" class="nav-pill">← 回到最新報告</a>
+            <a href="taichung_job_market_week{latest_week}.html" class="nav-pill">最新週報告</a>
         </div>
-        
-        <!-- Trend Chart -->
-        <div class="chart-section">
-            <div class="chart-header">
-                <div class="chart-title">📊 職缺數量趨勢</div>
-            </div>
-            <div class="chart-container">
+    </header>
+
+    <!-- KPI -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-icon">📅</div>
+            <div class="kpi-value">{len(reports)}</div>
+            <div class="kpi-label">累計週數</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">💼</div>
+            <div class="kpi-value">{latest_jobs}</div>
+            <div class="kpi-label">最新職缺數</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">📊</div>
+            <div class="kpi-value {change_class}">{change_pct}</div>
+            <div class="kpi-label">職缺數累計變化</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">🗓️</div>
+            <div class="kpi-value">{latest_week}</div>
+            <div class="kpi-label">當前週次</div>
+        </div>
+    </div>
+
+    <!-- Trend Chart -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">職缺數量週趨勢</div>
+            <span class="badge">歷史對比</span>
+        </div>
+        <div class="card-body">
+            <div class="chart-wrap">
                 <canvas id="trendChart"></canvas>
             </div>
         </div>
-        
-        <!-- History Table -->
-        <div class="table-section">
-            <div class="table-header">
-                <div class="table-title">📋 歷史報告列表</div>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>週次</th>
-                            <th>報告日期</th>
-                            <th class="numeric">職缺總數</th>
-                            <th>熱門技能</th>
-                            <th class="numeric">中位數薪資</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {reports_html}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <footer>
-            <p><strong>梵亞行銷 | 台中教育大學新尖兵計畫</strong></p>
-            <p>本報告由自動化監控系統生成 | 資料來源：104人力銀行、1111人力銀行、518人力銀行</p>
-        </footer>
     </div>
-    
-    <script>
-        // 趨勢圖表
-        const trendData = {trend_chart_data};
-        
-        if (trendData.has_trend && trendData.weeks.length > 1) {{
-            new Chart(document.getElementById('trendChart'), {{
-                type: 'line',
-                data: {{
-                    labels: trendData.weeks.map(w => `第 ${{w}} 週`),
-                    datasets: [{{
-                        label: '職缺總數',
-                        data: trendData.job_counts,
-                        borderColor: '#1E40AF',
-                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
-                        borderWidth: 3,
-                        pointRadius: 6,
-                        pointBackgroundColor: '#1E40AF',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        tension: 0.3,
-                        fill: true
-                    }}]
-                }},
-                options: {{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {{
-                        legend: {{ display: false }},
-                        tooltip: {{
-                            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                            padding: 12,
-                            callbacks: {{
-                                label: function(context) {{
-                                    return `職缺數: ${{context.raw.toLocaleString()}}`;
-                                }}
-                            }}
-                        }}
-                    }},
-                    scales: {{
-                        y: {{
-                            beginAtZero: true,
-                            grid: {{ color: '#f1f5f9' }},
-                            ticks: {{
-                                font: {{ family: 'Fira Code', size: 11 }},
-                                callback: function(value) {{
-                                    return value.toLocaleString();
-                                }}
-                            }}
-                        }},
-                        x: {{
-                            grid: {{ display: false }},
-                            ticks: {{
-                                font: {{ family: 'Fira Sans', size: 12 }}
-                            }}
-                        }}
+
+    <!-- History Table -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">歷史報告列表</div>
+            <span class="badge">{len(reports)} 週</span>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>週次</th>
+                        <th>報告日期</th>
+                        <th class="num">職缺總數</th>
+                        <th>熱門技能</th>
+                        <th class="num">中位數薪資(元)</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>{rows_html}</tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>梵亞行銷 | 台中教育大學新尖兵計畫</strong></p>
+        <p>本報告由自動化監控系統生成 | 資料來源：104、1111、518 人力銀行</p>
+    </footer>
+</div>
+
+<script>
+const trend = {trend_json};
+const fontFamily = "'Nunito', 'Noto Sans TC', sans-serif";
+
+if (trend.has_trend && trend.weeks && trend.weeks.length >= 2) {{
+    new Chart(document.getElementById('trendChart'), {{
+        type: 'line',
+        data: {{
+            labels: trend.weeks.map((w, i) => `第 ${{w}} 週\\n${{(trend.dates||[])[i]||''}}`),
+            datasets: [{{
+                label: '職缺數',
+                data: trend.job_counts,
+                borderColor: '#F07167',
+                backgroundColor: 'rgba(240,113,103,.08)',
+                borderWidth: 3,
+                pointRadius: 7,
+                pointBackgroundColor: '#F07167',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2.5,
+                tension: 0.35,
+                fill: true
+            }}]
+        }},
+        options: {{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {{
+                legend: {{ display: false }},
+                tooltip: {{
+                    backgroundColor: 'rgba(74,64,58,.9)',
+                    padding: 14,
+                    cornerRadius: 12,
+                    titleFont: {{ family: fontFamily, size: 13, weight: 700 }},
+                    bodyFont: {{ family: fontFamily, size: 13 }},
+                    callbacks: {{
+                        label: ctx => ` 職缺數：${{ctx.raw.toLocaleString()}} 筆`
                     }}
                 }}
-            }});
-        }} else {{
-            document.getElementById('trendChart').parentElement.innerHTML = 
-                '<div style="display: flex; justify-content: center; align-items: center; height: 100%; color: var(--text-muted);">
-                    <p>📊 資料累積中，需要至少 2 週數據才能顯示趨勢圖</p>
-                </div>';
+            }},
+            scales: {{
+                y: {{
+                    beginAtZero: false,
+                    grid: {{ color: '#F3EAE3' }},
+                    ticks: {{
+                        font: {{ family: fontFamily, size: 12 }},
+                        callback: v => v.toLocaleString()
+                    }}
+                }},
+                x: {{
+                    grid: {{ display: false }},
+                    ticks: {{ font: {{ family: fontFamily, size: 12, weight: 600 }} }}
+                }}
+            }}
         }}
-    </script>
+    }});
+}} else {{
+    document.getElementById('trendChart').closest('.chart-wrap').innerHTML =
+        '<div class="empty-chart">📊 需累積至少 2 週資料才能顯示趨勢圖（目前 ' + (trend.weeks ? trend.weeks.length : 0) + ' 週）</div>';
+}}
+</script>
 </body>
 </html>'''
-        
-        return html
-
-
-if __name__ == "__main__":
-    # 測試生成
-    generator = HistoryGenerator()
-    generator.generate_history_page()

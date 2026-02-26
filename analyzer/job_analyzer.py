@@ -95,6 +95,11 @@ class JobAnalyzer:
         category_counter = Counter()
         for job in jobs:
             category = job.get('job_category', '未分類')
+            # 處理 list 或其他非字串類型
+            if isinstance(category, list):
+                category = category[0] if category else '未分類'
+            elif not isinstance(category, str):
+                category = str(category) if category else '未分類'
             # 如果類別太長，取主要部分
             if len(category) > 30:
                 category = category[:30] + '...'
@@ -117,6 +122,11 @@ class JobAnalyzer:
         industry_counter = Counter()
         for job in jobs:
             industry = job.get('company_industry', '未註明')
+            # 處理 list 或其他非字串類型
+            if isinstance(industry, list):
+                industry = industry[0] if industry else '未註明'
+            elif not isinstance(industry, str):
+                industry = str(industry) if industry else '未註明'
             if industry and industry != '未註明':
                 industry_counter[industry] += 1
         

@@ -1020,11 +1020,11 @@
   "trend_analysis": null,
   "emerging_jobs": [],
   "market_trends": {
-    "timestamp": "2026-02-26T21:42:16.953036",
+    "timestamp": "2026-02-26T21:59:22.621336",
     "regional_unemployment": {
       "data_period": "114年上半年（2025/01-06）",
       "source": "行政院主計總處 人力資源調查",
-      "taiwan_total_unemployed": 400,
+      "taiwan_total_unemployed": 400000,
       "taiwan_unemployment_rate": 3.33,
       "youth_ratio_in_unemployed": 0.248,
       "regions": {
@@ -1204,8 +1204,8 @@
           "status": "上升 ↗"
         },
         "職訓": {
-          "current_index": 18.1,
-          "trend_change_pct": 122.8,
+          "current_index": 18.0,
+          "trend_change_pct": 121.1,
           "status": "上升 ↗"
         },
         "履歷": {
@@ -1214,8 +1214,8 @@
           "status": "上升 ↗"
         },
         "面試": {
-          "current_index": 63.4,
-          "trend_change_pct": 161.2,
+          "current_index": 64.1,
+          "trend_change_pct": 162.6,
           "status": "上升 ↗"
         },
         "新尖兵": {

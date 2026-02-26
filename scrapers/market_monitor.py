@@ -168,16 +168,19 @@ class MarketMonitor:
         lookup: Dict[str, Dict] = {}
         for item in raw_data:
             if isinstance(item, tuple):
+                # 靜態備援資料的數值單位是「千人」，需乘以 1000
+                raw_val = item[1]
+                persons = int(raw_val * 1000)  # 千人 → 人
                 item = {
                     'name': item[0],
-                    'unemployed_k': round(item[1] / 1000, 1) if item[1] >= 10 else item[1],
-                    'unemployed_persons': int(item[1]) * (1 if item[1] >= 10 else 1000),
+                    'unemployed_persons': persons,
                     'unemployment_rate': item[2],
                 }
-                # fix units
-                if item['unemployed_persons'] < 100:
-                    item['unemployed_persons'] *= 1000
-                    item['unemployed_k'] = round(item['unemployed_persons'] / 1000, 1)
+            else:
+                # 從 XLSX 解析出來的也是千人單位
+                raw_val = item.get('unemployed_persons', 0)
+                if raw_val < 10000:  # 還是千人單位，需乘以 1000
+                    item['unemployed_persons'] = int(raw_val * 1000)
             name = item['name'].strip().replace('\u3000', '')
             lookup[name] = item
 
@@ -221,13 +224,19 @@ class MarketMonitor:
 
         # 全台數據
         taiwan = next((v for k, v in lookup.items() if '臺灣地區' in k or '台灣地區' in k), {})
-        taiwan_total = taiwan.get('unemployed_persons', 400000)
+        # 注意：主計總處資料單位為「千人」，需乘以 1000 才是實際人數
+        taiwan_total_k = taiwan.get('unemployed_persons', 400000)
+        # 若 parse 出來的是千人單位（< 10000），需乘以 1000
+        if taiwan_total_k < 10000:
+            taiwan_total = taiwan_total_k * 1000
+        else:
+            taiwan_total = taiwan_total_k
         taiwan_rate = taiwan.get('unemployment_rate', 3.33)
 
         return {
             'data_period': '114年上半年（2025/01-06）',
             'source': '行政院主計總處 人力資源調查',
-            'taiwan_total_unemployed': taiwan_total,
+            'taiwan_total_unemployed': taiwan_total,   # 實際人數（個人）
             'taiwan_unemployment_rate': taiwan_rate,
             'youth_ratio_in_unemployed': YOUTH_RATIO,
             'regions': regions,

@@ -75,12 +75,16 @@ class HTMLReportGenerator:
             'data': [r['count'] for r in range_dist],
         }
         
-        # 3. 經驗要求
+        # 3. 經驗要求（排除「其他/未註明」，只顯示有意義的分類）
         exp_req = analysis.get('experience_requirements', {})
         exp_dist = exp_req.get('distribution', [])
+        exp_meaningful = [e for e in exp_dist if e['experience'] != '其他/未註明']
+        # 如果有意義資料不足，才顯示全部
+        if sum(e['count'] for e in exp_meaningful) < 50:
+            exp_meaningful = exp_dist
         charts['experience'] = {
-            'labels': [e['experience'] for e in exp_dist],
-            'data': [e['count'] for e in exp_dist],
+            'labels': [e['experience'] for e in exp_meaningful],
+            'data': [e['count'] for e in exp_meaningful],
         }
         
         # 4. 職缺類別分布
@@ -1147,54 +1151,68 @@ class HTMLReportGenerator:
             }
         });
         
-        // 薪資分布圖表
-        new Chart(document.getElementById('salaryChart'), {
-            type: 'doughnut',
-            data: {
-                labels: chartsData.salary.labels,
-                datasets: [{
-                    data: chartsData.salary.data,
-                    backgroundColor: [
-                        colors.primary,
-                        colors.accent,
-                        colors.success,
-                        colors.primaryLight,
-                        colors.secondary,
-                        '#E9C46A'
-                    ],
-                    borderWidth: 0,
-                    hoverOffset: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '65%',
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 16,
-                            font: { family: fontConfig.family, size: 12, weight: 600 },
-                            usePointStyle: true,
-                            pointStyle: 'circle'
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(74, 64, 58, 0.9)',
-                        padding: 12,
-                        cornerRadius: 10,
-                        callbacks: {
-                            label: function(context) {
-                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                const percentage = ((context.raw / total) * 100).toFixed(1);
-                                return ` ${context.label}: ${context.raw} (${percentage}%)`;
+        // 薪資分布圖表（加防守：資料不足時顯示提示）
+        (function() {
+            const salaryData = chartsData.salary.data || [];
+            const salaryTotal = salaryData.reduce((a, b) => a + b, 0);
+            const salaryCanvas = document.getElementById('salaryChart');
+            if (!salaryTotal || salaryData.length === 0) {
+                salaryCanvas.parentElement.innerHTML =
+                    '<div style="display:flex;justify-content:center;align-items:center;height:100%;flex-direction:column;gap:10px;color:var(--text-muted);">' +
+                    '<span style="font-size:2rem;">📊</span>' +
+                    '<span style="font-weight:600;">薪資揭露資料不足</span>' +
+                    '<span style="font-size:0.85rem;">104 職缺多為「薪資面議」，目前僅 518/1111 有揭露薪資</span>' +
+                    '</div>';
+                return;
+            }
+            new Chart(salaryCanvas, {
+                type: 'doughnut',
+                data: {
+                    labels: chartsData.salary.labels,
+                    datasets: [{
+                        data: salaryData,
+                        backgroundColor: [
+                            colors.primary,
+                            colors.accent,
+                            colors.success,
+                            colors.primaryLight,
+                            colors.secondary,
+                            '#E9C46A'
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 16,
+                                font: { family: fontConfig.family, size: 12, weight: 600 },
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(74, 64, 58, 0.9)',
+                            padding: 12,
+                            cornerRadius: 10,
+                            callbacks: {
+                                label: function(context) {
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.raw / total) * 100).toFixed(1);
+                                    return ` ${context.label}: ${context.raw} 筆 (${percentage}%)`;
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
+            });
+        })();
         
         // 經驗要求圖表
         new Chart(document.getElementById('experienceChart'), {

@@ -40,6 +40,13 @@ class SalaryAnalyzer:
         for job in jobs:
             salary_min = job.get('salary_min')
             salary_max = job.get('salary_max')
+            salary_text = str(job.get('salary', ''))
+            
+            # 過濾掉非月薪資料：
+            # 1. 論件計酬（518 的論件薪資極低，如 56~560 元，不是月薪）
+            # 2. 時薪（通常 < 500 元）
+            if '論件' in salary_text or '時薪' in salary_text or '計時' in salary_text:
+                continue
             
             # 計算平均薪資（若有範圍則取中位數）
             if salary_min and salary_max:
@@ -49,6 +56,10 @@ class SalaryAnalyzer:
             elif salary_max:
                 avg_salary = salary_max
             else:
+                continue
+            
+            # 過濾明顯不合理的薪資（低於 5000 視為非月薪單位）
+            if avg_salary < 5000:
                 continue
             
             salaries.append(avg_salary)

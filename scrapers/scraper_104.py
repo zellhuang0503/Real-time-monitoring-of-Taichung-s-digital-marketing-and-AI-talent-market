@@ -25,6 +25,14 @@ class Scraper104:
         "changhua": "6001010000",  # 彰化縣
         "nantou": "6001011000",    # 南投縣
     }
+
+    # 104 API period 代碼對照表（class 層級，避免每次呼叫重新建立）
+    # 官方代碼：1=1年以下, 2=1-3年, 3=3-5年, 4=5-10年, 5=10年以上, 6=不拘（含0）
+    PERIOD_MAP = {
+        '0': '不拘',  '1': '1年以下', '2': '1-3年',  '3': '3-5年',
+        '4': '5-10年', '5': '10年以上', '6': '不拘',   '7': '1年以下',
+        '8': '1-3年', '9': '3-5年',  '10': '5-10年', '11': '10年以上',
+    }
     
     def __init__(self, delay: float = 2.0):
         """
@@ -202,23 +210,9 @@ class Scraper104:
         # 104 API 的 period 是數字代碼，periodDesc 才是文字（但通常為空）
         # period 代碼對照：0=不拘, 1=1年以下, 2=1-3年, 3=3-5年, 4=5-10年, 5=10年以上
         # 其他代碼（6-11）在104實際代表「不拘」或「無經驗要求」
-        PERIOD_MAP = {
-            '0': '不拘',
-            '1': '1年以下',
-            '2': '1-3年',
-            '3': '3-5年',
-            '4': '5-10年',
-            '5': '10年以上',
-            '6': '不拘',
-            '7': '1年以下',
-            '8': '1-3年',
-            '9': '3-5年',
-            '10': '5-10年',
-            '11': '10年以上',
-        }
         exp_period = str(job.get('period', ''))
         exp_desc = job.get('periodDesc', '')
-        experience = exp_desc if exp_desc else PERIOD_MAP.get(exp_period, exp_period)
+        experience = exp_desc if exp_desc else self.PERIOD_MAP.get(exp_period, exp_period)
         
         # 處理學歷
         edu_code = job.get('optionEdu', '')

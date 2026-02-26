@@ -639,6 +639,11 @@ class HTMLReportGenerator:
                     <span>🗓️ 第 {{ week_number }} 週報告</span>
                     <span>🕐 更新時間: {{ report_date }}</span>
                     <span>📍 監控範圍: 台中、彰化、南投</span>
+                    {% if analysis.is_test_period %}
+                    <span style="background: rgba(180,120,0,0.15); color: #7A5500; border-radius: 12px; padding: 4px 14px; font-weight: 700; font-size: 0.85rem;">
+                        ⚠️ 測試期資料（僅 104，無薪資）
+                    </span>
+                    {% endif %}
                     <span style="margin-left: auto; background: rgba(0,0,0,0.05); border-radius: 12px; padding: 4px 12px;">
                         <a href="history.html" style="color: var(--text); text-decoration: none; font-weight: 700;">📈 查看歷史趨勢 →</a>
                     </span>

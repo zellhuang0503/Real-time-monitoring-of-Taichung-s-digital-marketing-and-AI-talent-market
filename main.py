@@ -22,6 +22,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import JOB_KEYWORDS, MONITORING_AREAS, OUTPUT_CONFIG
 from scrapers import Scraper104, Scraper1111, Scraper518
+from scrapers.market_monitor import MarketMonitor
 from analyzer import JobAnalyzer, CourseRecommender
 from report import HTMLReportGenerator
 from report.history_generator import HistoryGenerator
@@ -201,6 +202,18 @@ def main():
     previous_jobs = load_previous_jobs() if not args.test else None
     
     analysis_result = analyzer.analyze(jobs, previous_jobs)
+    
+    # 加入外部市場監控數據 (青年失業率、搜尋聲量)
+    print("\n" + "="*60)
+    print("[Main] 擷取外部市場趨勢數據...")
+    print("="*60)
+    try:
+        market_monitor = MarketMonitor()
+        market_data = market_monitor.run_full_monitor()
+        analysis_result['market_trends'] = market_data
+    except Exception as e:
+        print(f"[Main] 市場趨勢擷取失敗: {e}")
+        analysis_result['market_trends'] = None
     
     # 儲存分析結果
     analysis_filepath = os.path.join(

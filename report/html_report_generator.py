@@ -685,44 +685,91 @@ class HTMLReportGenerator:
             <div class="section-header">
                 <div class="section-title">
                     <div class="icon">🔥</div>
-                    待業青年市場監控 (新尖兵招生指標)
+                    待業青年市場監控 — 分區招生指標
                 </div>
             </div>
-            
+
+            {% set ru = analysis.market_trends.regional_unemployment %}
+
+            <!-- 全台 KPI 列 -->
+            <div class="grid" style="margin-bottom: 24px;">
+                <div class="col-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🇹🇼</div>
+                        <div class="kpi-label">全台失業人數</div>
+                        <div class="kpi-value" style="font-size:2rem;">{{ "{:,}".format(ru.taiwan_total_unemployed) }}</div>
+                        <div class="kpi-subtext">失業率 {{ ru.taiwan_unemployment_rate }}%</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🌱</div>
+                        <div class="kpi-label">15-24歲失業率</div>
+                        <div class="kpi-value" style="font-size:2rem; color:var(--danger);">{{ analysis.market_trends.unemployment_data.age_15_24_rate }}%</div>
+                        <div class="kpi-subtext">全國均值 3 倍以上</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📊</div>
+                        <div class="kpi-label">25-29歲失業率</div>
+                        <div class="kpi-value" style="font-size:2rem; color:var(--secondary);">{{ analysis.market_trends.unemployment_data.age_25_29_rate }}%</div>
+                        <div class="kpi-subtext">轉職族群核心</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📅</div>
+                        <div class="kpi-label">資料期間</div>
+                        <div class="kpi-value" style="font-size:1.1rem; margin-top:8px;">{{ ru.data_period }}</div>
+                        <div class="kpi-subtext">{{ ru.source }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分區失業人數 + 青年推估 -->
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">各分區失業人數與青年(15-29歲)推估</div>
+                    <span class="card-badge primary">主計總處 分縣市統計</span>
+                </div>
+                <div class="card-body">
+                    <div style="margin-bottom: 14px; font-size: 0.88rem; color: var(--text-light); background: var(--bg); padding: 10px 14px; border-radius: 12px;">
+                        💡 {{ ru.note }}
+                    </div>
+                    {% for region_name, region_data in ru.regions.items() %}
+                    <div style="margin-bottom: 28px;">
+                        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px; flex-wrap: wrap;">
+                            <div style="font-size: 1rem; font-weight: 800; color: var(--text);">{{ region_name }}</div>
+                            <div style="background: var(--primary); color: #fff; padding: 4px 12px; border-radius: 14px; font-size: 0.85rem; font-weight: 700;">
+                                失業 {{ "{:,}".format(region_data.total_unemployed) }} 人
+                            </div>
+                            <div style="background: #FEF3C7; color: #D97706; padding: 4px 12px; border-radius: 14px; font-size: 0.85rem; font-weight: 700;">
+                                青年推估 {{ "{:,}".format(region_data.youth_unemployed_est) }} 人
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            {% for c in region_data.counties %}
+                            <div style="background: var(--bg); border: 1.5px solid var(--border); border-radius: 14px; padding: 10px 16px; min-width: 130px; text-align: center;">
+                                <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">{{ c.county }}</div>
+                                <div style="font-size: 1.3rem; font-weight: 800; color: var(--primary-dark);">{{ "{:,}".format(c.unemployed_persons) }}</div>
+                                <div style="font-size: 0.8rem; color: var(--text-light);">失業人數</div>
+                                <div style="font-size: 0.85rem; color: var(--accent); font-weight: 700; margin-top: 3px;">青年 ~{{ "{:,}".format(c.youth_est) }} 人</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">失業率 {{ c.unemployment_rate }}%</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
             <div class="grid">
                 <div class="col-6">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">15-29歲 青年失業率</div>
-                            <span class="card-badge primary">主計總處 {{ analysis.market_trends.unemployment_data.update_date }}</span>
-                        </div>
-                        <div class="card-body">
-                            <div style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px;">
-                                <div>
-                                    <div style="font-size: 2rem; font-weight: 700; color: var(--danger);">{{ analysis.market_trends.unemployment_data.age_15_24_rate }}%</div>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">15-24歲失業率</div>
-                                </div>
-                                <div>
-                                    <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">{{ analysis.market_trends.unemployment_data.age_25_29_rate }}%</div>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">25-29歲失業率</div>
-                                </div>
-                                <div>
-                                    <div style="font-size: 2rem; font-weight: 700; color: var(--text);">{{ analysis.market_trends.unemployment_data.overall_rate }}%</div>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">全國平均失業率</div>
-                                </div>
-                            </div>
-                            <div class="insight-box" style="padding: 15px; margin-bottom: 0;">
-                                <p style="font-size: 0.95rem; margin: 0;"><strong>💡 招生洞察：</strong>{{ analysis.market_trends.unemployment_data.insight }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-6">
-                    <div class="card">
-                        <div class="card-header">
                             <div class="card-title">待業焦慮關鍵字搜尋熱度</div>
-                            <span class="card-badge accent">Google Trends (過去3個月)</span>
+                            <span class="card-badge accent">Google Trends 過去3個月</span>
                         </div>
                         <div class="card-body">
                             <div class="table-container">
@@ -735,13 +782,14 @@ class HTMLReportGenerator:
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% if analysis.market_trends.search_trends.trends is defined %}
                                         {% for kw, trend in analysis.market_trends.search_trends.trends.items() %}
                                         <tr>
                                             <td><strong>{{ kw }}</strong></td>
                                             <td>
                                                 <div class="progress-cell">
                                                     <div class="progress-bar">
-                                                        <div class="progress-fill {% if trend.current_index > 50 %}danger{% elif trend.current_index > 25 %}accent{% else %}primary{% endif %}" 
+                                                        <div class="progress-fill {% if trend.current_index > 50 %}primary{% elif trend.current_index > 25 %}accent{% else %}secondary{% endif %}"
                                                              style="width: {{ trend.current_index }}%"></div>
                                                     </div>
                                                     <span class="progress-value">{{ trend.current_index }}</span>
@@ -754,28 +802,34 @@ class HTMLReportGenerator:
                                             </td>
                                         </tr>
                                         {% endfor %}
+                                        {% else %}
+                                        <tr><td colspan="3" style="text-align:center; color:var(--text-muted);">趨勢資料載入中...</td></tr>
+                                        {% endif %}
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="card" style="margin-top: 24px;">
-                <div class="card-header">
-                    <div class="card-title">求職社群即時聲量 (PTT Salary, Soft_Job, Tech_Job)</div>
-                    <span class="card-badge success">近期 {{ analysis.market_trends.social_volume.total_posts_analyzed }} 篇文章</span>
-                </div>
-                <div class="card-body">
-                    <div class="skill-tags">
-                        {% for kw, count in analysis.market_trends.social_volume.keyword_counts.items() %}
-                        {% if count > 0 %}
-                        <span class="skill-tag {% if loop.index <= 3 %}accent{% endif %}">
-                            {{ kw }} <span style="background: rgba(0,0,0,0.1); border-radius: 10px; padding: 2px 6px; font-size: 0.8rem; margin-left: 4px;">{{ count }}</span>
-                        </span>
-                        {% endif %}
-                        {% endfor %}
+                
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">求職社群即時聲量</div>
+                            <span class="card-badge success">PTT 近 {{ analysis.market_trends.social_volume.total_posts_analyzed }} 篇</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="skill-tags">
+                                {% for kw, count in analysis.market_trends.social_volume.keyword_counts.items() %}
+                                {% if count > 0 %}
+                                <span class="skill-tag {% if loop.index <= 3 %}accent{% endif %}">
+                                    {{ kw }}
+                                    <span style="background: rgba(0,0,0,0.08); border-radius: 10px; padding: 2px 7px; font-size: 0.8rem; margin-left: 4px;">{{ count }}</span>
+                                </span>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

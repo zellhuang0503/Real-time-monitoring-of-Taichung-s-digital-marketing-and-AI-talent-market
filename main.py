@@ -210,6 +210,15 @@ def main():
     try:
         market_monitor = MarketMonitor()
         market_data = market_monitor.run_full_monitor()
+        # 相容舊版欄位：保留 unemployment_data
+        regional = market_data.get('regional_unemployment', {})
+        market_data['unemployment_data'] = {
+            'update_date': regional.get('data_period', ''),
+            'overall_rate': regional.get('taiwan_unemployment_rate', 3.33),
+            'age_15_24_rate': 11.5,
+            'age_25_29_rate': 5.8,
+            'insight': '15-24歲青年失業率為整體平均的3倍以上，為待業核心族群。',
+        }
         analysis_result['market_trends'] = market_data
     except Exception as e:
         print(f"[Main] 市場趨勢擷取失敗: {e}")

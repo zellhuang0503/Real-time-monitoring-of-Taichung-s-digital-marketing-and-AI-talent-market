@@ -69,31 +69,49 @@ class MarketMonitor:
         return self._organize_by_region(raw_data)
 
     def _find_latest_table32_url(self) -> Optional[str]:
-        """從 stat.gov.tw 找最新月份報告的 table32 下載連結"""
-        try:
-            # 找最新的人力資源調查統計頁面
-            search_url = 'https://www.stat.gov.tw/cl.aspx?n=4003'
-            r = requests.get(search_url, headers=self.headers,
-                             verify=False, timeout=10)
-            soup = BeautifulSoup(r.content, 'lxml')
+        """
+        自動抓取主計總處最新的縣市別人力資源調查 table32.xlsx。
 
-            # 找第一個「人力資源調查統計」連結
-            for a in soup.find_all('a', href=True):
-                href = a['href']
-                text = a.get_text()
-                if 'News_Content' in href and '人力資源' in text:
-                    detail_url = 'https://www.stat.gov.tw/' + href.lstrip('/')
-                    # 從詳細頁面找 table32
-                    r2 = requests.get(detail_url, headers=self.headers,
-                                      verify=False, timeout=10)
-                    soup2 = BeautifulSoup(r2.content, 'lxml')
-                    for a2 in soup2.find_all('a', href=True):
-                        if 'table32.xlsx' in a2['href']:
-                            return a2['href']
-            return None
+        主計總處的縣市別半年報每年發布 2 次（上/下半年），
+        檔案路徑規律為：
+          https://ws.dgbas.gov.tw/001/Upload/463/relfile/11040/{s}/table32.xlsx
+        已知：114年上半年 = s=235335
+
+        策略：從已知的 s 號碼往後掃描（每次+50），
+        找到最大的、HTTP 200 的 s 號碼即為最新報告。
+        若無更新，回傳已知最新的 URL。
+        """
+        WS_BASE = 'https://ws.dgbas.gov.tw/001/Upload/463/relfile/11040'
+        KNOWN_LATEST_S = 235335   # 114年上半年（2025/1-6）
+
+        def probe(s: int) -> bool:
+            url = f'{WS_BASE}/{s}/table32.xlsx'
+            try:
+                r = requests.head(url, headers=self.headers,
+                                  verify=False, timeout=5)
+                return r.status_code == 200
+            except Exception:
+                return False
+
+        try:
+            # 從已知最新往後掃，步長 50，最多往後掃 6000（約 3 年內）
+            latest_s = KNOWN_LATEST_S
+            step = 50
+            for candidate_s in range(KNOWN_LATEST_S + step,
+                                     KNOWN_LATEST_S + 6001, step):
+                if probe(candidate_s):
+                    latest_s = candidate_s
+
+            url = f'{WS_BASE}/{latest_s}/table32.xlsx'
+            if latest_s == KNOWN_LATEST_S:
+                print(f"[Monitor] 使用現有最新縣市別資料 s={latest_s}（114年上半年，下半年尚未發布）")
+            else:
+                print(f"[Monitor] 發現更新的縣市別資料 s={latest_s}，開始下載")
+            return url
+
         except Exception as e:
-            print(f"[Monitor] 找最新報告頁面失敗: {e}")
-            return None
+            print(f"[Monitor] 搜尋最新 table32 失敗: {e}")
+            return f'{WS_BASE}/{KNOWN_LATEST_S}/table32.xlsx'
 
     def _parse_table32(self, url: str) -> list:
         """下載並解析 XLSX 中的縣市失業率資料"""

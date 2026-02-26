@@ -678,6 +678,109 @@ class HTMLReportGenerator:
                 </div>
             </div>
         </div>
+
+        {% if analysis.market_trends %}
+        <!-- Youth Market Monitor -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon">🔥</div>
+                    待業青年市場監控 (新尖兵招生指標)
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">15-29歲 青年失業率</div>
+                            <span class="card-badge primary">主計總處 {{ analysis.market_trends.unemployment_data.update_date }}</span>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px;">
+                                <div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--danger);">{{ analysis.market_trends.unemployment_data.age_15_24_rate }}%</div>
+                                    <div style="font-size: 0.9rem; color: var(--text-light);">15-24歲失業率</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">{{ analysis.market_trends.unemployment_data.age_25_29_rate }}%</div>
+                                    <div style="font-size: 0.9rem; color: var(--text-light);">25-29歲失業率</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--text);">{{ analysis.market_trends.unemployment_data.overall_rate }}%</div>
+                                    <div style="font-size: 0.9rem; color: var(--text-light);">全國平均失業率</div>
+                                </div>
+                            </div>
+                            <div class="insight-box" style="padding: 15px; margin-bottom: 0;">
+                                <p style="font-size: 0.95rem; margin: 0;"><strong>💡 招生洞察：</strong>{{ analysis.market_trends.unemployment_data.insight }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">待業焦慮關鍵字搜尋熱度</div>
+                            <span class="card-badge accent">Google Trends (過去3個月)</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>關鍵字</th>
+                                            <th>當前熱度</th>
+                                            <th>近期趨勢</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for kw, trend in analysis.market_trends.search_trends.trends.items() %}
+                                        <tr>
+                                            <td><strong>{{ kw }}</strong></td>
+                                            <td>
+                                                <div class="progress-cell">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill {% if trend.current_index > 50 %}danger{% elif trend.current_index > 25 %}accent{% else %}primary{% endif %}" 
+                                                             style="width: {{ trend.current_index }}%"></div>
+                                                    </div>
+                                                    <span class="progress-value">{{ trend.current_index }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: 700; color: {% if '上升' in trend.status %}var(--danger){% elif '下降' in trend.status %}var(--success){% else %}var(--text-light){% endif %}">
+                                                    {{ trend.status }} ({{ trend.trend_change_pct }}%)
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 24px;">
+                <div class="card-header">
+                    <div class="card-title">求職社群即時聲量 (PTT Salary, Soft_Job, Tech_Job)</div>
+                    <span class="card-badge success">近期 {{ analysis.market_trends.social_volume.total_posts_analyzed }} 篇文章</span>
+                </div>
+                <div class="card-body">
+                    <div class="skill-tags">
+                        {% for kw, count in analysis.market_trends.social_volume.keyword_counts.items() %}
+                        {% if count > 0 %}
+                        <span class="skill-tag {% if loop.index <= 3 %}accent{% endif %}">
+                            {{ kw }} <span style="background: rgba(0,0,0,0.1); border-radius: 10px; padding: 2px 6px; font-size: 0.8rem; margin-left: 4px;">{{ count }}</span>
+                        </span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         
         <!-- Priority Recommendations -->
         <div class="section">

@@ -705,7 +705,7 @@ class HTMLReportGenerator:
                         <div class="kpi-icon">🇹🇼</div>
                         <div class="kpi-label">全台失業人數</div>
                         <div class="kpi-value" style="font-size:2rem;">{{ "{:,}".format(ru.taiwan_total_unemployed) }}</div>
-                        <div class="kpi-subtext">失業率 {{ ru.taiwan_unemployment_rate }}%</div>
+                        <div class="kpi-subtext" style="font-weight:700; color:var(--text-light);">人（失業率 {{ ru.taiwan_unemployment_rate }}%）</div>
                     </div>
                 </div>
                 <div class="col-3">

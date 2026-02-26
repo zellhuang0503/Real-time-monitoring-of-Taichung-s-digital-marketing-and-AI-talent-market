@@ -32,13 +32,20 @@ class HistoryGenerator:
     # ------------------------------------------------------------------ #
     def _build_reports(self) -> List[Dict]:
         """
-        將 analysis_*.json 按建立時間排序，依序對應
-        taichung_job_market_week{n}.html 報告檔。
+        Week <10 = 測試期（對應 104-only 舊檔）
+        Week 10+ = 正式期（對應最新的三來源完整分析檔）
         """
-        # 取得所有分析 JSON（排序：舊到新）
-        analysis_files = sorted(self.data_dir.glob("analysis_*.json"))
+        # 取得所有分析 JSON，過濾掉中間除錯產生的備份（215115, 215309）
+        all_files = sorted(self.data_dir.glob("analysis_*.json"))
+        analysis_files = [
+            f for f in all_files
+            if '215115' not in f.name and '215309' not in f.name
+        ]
 
-        # 取得所有週報告 HTML（排序：週次小到大）
+        # 最新的完整分析檔（含三大來源）= 最後一個
+        complete_file = analysis_files[-1] if analysis_files else None
+
+        # 取得所有週報告 HTML
         week_pattern = re.compile(r'taichung_job_market_week(\d+)\.html')
         week_files: Dict[int, str] = {}
         for f in self.report_dir.glob("taichung_job_market_week*.html"):
@@ -49,19 +56,25 @@ class HistoryGenerator:
 
         reports = []
         for i, week_num in enumerate(sorted_weeks):
+            is_test = week_num < 10
+
+            # 週次對應分析檔：測試期用舊檔，正式期用完整檔
+            if is_test:
+                af = analysis_files[i] if i < len(analysis_files) - 1 else (complete_file or analysis_files[-1])
+            else:
+                af = complete_file
+
             analysis: Dict = {}
-            if i < len(analysis_files):
+            if af:
                 try:
-                    with open(analysis_files[i], 'r', encoding='utf-8') as fp:
+                    with open(af, 'r', encoding='utf-8') as fp:
                         raw = json.load(fp)
                     summary = raw.get('summary', {})
                     top_skills = raw.get('skill_analysis', {}).get('top_skills', [])
                     top_skill = top_skills[0].get('skill', 'N/A') if top_skills else 'N/A'
                     median_salary = raw.get('salary_analysis', {}).get('median_salary')
 
-                    # 從檔名取得日期
-                    fname = analysis_files[i].name  # e.g. analysis_20260226_212141.json
-                    date_str = fname.split('_')[1]   # 20260226
+                    date_str = af.name.split('_')[1]
                     try:
                         report_date = datetime.strptime(date_str, '%Y%m%d').strftime('%Y/%m/%d')
                     except Exception:
@@ -73,6 +86,7 @@ class HistoryGenerator:
                         'median_salary': median_salary,
                         'report_date': report_date,
                         'sources': summary.get('sources_distribution', {}),
+                        'is_test': is_test,
                     }
                 except Exception:
                     pass
@@ -85,6 +99,7 @@ class HistoryGenerator:
                 'top_skill': analysis.get('top_skill', 'N/A'),
                 'median_salary': analysis.get('median_salary', 'N/A'),
                 'sources': analysis.get('sources', {}),
+                'is_test': analysis.get('is_test', is_test),
             })
 
         # 最新的排在前面
@@ -125,11 +140,22 @@ class HistoryGenerator:
     def _render_html(self, reports: List[Dict], trend: Dict) -> str:
         rows_html = ""
         for r in reports:
-            salary_disp = f"{r['median_salary']:,}" if isinstance(r['median_salary'], (int, float)) else (r['median_salary'] or 'N/A')
+            salary_disp = f"{r['median_salary']:,}" if isinstance(r['median_salary'], (int, float)) else (r['median_salary'] or '—')
             total_jobs_disp = f"{r['total_jobs']:,}" if r['total_jobs'] else '0'
+            is_test = r.get('is_test', r['week'] < 10)
+            period_badge = (
+                '<span style="background:#FEF3C7;color:#92400E;padding:2px 8px;border-radius:8px;'
+                'font-size:0.75rem;font-weight:700;margin-left:6px;">測試期</span>'
+                if is_test else
+                '<span style="background:#D1FAE5;color:#065F46;padding:2px 8px;border-radius:8px;'
+                'font-size:0.75rem;font-weight:700;margin-left:6px;">正式</span>'
+            )
+            # 測試期薪資顯示為不適用
+            if is_test:
+                salary_disp = '<span style="color:var(--text-muted);font-size:0.85rem;">僅104，無薪資</span>'
             rows_html += f"""
-                <tr>
-                    <td><span class="week-badge">第 {r['week']} 週</span></td>
+                <tr {'style="opacity:0.7;"' if is_test else ''}>
+                    <td><span class="week-badge">第 {r['week']} 週</span>{period_badge}</td>
                     <td>{r['date']}</td>
                     <td class="num">{total_jobs_disp}</td>
                     <td><span class="skill-tag">{r['top_skill']}</span></td>

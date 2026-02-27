@@ -7,7 +7,7 @@ Gemini LLM 智慧分析模組
 
 import os
 import json
-import google.generativeai as genai
+from google import genai
 from typing import Dict, Any, List
 
 class GeminiAnalyzer:
@@ -16,17 +16,15 @@ class GeminiAnalyzer:
         self.api_key = os.environ.get("GOOGLE_API_KEY")
         if not self.api_key:
             print("[LLM] 警告：未設定 GOOGLE_API_KEY 環境變數，將跳過 AI 分析。")
-            self.model = None
+            self.client = None
         else:
-            genai.configure(api_key=self.api_key)
-            # 使用 flash 模型，速度快且便宜
-            self.model = genai.GenerativeModel('gemini-1.5-flash')
+            self.client = genai.Client(api_key=self.api_key)
 
     def analyze_market_sentiment(self, social_data: Dict[str, Any]) -> str:
         """
         分析社群輿情，解讀求職者情緒
         """
-        if not self.model:
+        if not self.client:
             return "（AI 分析未啟動：缺少 API Key）"
 
         posts_count = social_data.get('total_posts_analyzed', 0)
@@ -46,7 +44,10 @@ class GeminiAnalyzer:
         """
         
         try:
-            response = self.model.generate_content(prompt)
+            response = self.client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=prompt,
+            )
             return response.text.strip()
         except Exception as e:
             return f"輿情分析生成失敗: {str(e)}"
@@ -55,10 +56,10 @@ class GeminiAnalyzer:
         """
         為黃老闆生成 CEO 級別的戰略建議
         """
-        if not self.model:
+        if not self.client:
             return {
                 "ceo_insight": "目前市場職缺穩定，建議維持現有課程規劃。",
-                "招生關鍵詞建議": "數位行銷, AI 應用"
+                "ads_keywords": "數位行銷, AI 應用"
             }
 
         summary = analysis_result.get('summary', {})
@@ -88,7 +89,10 @@ class GeminiAnalyzer:
         """
         
         try:
-            response = self.model.generate_content(prompt)
+            response = self.client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=prompt,
+            )
             # 清理可能的 Markdown 標記
             text = response.text.replace('```json', '').replace('```', '').strip()
             return json.loads(text)

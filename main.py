@@ -26,6 +26,7 @@ from scrapers.market_monitor import MarketMonitor
 from analyzer import JobAnalyzer, CourseRecommender, GeminiAnalyzer
 from report import HTMLReportGenerator
 from report.history_generator import HistoryGenerator
+from utils.notifier import LineNotifier
 
 
 def collect_jobs(test_mode: bool = False) -> list:
@@ -295,6 +296,22 @@ def main():
     # 步驟 5: 生成歷史報告索引
     print("\n" + "="*60)
     print("[Main] 生成歷史報告索引...")
+    print("="*60)
+    history_generator = HistoryGenerator()
+    history_generator.generate_history_page()
+    
+    # 步驟 6: 發送 LINE 通知
+    print("\n" + "="*60)
+    print("[Main] 發送 LINE 執行報告通知...")
+    print("="*60)
+    try:
+        notifier = LineNotifier()
+        notifier.send_report_notification(analysis_result, week_number)
+    except Exception as e:
+        print(f"[Main] LINE 通知發送失敗: {e}")
+    
+    print("\n" + "="*60)
+    print(f"[Main] 監控任務執行完成！第 {week_number} 週報告已產出。")
     print("="*60)
     
     history_generator = HistoryGenerator()

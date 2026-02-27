@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import JOB_KEYWORDS, MONITORING_AREAS, OUTPUT_CONFIG
 from scrapers import Scraper104, Scraper1111, Scraper518
 from scrapers.market_monitor import MarketMonitor
-from analyzer import JobAnalyzer, CourseRecommender
+from analyzer import JobAnalyzer, CourseRecommender, GeminiAnalyzer
 from report import HTMLReportGenerator
 from report.history_generator import HistoryGenerator
 
@@ -233,14 +233,28 @@ def main():
     
     # 步驟 3: 生成課程建議
     print("\n" + "="*60)
-    print("[Main] 生成課程建議...")
+    print("[Main] 生成課程建議與 AI 戰略分析...")
     print("="*60)
-    
     recommender = CourseRecommender()
     recommendations = recommender.generate_recommendations(analysis_result)
     
-    # 輸出文字版建議
-    print("\n" + recommender.format_recommendation_text(recommendations))
+    # 調用 Gemini 進行深度分析
+    try:
+        gemini = GeminiAnalyzer()
+        # 1. 深度輿情分析
+        if analysis_result.get('market_trends', {}).get('social_volume'):
+            sentiment = gemini.analyze_market_sentiment(analysis_result['market_trends']['social_volume'])
+            analysis_result['market_trends']['social_volume']['ai_sentiment_analysis'] = sentiment
+        
+        # 2. CEO 戰略建議
+        ceo_strategy = gemini.generate_ceo_strategy(analysis_result)
+        analysis_result['ceo_strategy'] = ceo_strategy
+        # 同時更新 recommendations 中的 executive_summary 以反映 AI 洞察
+        if ceo_strategy.get('ceo_insight'):
+            recommendations['executive_summary']['key_insight'] = ceo_strategy['ceo_insight']
+            
+    except Exception as e:
+        print(f"[Main] Gemini AI 分析失敗: {e}")
     
     # 步驟 4: 生成 HTML 報告
     print("\n" + "="*60)

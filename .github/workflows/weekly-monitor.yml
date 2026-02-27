@@ -46,6 +46,8 @@ jobs:
       run: |
         # 執行主程式，並確保日誌輸出
         python main.py
+      env:
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         
     - name: 驗證報告生成狀態
       run: |

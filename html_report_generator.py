@@ -831,11 +831,11 @@ class HTMLReportGenerator:
                 <div class="col-6">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">求職社群即時聲量</div>
+                            <div class="card-title">求職社群即時聲量與 AI 深度解讀</div>
                             <span class="card-badge success">PTT 近 {{ analysis.market_trends.social_volume.total_posts_analyzed }} 篇</span>
                         </div>
                         <div class="card-body">
-                            <div class="skill-tags">
+                            <div class="skill-tags" style="margin-bottom: 20px; border-bottom: 1px dashed var(--border); padding-bottom: 15px;">
                                 {% for kw, count in analysis.market_trends.social_volume.keyword_counts.items() %}
                                 {% if count > 0 %}
                                 <span class="skill-tag {% if loop.index <= 3 %}accent{% endif %}">
@@ -844,6 +844,15 @@ class HTMLReportGenerator:
                                 </span>
                                 {% endif %}
                                 {% endfor %}
+                            </div>
+                            
+                            <div class="insight-box" style="background: #F0F9FF; border-left: 4px solid #0EA5E9; border-radius: 8px; padding: 15px; margin-bottom: 0;">
+                                <h4 style="font-size: 0.9rem; color: #0369A1; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                                    <span>🧠 Gemini 輿情解讀：</span>
+                                </h4>
+                                <p style="font-size: 0.92rem; line-height: 1.6; color: #0C4A6E; margin: 0;">
+                                    {{ analysis.market_trends.social_volume.ai_sentiment_analysis or "（AI 正在讀取 PTT 話題中...）" }}
+                                </p>
                             </div>
                         </div>
                     </div>

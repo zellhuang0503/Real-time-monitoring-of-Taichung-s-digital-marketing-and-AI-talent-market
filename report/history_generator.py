@@ -44,7 +44,14 @@ class HistoryGenerator:
 
         # 分離測試期檔案（02/26 之前）和正式期檔案（02/26 及之後）
         test_files = [f for f in analysis_files if f.name < 'analysis_20260226']
-        official_files = [f for f in analysis_files if f.name >= 'analysis_20260226']
+
+        # 正式期：每個日期只取最新的一個檔案
+        official_by_date = {}
+        for f in analysis_files:
+            if f.name >= 'analysis_20260226':
+                date = f.name.split('_')[1]  # 取日期部分
+                official_by_date[date] = f  # 後面的會覆蓋前面的（因為已排序）
+        official_files = [official_by_date[d] for d in sorted(official_by_date.keys())]
 
         # 取得所有週報告 HTML
         week_pattern = re.compile(r'taichung_job_market_week(\d+)\.html')

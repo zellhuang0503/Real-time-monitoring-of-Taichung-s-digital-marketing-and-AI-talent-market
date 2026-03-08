@@ -264,10 +264,16 @@ def main():
     
     report_generator = HTMLReportGenerator()
     
-    # 計算週數（根據歷史檔案數量）
+    # 計算週數（根據現有週報告的最大週數 + 1）
     import glob
-    history_files = glob.glob(os.path.join(OUTPUT_CONFIG['data_dir'], 'analysis_*.json'))
-    week_number = len(history_files)
+    import re
+    week_files = glob.glob(os.path.join(OUTPUT_CONFIG['report_dir'], 'taichung_job_market_week*.html'))
+    existing_weeks = []
+    for wf in week_files:
+        m = re.search(r'week(\d+)\.html', wf)
+        if m:
+            existing_weeks.append(int(m.group(1)))
+    week_number = max(existing_weeks) + 1 if existing_weeks else 1
     
     report_path = os.path.join(
         OUTPUT_CONFIG['report_dir'],

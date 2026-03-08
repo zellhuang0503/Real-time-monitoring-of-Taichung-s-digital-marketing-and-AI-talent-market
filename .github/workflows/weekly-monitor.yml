@@ -78,7 +78,11 @@ jobs:
       run: |
         git add data/ report/
         git diff --staged --quiet || git commit -m "[Auto] 更新就業市場監控報告 - $(date +'%Y-%m-%d %H:%M:%S')"
-        git pull origin main --rebase || true
+        # 拉取遠端變更，遇到衝突時保留本地生成的新版本
+        git pull origin main --rebase -X theirs || {
+          git rebase --abort 2>/dev/null || true
+          git pull origin main --no-rebase -X theirs
+        }
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

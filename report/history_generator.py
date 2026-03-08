@@ -33,7 +33,7 @@ class HistoryGenerator:
     def _build_reports(self) -> List[Dict]:
         """
         Week <10 = 測試期（對應 104-only 舊檔）
-        Week 10+ = 正式期（對應最新的三來源完整分析檔）
+        Week 10+ = 正式期（各週對應各自的完整分析檔）
         """
         # 取得所有分析 JSON，過濾掉中間除錯產生的備份（215115, 215309）
         all_files = sorted(self.data_dir.glob("analysis_*.json"))
@@ -42,8 +42,9 @@ class HistoryGenerator:
             if '215115' not in f.name and '215309' not in f.name
         ]
 
-        # 最新的完整分析檔（含三大來源）= 最後一個
-        complete_file = analysis_files[-1] if analysis_files else None
+        # 分離測試期檔案（02/26 之前）和正式期檔案（02/26 及之後）
+        test_files = [f for f in analysis_files if f.name < 'analysis_20260226']
+        official_files = [f for f in analysis_files if f.name >= 'analysis_20260226']
 
         # 取得所有週報告 HTML
         week_pattern = re.compile(r'taichung_job_market_week(\d+)\.html')
@@ -54,15 +55,21 @@ class HistoryGenerator:
                 week_files[int(m.group(1))] = f.name
         sorted_weeks = sorted(week_files.keys())
 
+        # 分離測試週和正式週
+        test_weeks = [w for w in sorted_weeks if w < 10]
+        official_weeks = [w for w in sorted_weeks if w >= 10]
+
         reports = []
         for i, week_num in enumerate(sorted_weeks):
             is_test = week_num < 10
 
-            # 週次對應分析檔：測試期用舊檔，正式期用完整檔
+            # 週次對應分析檔：測試期用舊檔，正式期各週對應各自的檔案
             if is_test:
-                af = analysis_files[i] if i < len(analysis_files) - 1 else (complete_file or analysis_files[-1])
+                test_idx = test_weeks.index(week_num)
+                af = test_files[test_idx] if test_idx < len(test_files) else (test_files[-1] if test_files else None)
             else:
-                af = complete_file
+                official_idx = official_weeks.index(week_num)
+                af = official_files[official_idx] if official_idx < len(official_files) else (official_files[-1] if official_files else None)
 
             analysis: Dict = {}
             if af:

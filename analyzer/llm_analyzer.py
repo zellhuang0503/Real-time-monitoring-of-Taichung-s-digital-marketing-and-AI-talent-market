@@ -19,7 +19,7 @@ class GeminiAnalyzer:
             self.model = None
         else:
             genai.configure(api_key=self.api_key)
-            self.model = genai.GenerativeModel('gemini-1.5-flash')
+            self.model = genai.GenerativeModel('gemini-2.5-flash')
 
     def analyze_market_sentiment(self, social_data: Dict[str, Any]) -> str:
         """

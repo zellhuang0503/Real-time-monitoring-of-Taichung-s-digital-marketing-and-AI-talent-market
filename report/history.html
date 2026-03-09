@@ -138,7 +138,7 @@
         <div class="sub">台中中部數位人才就業市場 — 長期追蹤分析</div>
         <div class="nav-pills">
             <a href="index.html" class="nav-pill">← 回到最新報告</a>
-            <a href="taichung_job_market_week11.html" class="nav-pill">最新週報告</a>
+            <a href="taichung_job_market_week12.html" class="nav-pill">最新週報告</a>
         </div>
     </header>
 
@@ -146,22 +146,22 @@
     <div class="kpi-grid">
         <div class="kpi-card">
             <div class="kpi-icon">📅</div>
-            <div class="kpi-value">10</div>
+            <div class="kpi-value">11</div>
             <div class="kpi-label">累計週數</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-icon">💼</div>
-            <div class="kpi-value">3,062</div>
+            <div class="kpi-value">2,451</div>
             <div class="kpi-label">最新職缺數</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-icon">📊</div>
-            <div class="kpi-value up">+2.7%</div>
+            <div class="kpi-value down">-17.8%</div>
             <div class="kpi-label">職缺數累計變化</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-icon">🗓️</div>
-            <div class="kpi-value">11</div>
+            <div class="kpi-value">12</div>
             <div class="kpi-label">當前週次</div>
         </div>
     </div>
@@ -183,7 +183,7 @@
     <div class="card">
         <div class="card-header">
             <div class="card-title">歷史報告列表</div>
-            <span class="badge">10 週</span>
+            <span class="badge">11 週</span>
         </div>
         <div class="table-wrap">
             <table>
@@ -198,6 +198,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                <tr >
+                    <td><span class="week-badge">第 12 週</span><span style="background:#D1FAE5;color:#065F46;padding:2px 8px;border-radius:8px;font-size:0.75rem;font-weight:700;margin-left:6px;">正式</span></td>
+                    <td>2026/03/09</td>
+                    <td class="num">2,451</td>
+                    <td><span class="skill-tag">Illustrator</span></td>
+                    <td class="num">42,500</td>
+                    <td><a href="taichung_job_market_week12.html" class="btn-view" target="_blank">查看報告 →</a></td>
+                </tr>
                 <tr >
                     <td><span class="week-badge">第 11 週</span><span style="background:#D1FAE5;color:#065F46;padding:2px 8px;border-radius:8px;font-size:0.75rem;font-weight:700;margin-left:6px;">正式</span></td>
                     <td>2026/03/08</td>
@@ -289,7 +297,7 @@
 </div>
 
 <script>
-const trend = {"has_trend": true, "weeks": [1, 2, 4, 5, 6, 7, 8, 9, 10, 11], "job_counts": [2982, 2655, 2628, 3326, 1326, 1323, 1321, 1326, 3283, 3062], "dates": ["2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/26", "2026/03/08"], "job_change": 80, "job_change_pct": 2.7, "latest_week": 11, "latest_jobs": 3062};
+const trend = {"has_trend": true, "weeks": [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12], "job_counts": [2982, 2655, 2628, 3326, 1326, 1323, 1321, 1326, 3283, 3062, 2451], "dates": ["2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/24", "2026/02/26", "2026/03/08", "2026/03/09"], "job_change": -531, "job_change_pct": -17.8, "latest_week": 12, "latest_jobs": 2451};
 const fontFamily = "'Nunito', 'Noto Sans TC', sans-serif";
 
 if (trend.has_trend && trend.weeks && trend.weeks.length >= 2) {

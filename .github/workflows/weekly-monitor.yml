@@ -2,11 +2,10 @@ name: 台中中部數位人才就業市場監控
 
 on:
   # 每雙週週二台北時間早上 9 點自動執行（UTC+8，換算 UTC 為凌晨 1 點）
-  # 執行於每月的第 1 和第 3 個週二（日期 1-14 日或 15-21 日）
+  # 每週二都會觸發，但只在第 1 和第 3 個週二實際執行
   schedule:
-    - cron: '0 1 1-14 * 2'
-    - cron: '0 1 15-21 * 2'
-  
+    - cron: '0 1 * * 2'  # 每週二 UTC 01:00（台北 09:00）
+
   # 允許手動觸發
   workflow_dispatch:
 
@@ -19,31 +18,58 @@ jobs:
   monitor:
     runs-on: ubuntu-latest
     environment: "Auto run" # 綁定黃老闆設定的環境變數
-    
+
     steps:
+    - name: 檢查是否為雙週執行日
+      id: check_week
+      run: |
+        # 手動觸發時始終執行
+        if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          echo "should_run=true" >> $GITHUB_OUTPUT
+          echo "✅ 手動觸發，繼續執行"
+          exit 0
+        fi
+
+        DAY_OF_MONTH=$(date -u +%d)
+        echo "今天是 $DAY_OF_MONTH 號（UTC）"
+
+        # 第1個週二: 1-7日, 第3個週二: 15-21日
+        if [[ $DAY_OF_MONTH -ge 1 && $DAY_OF_MONTH -le 7 ]] || [[ $DAY_OF_MONTH -ge 15 && $DAY_OF_MONTH -le 21 ]]; then
+          echo "should_run=true" >> $GITHUB_OUTPUT
+          echo "✅ 符合雙週執行條件（第1或第3個週二），繼續執行"
+        else
+          echo "should_run=false" >> $GITHUB_OUTPUT
+          echo "⏭️ 非雙週執行日（第2或第4個週二），跳過本次執行"
+        fi
+
     - name: 檢出程式碼
+      if: steps.check_week.outputs.should_run == 'true'
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
         
     - name: 設定 Python 環境
+      if: steps.check_week.outputs.should_run == 'true'
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
         cache: 'pip' # 使用 pip 快取，節省安裝時間
-        
+
     - name: 安裝相依套件
+      if: steps.check_week.outputs.should_run == 'true'
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        
+
     - name: 系統環境診斷
+      if: steps.check_week.outputs.should_run == 'true'
       run: |
         echo "執行時間: $(date)"
         python --version
-        
+
     - name: 執行監控與分析 (主任務)
+      if: steps.check_week.outputs.should_run == 'true'
       run: |
         # 執行主程式，並確保日誌輸出
         python main.py
@@ -51,16 +77,18 @@ jobs:
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
         LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
-        
+
     - name: 驗證報告生成狀態
+      if: steps.check_week.outputs.should_run == 'true'
       run: |
         if [ ! -f "report/index.html" ]; then
           echo "錯誤: 報告檔案 index.html 未生成！"
           exit 1
         fi
         echo "報告驗證成功。"
-        
+
     - name: 上傳資料檔案為 Artifact
+      if: steps.check_week.outputs.should_run == 'true'
       uses: actions/upload-artifact@v4
       with:
         name: job-data-${{ github.run_number }}
@@ -70,11 +98,13 @@ jobs:
         retention-days: 90
 
     - name: 設定 Git
+      if: steps.check_week.outputs.should_run == 'true'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
 
     - name: 提交更新的報告到 main 分支
+      if: steps.check_week.outputs.should_run == 'true'
       run: |
         git add data/ report/
         git diff --staged --quiet || git commit -m "[Auto] 更新就業市場監控報告 - $(date +'%Y-%m-%d %H:%M:%S')"
@@ -86,8 +116,9 @@ jobs:
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - name: 部署到 GitHub Pages
+      if: steps.check_week.outputs.should_run == 'true'
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: ./report

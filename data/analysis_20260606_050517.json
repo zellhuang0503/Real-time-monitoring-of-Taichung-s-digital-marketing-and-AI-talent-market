@@ -1,0 +1,993 @@
+{
+  "analysis_date": "2026-06-06T05:03:55.406436",
+  "summary": {
+    "total_jobs": 3688,
+    "sources_distribution": {
+      "104": 3594,
+      "518": 94
+    },
+    "area_distribution": {
+      "taichung": 2088,
+      "changhua": 952,
+      "nantou": 648
+    },
+    "salary_coverage": {
+      "with_salary": 63,
+      "without_salary": 3625,
+      "coverage_rate": 1.7
+    },
+    "date_range": {
+      "earliest": "06/04",
+      "latest": "20260606"
+    }
+  },
+  "job_distribution": {
+    "by_search_keyword": [
+      {
+        "keyword": "UI 設計",
+        "count": 728,
+        "percentage": 19.7
+      },
+      {
+        "keyword": "數位行銷",
+        "count": 708,
+        "percentage": 19.2
+      },
+      {
+        "keyword": "數據分析",
+        "count": 688,
+        "percentage": 18.7
+      },
+      {
+        "keyword": "人工智慧",
+        "count": 551,
+        "percentage": 14.9
+      },
+      {
+        "keyword": "前端",
+        "count": 285,
+        "percentage": 7.7
+      },
+      {
+        "keyword": "SEO",
+        "count": 281,
+        "percentage": 7.6
+      },
+      {
+        "keyword": "資料分析",
+        "count": 177,
+        "percentage": 4.8
+      },
+      {
+        "keyword": "後端",
+        "count": 167,
+        "percentage": 4.5
+      },
+      {
+        "keyword": "Prompt",
+        "count": 73,
+        "percentage": 2.0
+      },
+      {
+        "keyword": "UX 設計",
+        "count": 30,
+        "percentage": 0.8
+      }
+    ],
+    "by_job_category": [
+      {
+        "category": "",
+        "count": 3688,
+        "percentage": 100.0
+      }
+    ]
+  },
+  "skill_analysis": {
+    "total_jobs_analyzed": 3688,
+    "unique_skills_found": 18,
+    "top_skills": [
+      {
+        "skill": "Illustrator",
+        "count": 71,
+        "percentage": 1.9
+      },
+      {
+        "skill": "SEO",
+        "count": 16,
+        "percentage": 0.4
+      },
+      {
+        "skill": "JavaScript",
+        "count": 8,
+        "percentage": 0.2
+      },
+      {
+        "skill": "Vue",
+        "count": 6,
+        "percentage": 0.2
+      },
+      {
+        "skill": "React",
+        "count": 4,
+        "percentage": 0.1
+      },
+      {
+        "skill": "Node.js",
+        "count": 4,
+        "percentage": 0.1
+      },
+      {
+        "skill": "Python",
+        "count": 3,
+        "percentage": 0.1
+      },
+      {
+        "skill": "蝦皮",
+        "count": 2,
+        "percentage": 0.1
+      },
+      {
+        "skill": "Premiere",
+        "count": 2,
+        "percentage": 0.1
+      },
+      {
+        "skill": "WordPress",
+        "count": 2,
+        "percentage": 0.1
+      },
+      {
+        "skill": "HTML/CSS",
+        "count": 2,
+        "percentage": 0.1
+      },
+      {
+        "skill": "Excel",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "Claude",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "Google Ads",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "After Effects",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "TypeScript",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "Figma",
+        "count": 1,
+        "percentage": 0.0
+      },
+      {
+        "skill": "SQL",
+        "count": 1,
+        "percentage": 0.0
+      }
+    ],
+    "skill_by_category": {
+      "": [
+        {
+          "skill": "Illustrator",
+          "count": 71
+        },
+        {
+          "skill": "SEO",
+          "count": 16
+        },
+        {
+          "skill": "JavaScript",
+          "count": 8
+        },
+        {
+          "skill": "Vue",
+          "count": 6
+        },
+        {
+          "skill": "React",
+          "count": 4
+        },
+        {
+          "skill": "Node.js",
+          "count": 4
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "蝦皮",
+          "count": 2
+        },
+        {
+          "skill": "Premiere",
+          "count": 2
+        },
+        {
+          "skill": "WordPress",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "skill_combinations": [
+    {
+      "skills": [
+        "JavaScript",
+        "Node.js"
+      ],
+      "count": 4,
+      "description": "JavaScript + Node.js"
+    },
+    {
+      "skills": [
+        "React",
+        "Vue"
+      ],
+      "count": 2,
+      "description": "React + Vue"
+    },
+    {
+      "skills": [
+        "Excel",
+        "Python"
+      ],
+      "count": 1,
+      "description": "Excel + Python"
+    },
+    {
+      "skills": [
+        "Illustrator",
+        "WordPress"
+      ],
+      "count": 1,
+      "description": "Illustrator + WordPress"
+    },
+    {
+      "skills": [
+        "SEO",
+        "WordPress"
+      ],
+      "count": 1,
+      "description": "SEO + WordPress"
+    },
+    {
+      "skills": [
+        "Illustrator",
+        "SEO"
+      ],
+      "count": 1,
+      "description": "Illustrator + SEO"
+    },
+    {
+      "skills": [
+        "Claude",
+        "Illustrator"
+      ],
+      "count": 1,
+      "description": "Claude + Illustrator"
+    },
+    {
+      "skills": [
+        "JavaScript",
+        "React"
+      ],
+      "count": 1,
+      "description": "JavaScript + React"
+    },
+    {
+      "skills": [
+        "Figma",
+        "Illustrator"
+      ],
+      "count": 1,
+      "description": "Figma + Illustrator"
+    },
+    {
+      "skills": [
+        "Illustrator",
+        "Python"
+      ],
+      "count": 1,
+      "description": "Illustrator + Python"
+    }
+  ],
+  "salary_analysis": {
+    "total_analyzed": 3688,
+    "has_salary_info": 21,
+    "salary_coverage_rate": 0.6,
+    "median_salary": 41250,
+    "mean_salary": 40748,
+    "min_salary": 13470,
+    "max_salary": 70000,
+    "p25": 36000,
+    "p75": 44000,
+    "range_distribution": [
+      {
+        "range": "30K - 40K",
+        "count": 4,
+        "percentage": 19.0
+      },
+      {
+        "range": "30K 以下",
+        "count": 2,
+        "percentage": 9.5
+      },
+      {
+        "range": "40K - 50K",
+        "count": 12,
+        "percentage": 57.1
+      },
+      {
+        "range": "50K - 60K",
+        "count": 2,
+        "percentage": 9.5
+      },
+      {
+        "range": "60K - 80K",
+        "count": 1,
+        "percentage": 4.8
+      }
+    ],
+    "salary_by_category": [
+      {
+        "category": "",
+        "count": 21,
+        "median": 41250,
+        "mean": 40748
+      }
+    ],
+    "salary_by_experience": [
+      {
+        "experience": "不拘",
+        "count": 9,
+        "median": 43500,
+        "mean": 43666
+      }
+    ]
+  },
+  "salary_by_skill": {
+    "total_skills_analyzed": 0,
+    "top_paying_skills": [],
+    "skill_salary_details": []
+  },
+  "company_analysis": {
+    "total_companies": 1877,
+    "top_industries": [
+      {
+        "industry": "1001001002",
+        "industry_name": "網路相關",
+        "count": 275,
+        "percentage": 7.5
+      },
+      {
+        "industry": "1001001003",
+        "industry_name": "電子商務",
+        "count": 163,
+        "percentage": 4.4
+      },
+      {
+        "industry": "1001003003",
+        "industry_name": "數位內容",
+        "count": 119,
+        "percentage": 3.2
+      },
+      {
+        "industry": "1003001015",
+        "industry_name": "銀行",
+        "count": 105,
+        "percentage": 2.8
+      },
+      {
+        "industry": "1006003001",
+        "industry_name": "電子製造",
+        "count": 98,
+        "percentage": 2.7
+      },
+      {
+        "industry": "1001001001",
+        "industry_name": "電腦軟體",
+        "count": 93,
+        "percentage": 2.5
+      },
+      {
+        "industry": "1012001001",
+        "industry_name": "餐飲業",
+        "count": 92,
+        "percentage": 2.5
+      },
+      {
+        "industry": "1002011010",
+        "industry_name": "其他產業(1002011010)",
+        "count": 92,
+        "percentage": 2.5
+      },
+      {
+        "industry": "1008003001",
+        "industry_name": "機械設備",
+        "count": 90,
+        "percentage": 2.4
+      },
+      {
+        "industry": "1003002014",
+        "industry_name": "其他產業(1003002014)",
+        "count": 83,
+        "percentage": 2.3
+      },
+      {
+        "industry": "1016002001",
+        "industry_name": "醫療服務",
+        "count": 70,
+        "percentage": 1.9
+      },
+      {
+        "industry": "1001001006",
+        "industry_name": "電信相關",
+        "count": 61,
+        "percentage": 1.7
+      },
+      {
+        "industry": "1011003002",
+        "industry_name": "其他產業(1011003002)",
+        "count": 55,
+        "percentage": 1.5
+      },
+      {
+        "industry": "1003002016",
+        "industry_name": "投資理財",
+        "count": 54,
+        "percentage": 1.5
+      },
+      {
+        "industry": "1002009002",
+        "industry_name": "其他產業(1002009002)",
+        "count": 53,
+        "percentage": 1.4
+      }
+    ],
+    "top_hiring_companies": [
+      {
+        "company": "全家便利商店股份有限公司",
+        "job_count": 76
+      },
+      {
+        "company": "環鴻科技股份有限公司",
+        "job_count": 64
+      },
+      {
+        "company": "TOP 租賃管理團隊(領先不動產管理顧問有限公司)",
+        "job_count": 38
+      },
+      {
+        "company": "大豐環保科技股份有限公司",
+        "job_count": 34
+      },
+      {
+        "company": "怡利電子工業股份有限公司",
+        "job_count": 30
+      },
+      {
+        "company": "橋星廣告製作有限公司",
+        "job_count": 25
+      },
+      {
+        "company": "邑方醫療器材企業社",
+        "job_count": 21
+      },
+      {
+        "company": "中國醫藥大學附設醫院",
+        "job_count": 21
+      },
+      {
+        "company": "工研院 _財團法人工業技術研究院",
+        "job_count": 19
+      },
+      {
+        "company": "秀傳醫療體系_秀傳醫療社團法人秀傳紀念醫院",
+        "job_count": 18
+      },
+      {
+        "company": "台中商業銀行股份有限公司",
+        "job_count": 17
+      },
+      {
+        "company": "弈樂科技股份有限公司",
+        "job_count": 16
+      },
+      {
+        "company": "飛輪電商有限公司",
+        "job_count": 15
+      },
+      {
+        "company": "王品餐飲股份有限公司",
+        "job_count": 13
+      },
+      {
+        "company": "寶成工業股份有限公司",
+        "job_count": 13
+      },
+      {
+        "company": "涵碧樓大飯店股份有限公司",
+        "job_count": 13
+      },
+      {
+        "company": "皮克網路有限公司",
+        "job_count": 12
+      },
+      {
+        "company": "喬崴進科技股份有限公司",
+        "job_count": 12
+      },
+      {
+        "company": "巨鷗科技股份有限公司",
+        "job_count": 12
+      },
+      {
+        "company": "中山醫學大學附設醫院",
+        "job_count": 11
+      }
+    ],
+    "company_size_distribution": {
+      "large_scale": 24,
+      "medium_scale": 287,
+      "small_scale": 1566
+    }
+  },
+  "experience_requirements": {
+    "distribution": [
+      {
+        "experience": "經驗不拘",
+        "count": 1919,
+        "percentage": 52.0
+      },
+      {
+        "experience": "1-3年",
+        "count": 648,
+        "percentage": 17.6
+      },
+      {
+        "experience": "3-5年",
+        "count": 585,
+        "percentage": 15.9
+      },
+      {
+        "experience": "5-10年",
+        "count": 514,
+        "percentage": 13.9
+      },
+      {
+        "experience": "1年以下",
+        "count": 16,
+        "percentage": 0.4
+      },
+      {
+        "experience": "其他/未註明",
+        "count": 6,
+        "percentage": 0.2
+      }
+    ],
+    "entry_level_friendly": {
+      "count": 1935,
+      "percentage": 52.5
+    }
+  },
+  "education_requirements": {
+    "distribution": [
+      {
+        "education": "其他/未註明",
+        "count": 3604,
+        "percentage": 97.7
+      },
+      {
+        "education": "學歷不拘",
+        "count": 70,
+        "percentage": 1.9
+      },
+      {
+        "education": "高中/高職",
+        "count": 10,
+        "percentage": 0.3
+      },
+      {
+        "education": "專科",
+        "count": 4,
+        "percentage": 0.1
+      }
+    ]
+  },
+  "trend_analysis": {
+    "job_count_change": {
+      "current": 3688,
+      "previous": 3688,
+      "change": 0,
+      "change_percentage": 0.0
+    },
+    "skill_trends": {
+      "rising_skills": [],
+      "declining_skills": [],
+      "all_trends": [
+        {
+          "skill": "HTML/CSS",
+          "current_count": 2,
+          "previous_count": 2,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Premiere",
+          "current_count": 2,
+          "previous_count": 2,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "SEO",
+          "current_count": 16,
+          "previous_count": 16,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "React",
+          "current_count": 4,
+          "previous_count": 4,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "SQL",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "蝦皮",
+          "current_count": 2,
+          "previous_count": 2,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Google Ads",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Excel",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Python",
+          "current_count": 3,
+          "previous_count": 3,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Claude",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Vue",
+          "current_count": 6,
+          "previous_count": 6,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "TypeScript",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "WordPress",
+          "current_count": 2,
+          "previous_count": 2,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Node.js",
+          "current_count": 4,
+          "previous_count": 4,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Figma",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "After Effects",
+          "current_count": 1,
+          "previous_count": 1,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "Illustrator",
+          "current_count": 71,
+          "previous_count": 71,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "JavaScript",
+          "current_count": 8,
+          "previous_count": 8,
+          "change": 0,
+          "change_percentage": 0.0,
+          "trend": "stable"
+        }
+      ]
+    },
+    "salary_trends": {
+      "has_data": true,
+      "current_median": 6500,
+      "previous_median": 6500,
+      "change": 0,
+      "change_percentage": 0.0,
+      "trend": "stable",
+      "current_mean": 20301,
+      "previous_mean": 20301
+    }
+  },
+  "emerging_jobs": [],
+  "market_trends": {
+    "timestamp": "2026-06-06T05:03:56.374799",
+    "regional_unemployment": {
+      "data_period": "114年上半年（2025/01-06）",
+      "source": "行政院主計總處 人力資源調查",
+      "taiwan_total_unemployed": 400000,
+      "taiwan_unemployment_rate": 3.33,
+      "youth_ratio_in_unemployed": 0.248,
+      "regions": {
+        "北部": {
+          "total_unemployed": 183000,
+          "youth_unemployed_est": 45384,
+          "counties": [
+            {
+              "county": "臺北市",
+              "unemployed_persons": 40000,
+              "unemployment_rate": 3.4,
+              "youth_est": 9920
+            },
+            {
+              "county": "新北市",
+              "unemployed_persons": 71000,
+              "unemployment_rate": 3.3,
+              "youth_est": 17608
+            },
+            {
+              "county": "桃園市",
+              "unemployed_persons": 40000,
+              "unemployment_rate": 3.3,
+              "youth_est": 9920
+            },
+            {
+              "county": "基隆市",
+              "unemployed_persons": 6000,
+              "unemployment_rate": 3.5,
+              "youth_est": 1488
+            },
+            {
+              "county": "新竹市",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.3,
+              "youth_est": 1984
+            },
+            {
+              "county": "新竹縣",
+              "unemployed_persons": 10000,
+              "unemployment_rate": 3.3,
+              "youth_est": 2480
+            },
+            {
+              "county": "宜蘭縣",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.2,
+              "youth_est": 1984
+            }
+          ]
+        },
+        "中部（含苗栗）": {
+          "total_unemployed": 89000,
+          "youth_unemployed_est": 22072,
+          "counties": [
+            {
+              "county": "苗栗縣",
+              "unemployed_persons": 9000,
+              "unemployment_rate": 3.3,
+              "youth_est": 2232
+            },
+            {
+              "county": "臺中市",
+              "unemployed_persons": 51000,
+              "unemployment_rate": 3.4,
+              "youth_est": 12648
+            },
+            {
+              "county": "彰化縣",
+              "unemployed_persons": 21000,
+              "unemployment_rate": 3.3,
+              "youth_est": 5208
+            },
+            {
+              "county": "南投縣",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.3,
+              "youth_est": 1984
+            }
+          ]
+        },
+        "雲嘉（雲林+嘉義）": {
+          "total_unemployed": 23000,
+          "youth_unemployed_est": 5704,
+          "counties": [
+            {
+              "county": "雲林縣",
+              "unemployed_persons": 11000,
+              "unemployment_rate": 3.3,
+              "youth_est": 2728
+            },
+            {
+              "county": "嘉義市",
+              "unemployed_persons": 4000,
+              "unemployment_rate": 3.2,
+              "youth_est": 992
+            },
+            {
+              "county": "嘉義縣",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.2,
+              "youth_est": 1984
+            }
+          ]
+        },
+        "南部（含高雄）": {
+          "total_unemployed": 95000,
+          "youth_unemployed_est": 23560,
+          "counties": [
+            {
+              "county": "臺南市",
+              "unemployed_persons": 34000,
+              "unemployment_rate": 3.4,
+              "youth_est": 8432
+            },
+            {
+              "county": "高雄市",
+              "unemployed_persons": 45000,
+              "unemployment_rate": 3.2,
+              "youth_est": 11160
+            },
+            {
+              "county": "屏東縣",
+              "unemployed_persons": 14000,
+              "unemployment_rate": 3.3,
+              "youth_est": 3472
+            },
+            {
+              "county": "澎湖縣",
+              "unemployed_persons": 2000,
+              "unemployment_rate": 3.3,
+              "youth_est": 496
+            }
+          ]
+        },
+        "東部": {
+          "total_unemployed": 8000,
+          "youth_unemployed_est": 1984,
+          "counties": [
+            {
+              "county": "花蓮縣",
+              "unemployed_persons": 5000,
+              "unemployment_rate": 3.2,
+              "youth_est": 1240
+            },
+            {
+              "county": "臺東縣",
+              "unemployed_persons": 3000,
+              "unemployment_rate": 3.3,
+              "youth_est": 744
+            }
+          ]
+        }
+      },
+      "note": "青年(15-29歲)估計人數 = 失業人數 × 24.8%（依勞動部113年調查比例推估）"
+    },
+    "social_volume": {
+      "source": "PTT (Salary, Soft_Job, Tech_Job)",
+      "total_posts_analyzed": 179,
+      "keyword_counts": {
+        "面試": 11,
+        "待業": 6,
+        "轉職": 1,
+        "找不到": 0,
+        "職訓": 0,
+        "新尖兵": 0,
+        "履歷": 0,
+        "焦慮": 0
+      }
+    },
+    "search_trends": {
+      "timeframe": "過去 3 個月",
+      "trends": {
+        "找工作": {
+          "current_index": 9.4,
+          "trend_change_pct": 3.1,
+          "status": "持平 →"
+        },
+        "職訓": {
+          "current_index": 7.0,
+          "trend_change_pct": -5.8,
+          "status": "下降 ↘"
+        },
+        "履歷": {
+          "current_index": 12.0,
+          "trend_change_pct": -3.4,
+          "status": "持平 →"
+        },
+        "面試": {
+          "current_index": 31.9,
+          "trend_change_pct": -14.9,
+          "status": "下降 ↘"
+        },
+        "新尖兵": {
+          "current_index": 0.6,
+          "trend_change_pct": 0.0,
+          "status": "持平 →"
+        }
+      }
+    },
+    "unemployment_data": {
+      "update_date": "114年上半年（2025/01-06）",
+      "overall_rate": 3.33,
+      "age_15_24_rate": 11.5,
+      "age_25_29_rate": 5.8,
+      "insight": "15-24歲青年失業率為整體平均的3倍以上，為待業核心族群。"
+    }
+  }
+}

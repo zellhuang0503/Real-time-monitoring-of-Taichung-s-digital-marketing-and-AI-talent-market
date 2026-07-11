@@ -7,14 +7,23 @@ Gemini LLM 智慧分析模組
 
 import os
 import json
-import google.generativeai as genai
 from typing import Dict, Any, List
+
+# google-generativeai 為可選相依套件：缺少時仍可產出報告，
+# 只是 AI 分析區塊會標示「未執行」
+try:
+    import google.generativeai as genai
+except ImportError:
+    genai = None
 
 class GeminiAnalyzer:
     def __init__(self):
         # 從環境變數讀取 API Key (Patrick 要求的安全性規範)
         self.api_key = os.environ.get("GOOGLE_API_KEY")
-        if not self.api_key:
+        if genai is None:
+            print("[LLM] 警告：未安裝 google-generativeai 套件，將跳過 AI 分析。")
+            self.model = None
+        elif not self.api_key:
             print("[LLM] 警告：未設定 GOOGLE_API_KEY 環境變數，將跳過 AI 分析。")
             self.model = None
         else:
@@ -55,9 +64,11 @@ class GeminiAnalyzer:
         為黃老闆生成 CEO 級別的戰略建議
         """
         if not self.model:
+            # 不可回傳看似真實的罐頭洞察——報告必須誠實標示 AI 分析未執行
             return {
-                "ceo_insight": "目前市場職缺穩定，建議維持現有課程規劃。",
-                "ads_keywords": "數位行銷, AI 應用"
+                "ceo_insight": "（本週 AI 戰略分析未執行：AI 分析模組未啟用（缺少套件或 GOOGLE_API_KEY）。以上市場數據仍為真實爬取資料。）",
+                "ads_keywords": "",
+                "unavailable": True,
             }
 
         summary = analysis_result.get('summary', {})
@@ -91,8 +102,11 @@ class GeminiAnalyzer:
             # 清理可能的 Markdown 標記
             text = response.text.replace('```json', '').replace('```', '').strip()
             return json.loads(text)
-        except Exception:
+        except Exception as e:
+            # 不可回傳罐頭洞察冒充 AI 分析——修正前的版本在這裡回傳固定文字，
+            # 導致 Gemini 失敗時每週報告出現一模一樣的「洞察」
             return {
-                "ceo_insight": "職缺數與技能需求顯示，AI 實務應用仍是市場最大缺口，建議強化招生文案中的工具應用描述。",
-                "ads_keywords": "AI行銷, 自動化工具, 數位轉職"
+                "ceo_insight": f"（本週 AI 戰略分析失敗：{type(e).__name__}。以上市場數據仍為真實爬取資料。）",
+                "ads_keywords": "",
+                "unavailable": True,
             }

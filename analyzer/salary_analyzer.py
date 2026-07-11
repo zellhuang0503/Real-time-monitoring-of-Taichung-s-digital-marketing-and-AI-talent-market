@@ -160,11 +160,8 @@ class SalaryAnalyzer:
             else:
                 continue
             
-            # 提取技能
-            skills = skill_extractor.extract_skills(
-                job.get('job_description', ''),
-                job.get('title', '')
-            )
+            # 提取技能（含 104 詳細頁的擅長工具等欄位）
+            skills = skill_extractor.extract_skills_from_job(job)
             
             # 累積各技能的薪資
             for skill in skills:

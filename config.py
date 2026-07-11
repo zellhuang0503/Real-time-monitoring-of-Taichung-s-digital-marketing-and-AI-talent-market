@@ -44,22 +44,32 @@ JOB_KEYWORDS = {
 }
 
 # 技能關鍵字映射（用於從職缺描述中提取技能）
+# 注意：縮寫別名只能用「不會撞名」的詞。
+# 歷史教訓（2026-07 修正）：曾把 "AI" 設為 Illustrator 別名，導致所有 AI 職缺
+# 被統計成 Illustrator 需求；"PR"（公關）、"PS"、"AE"（廣告業務）同樣會誤判，已移除。
 SKILL_KEYWORDS = {
     # 行銷工具
     "GA4": ["Google Analytics 4", "GA4", "Google Analytics"],
-    "Google Ads": ["Google Ads", "Google AdWords", "關鍵字廣告"],
+    "Google Ads": ["Google Ads", "Google AdWords", "關鍵字廣告", "Google關鍵字廣告"],
+    "Google Tag Manager": ["Google Tag Manager", "GTM"],
     "Meta Ads": ["Meta Ads", "Facebook Ads", "Instagram Ads", "FB 廣告", "IG 廣告"],
     "SEO": ["SEO", "搜尋引擎優化"],
-    "WordPress": ["WordPress", "WP"],
+    "WordPress": ["WordPress"],
     "Shopify": ["Shopify"],
     "蝦皮": ["蝦皮", "Shopee"],
-    
-    # AI 工具
+
+    # AI 工具與應用（獨立類別，不可與 Illustrator 混用）
+    "AI 應用": ["AI", "人工智慧", "AI 工具", "AI工具", "AI 應用", "AI應用",
+                "機器學習", "Machine Learning"],
+    "生成式 AI": ["生成式 AI", "生成式AI", "Generative AI", "GenAI", "AIGC",
+                  "LLM", "AI 繪圖", "AI繪圖"],
     "ChatGPT": ["ChatGPT", "GPT", "OpenAI"],
-    "Midjourney": ["Midjourney"],
-    "Copilot": ["Copilot", "GitHub Copilot"],
     "Claude": ["Claude"],
-    
+    "Copilot": ["Copilot", "GitHub Copilot"],
+    "Midjourney": ["Midjourney"],
+    "Stable Diffusion": ["Stable Diffusion"],
+    "Prompt 工程": ["Prompt", "提示詞", "詠唱師"],
+
     # 開發語言
     "Python": ["Python"],
     "JavaScript": ["JavaScript", "JS"],
@@ -68,19 +78,24 @@ SKILL_KEYWORDS = {
     "React": ["React", "React.js"],
     "Vue": ["Vue", "Vue.js"],
     "Node.js": ["Node.js", "Nodejs"],
-    
+
     # 數據工具
     "Excel": ["Excel"],
     "Power BI": ["Power BI"],
     "SQL": ["SQL", "MySQL", "PostgreSQL"],
-    
+
+    # 辦公/簡報（104「擅長工具」常見項目，反映真實市場需求）
+    "PowerPoint": ["PowerPoint", "PPT"],
+    "Word": ["Word"],
+
     # 設計工具
     "Figma": ["Figma"],
-    "Photoshop": ["Photoshop", "PS"],
-    "Illustrator": ["Illustrator", "AI", "Ai 繪圖"],
+    "Photoshop": ["Photoshop", "Adobe Photoshop"],
+    "Illustrator": ["Illustrator", "Adobe Illustrator"],
     "Canva": ["Canva"],
-    "Premiere": ["Premiere", "PR"],
-    "After Effects": ["After Effects", "AE"],
+    "Premiere": ["Premiere", "Adobe Premiere"],
+    "After Effects": ["After Effects"],
+    "Adobe XD": ["Adobe XD"],
 }
 
 # 薪資解析規則

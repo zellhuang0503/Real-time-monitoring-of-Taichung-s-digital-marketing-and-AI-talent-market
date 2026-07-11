@@ -31,6 +31,24 @@ urllib3.disable_warnings()
 
 
 class MarketMonitor:
+    # 縣市別失業率開放資料（政府資料開放平臺 dataset 6640，每半年更新）
+    # 2026-07 實測已涵蓋 114年下半年（2025/07-12）
+    OPENDATA_COUNTY_RATES_URL = (
+        'https://ws.dgbas.gov.tw/001/Upload/461/relfile/11525/230038/mp0101a10.xml'
+    )
+
+    # 全國年齡別失業率（主計總處每月「人力資源調查統計結果」新聞稿）
+    # ⚠ 官方發布數據的靜態快照，主計總處無年齡別的機器可讀月資料，
+    #   需隨每月新聞稿手動更新；資料期間與來源一律隨數據標示。
+    # 最近更新：115年5月數據（2026-06-23 發布，整體失業率創 26 年同月新低）
+    YOUTH_STATS = {
+        'period': '115年5月',
+        'source': '行政院主計總處 人力資源調查（2026/06/23 發布）',
+        'overall_rate': 3.27,
+        'age_15_24_rate': 11.14,
+        'age_25_29_rate': 5.79,
+    }
+
     def __init__(self):
         self.headers = {
             'User-Agent': ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
@@ -55,18 +73,113 @@ class MarketMonitor:
         """
         print("[Monitor] 抓取主計總處分區失業統計...")
 
-        # Step 1: 取得最新報告頁面，找 table32 的下載網址
+        # Step 1: 縣市失業「人數」來源：table32 半年報 XLSX（含失業者千人數）
         table32_url = self._find_latest_table32_url()
-
-        # Step 2: 下載並解析 XLSX
         raw_data = self._parse_table32(table32_url) if table32_url else []
-
+        counts_period = '主計總處最新縣市別半年報'
         if not raw_data:
-            # Fallback: 使用 114年上半年靜態數據 (2025/1-6)
+            # Fallback: 使用 114年上半年靜態數據 (2025/1-6)，明確標示為備援
             raw_data = self._static_114H1_data()
+            counts_period = '114年上半年（2025/01-06，靜態備援）'
 
-        # Step 3: 整理成分區格式
-        return self._organize_by_region(raw_data)
+        # Step 2: 整理成分區格式
+        result = self._organize_by_region(raw_data)
+        result['counts_period'] = counts_period
+        result['data_period'] = counts_period  # 開放資料成功時會再覆寫為失業率期間
+
+        # Step 3: 縣市失業「率」以政府開放資料最新一期覆寫
+        #（XML 每半年自動更新，比 table32 網址探測可靠）
+        opendata = self.get_latest_county_rates()
+        if opendata:
+            rates = opendata['rates']
+            for region in result['regions'].values():
+                for county in region['counties']:
+                    for name in (county['county'], county['county'].replace('台', '臺')):
+                        if name in rates:
+                            county['unemployment_rate'] = rates[name]
+                            break
+            if '臺灣地區' in rates:
+                result['taiwan_unemployment_rate'] = rates['臺灣地區']
+            result['data_period'] = opendata['period']
+            result['note'] += (
+                f"；縣市失業率為 {opendata['period']} 開放資料，"
+                f"失業人數為 {counts_period}"
+            )
+            print(f"[Monitor] 已套用開放資料縣市失業率（{opendata['period']}）")
+
+        return result
+
+    def get_latest_county_rates(self) -> Optional[dict]:
+        """
+        從政府資料開放平臺抓取「人力資源調查縣市別失業率」最新一期。
+
+        Returns:
+            {'period': '114年下半年（2025/07-12）', 'rates': {'臺中市': 3.4, ...}}
+            失敗時回傳 None
+        """
+        import xml.etree.ElementTree as ET
+
+        try:
+            r = requests.get(self.OPENDATA_COUNTY_RATES_URL, headers=self.headers,
+                             verify=False, timeout=20)
+            r.raise_for_status()
+            root = ET.fromstring(r.content)
+            records = root.findall('縣市別失業率')
+            if not records:
+                return None
+
+            last = records[-1]
+            period_raw = ''
+            rates = {}
+            for child in last:
+                name = child.tag.split('_')[0]
+                value = (child.text or '').strip()
+                if '年月別' in child.tag:
+                    period_raw = value
+                elif value:
+                    try:
+                        rates[name] = float(value)
+                    except ValueError:
+                        continue
+
+            if not rates:
+                return None
+            return {'period': self._format_opendata_period(period_raw), 'rates': rates}
+
+        except Exception as e:
+            print(f"[Monitor] 開放資料縣市失業率抓取失敗: {e}")
+            return None
+
+    @staticmethod
+    def _format_opendata_period(raw: str) -> str:
+        """開放資料年月別轉中文標籤：'2025July-Dec.' → '114年下半年（2025/07-12）'"""
+        import re as _re
+        m = _re.match(r'^(\d{4})\s*(Jan\.?\s*-\s*June|July\s*-\s*Dec\.?)?$', (raw or '').strip())
+        if not m:
+            return raw
+        year = int(m.group(1))
+        roc = year - 1911
+        half = m.group(2) or ''
+        if half.startswith('Jan'):
+            return f'{roc}年上半年（{year}/01-06）'
+        if half.startswith('July'):
+            return f'{roc}年下半年（{year}/07-12）'
+        return f'{roc}年全年（{year}）'
+
+    def get_youth_stats(self) -> dict:
+        """
+        全國與年齡別失業率（含資料期間與來源標示）。
+        數據為主計總處月度發布之靜態快照，見 YOUTH_STATS 註解。
+        """
+        stats = dict(self.YOUTH_STATS)
+        ratio = round(stats['age_15_24_rate'] / stats['overall_rate'], 1)
+        stats['insight'] = (
+            f"{stats['period']} 全國失業率 {stats['overall_rate']}%，"
+            f"15-24歲失業率 {stats['age_15_24_rate']}%（約為整體 {ratio} 倍），"
+            f"25-29歲為 {stats['age_25_29_rate']}%，待業青年仍為招生核心族群。"
+            f"資料來源：{stats['source']}"
+        )
+        return stats
 
     def _find_latest_table32_url(self) -> Optional[str]:
         """
@@ -252,7 +365,8 @@ class MarketMonitor:
         taiwan_rate = taiwan.get('unemployment_rate', 3.33)
 
         return {
-            'data_period': '114年上半年（2025/01-06）',
+            # 預設標籤，get_regional_unemployment() 會以開放資料實際期間覆寫
+            'data_period': '主計總處最新縣市別統計',
             'source': '行政院主計總處 人力資源調查',
             'taiwan_total_unemployed': taiwan_total,   # 實際人數（個人）
             'taiwan_unemployment_rate': taiwan_rate,
@@ -349,6 +463,7 @@ class MarketMonitor:
         return {
             'timestamp': datetime.now().isoformat(),
             'regional_unemployment': self.get_regional_unemployment(),
+            'youth_stats': self.get_youth_stats(),
             'social_volume': self.get_social_volume(pages=5),
             'search_trends': self.get_search_trends(),
         }

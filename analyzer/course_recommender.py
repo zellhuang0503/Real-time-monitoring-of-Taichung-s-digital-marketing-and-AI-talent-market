@@ -79,11 +79,14 @@ class CourseRecommender:
             keywords = [e['keyword'] for e in emerging[:2]]
             insights.append(f"新興職位趨勢: {', '.join(keywords)}")
         
-        # 檢查技能需求
+        # 檢查技能需求（技能名稱須與 config.SKILL_KEYWORDS 的標準名稱一致）
         top_skills = skill_analysis.get('top_skills', [])
-        ai_skills = [s for s in top_skills if s['skill'] in ['ChatGPT', 'AI', '生成式 AI']]
+        ai_skill_names = {'AI 應用', '生成式 AI', 'ChatGPT', 'Claude', 'Copilot',
+                          'Midjourney', 'Stable Diffusion', 'Prompt 工程'}
+        ai_skills = [s for s in top_skills if s['skill'] in ai_skill_names]
         if ai_skills:
-            insights.append(f"AI相關技能需求顯著，建議強化AI工具應用課程")
+            top_ai = ', '.join(s['skill'] for s in ai_skills[:3])
+            insights.append(f"AI相關技能需求顯著（{top_ai}），建議強化AI工具應用課程")
         
         if not insights:
             return "市場狀況穩定，建議維持現有課程架構並持續觀察"

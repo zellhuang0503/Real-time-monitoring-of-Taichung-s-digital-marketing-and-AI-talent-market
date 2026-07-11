@@ -15,56 +15,96 @@ class SkillExtractor:
     使用關鍵字比對從職缺資料中提取技能需求
     """
     
+    # CJK 字元範圍（用於判斷別名是否含中文）
+    _CJK_RE = re.compile(r'[一-鿿]')
+
     def __init__(self):
-        # 建立技能映射表（小寫 -> 標準名稱）
-        self.skill_mapping = {}
+        # 預先編譯每個別名的比對規則：
+        # - 含中文的別名：直接子字串比對（中文無空格斷詞，\b 會失效）
+        # - 純英數別名：前後不得緊鄰英數字元（中文字緊鄰視為邊界，
+        #   例如「熟悉Photoshop操作」「AI工程師」都要能命中；
+        #   但 "email" 不可命中 "AI"、"OpenAI" 不可命中 "AI"）
+        self._cjk_aliases = []      # [(alias_lower, standard_name)]
+        self._ascii_patterns = []   # [(compiled_pattern, standard_name)]
+        seen = set()
         for standard_name, aliases in SKILL_KEYWORDS.items():
-            for alias in aliases:
-                self.skill_mapping[alias.lower()] = standard_name
-                # 也加入標準名稱本身
-                self.skill_mapping[standard_name.lower()] = standard_name
-    
-    def extract_skills(self, job_description: str = "", job_title: str = "") -> List[str]:
+            for alias in list(aliases) + [standard_name]:
+                key = alias.lower()
+                if (key, standard_name) in seen:
+                    continue
+                seen.add((key, standard_name))
+                if self._CJK_RE.search(alias):
+                    self._cjk_aliases.append((key, standard_name))
+                else:
+                    pattern = re.compile(
+                        r'(?<![a-z0-9])' + re.escape(key) + r'(?![a-z0-9])'
+                    )
+                    self._ascii_patterns.append((pattern, standard_name))
+
+    def extract_skills(self, job_description: str = "", job_title: str = "",
+                       extra_texts: List[str] = None) -> List[str]:
         """
         從職缺描述和標題中提取技能
-        
+
         Args:
             job_description: 職缺描述文字（可選）
             job_title: 職缺標題
-            
+            extra_texts: 額外文字（如 104 詳細頁的擅長工具、工作技能、其他條件）
+
         Returns:
             技能列表
         """
-        # 優先使用職缺描述，如果沒有則只用標題
-        if job_description:
-            text = f"{job_title} {job_description}".lower()
-        else:
-            text = job_title.lower() if job_title else ""
-        
+        parts = [job_title or "", job_description or ""]
+        if extra_texts:
+            parts.extend(t for t in extra_texts if t)
+        text = " ".join(parts).lower().strip()
+
         if not text:
             return []
-        
+
         found_skills = set()
-        
-        # 1. 直接關鍵字比對
-        for alias, standard_name in self.skill_mapping.items():
-            # 使用單詞邊界比對，避免部分匹配
-            pattern = r'\b' + re.escape(alias.lower()) + r'\b'
-            if re.search(pattern, text):
+
+        # 1. 中文別名：子字串比對
+        for alias, standard_name in self._cjk_aliases:
+            if alias in text:
                 found_skills.add(standard_name)
-        
-        # 2. 特殊模式比對（處理複合技能）
-        # 例如 "Google Analytics 4" 應該被識別為 GA4
+
+        # 2. 英數別名：邊界比對
+        for pattern, standard_name in self._ascii_patterns:
+            if pattern.search(text):
+                found_skills.add(standard_name)
+
+        # 3. 特殊模式比對（處理複合技能）
         if re.search(r'google\s*analytics\s*4|ga4', text):
             found_skills.add("GA4")
-        
+
         if re.search(r'facebook\s*ads?|fb\s*ads?|meta\s*ads?', text):
             found_skills.add("Meta Ads")
-        
+
         if re.search(r'instagram\s*ads?|ig\s*ads?', text):
             found_skills.add("Meta Ads")
-        
+
         return list(found_skills)
+
+    def extract_skills_from_job(self, job: Dict) -> List[str]:
+        """
+        從完整職缺資料提取技能：標題 + 描述 + 104 詳細頁的
+        擅長工具(specialties)/工作技能(job_skills)/其他條件(other_requirement)
+        """
+        extra = []
+        for field in ('specialties', 'job_skills'):
+            value = job.get(field)
+            if isinstance(value, list):
+                extra.extend(str(v) for v in value if v)
+        other = job.get('other_requirement')
+        if other:
+            extra.append(str(other))
+
+        return self.extract_skills(
+            job.get('job_description', ''),
+            job.get('title', ''),
+            extra_texts=extra,
+        )
     
     def analyze_jobs_skills(self, jobs: List[Dict]) -> Dict[str, Dict]:
         """
@@ -81,16 +121,13 @@ class SkillExtractor:
         
         # 為每個職缺提取技能
         for job in jobs:
-            description = job.get('job_description', '')
-            title = job.get('title', '')
-            
             category = job.get('job_category', '其他')
             if isinstance(category, list):
                 category = category[0] if category else '其他'
             category = str(category) if category is not None else '其他'
-            
-            # 從描述和標題萃取技能（如果描述為空，只用標題）
-            skills = self.extract_skills(description or None, title)
+
+            # 從標題+描述+擅長工具等欄位萃取技能
+            skills = self.extract_skills_from_job(job)
             
             # 全域計數
             skill_counter.update(skills)
@@ -137,10 +174,8 @@ class SkillExtractor:
         combination_counter = Counter()
         
         for job in jobs:
-            description = job.get('job_description', '')
-            title = job.get('title', '')
-            skills = self.extract_skills(description, title)
-            
+            skills = self.extract_skills_from_job(job)
+
             # 只考慮有 2-4 個技能的職缺
             if 2 <= len(skills) <= 4:
                 # 產生所有可能的組合
@@ -175,19 +210,11 @@ class SkillExtractor:
         
         # 統計當期技能
         for job in current_jobs:
-            skills = self.extract_skills(
-                job.get('job_description', ''),
-                job.get('title', '')
-            )
-            current_skills.update(skills)
-        
+            current_skills.update(self.extract_skills_from_job(job))
+
         # 統計前期技能
         for job in previous_jobs:
-            skills = self.extract_skills(
-                job.get('job_description', ''),
-                job.get('title', '')
-            )
-            previous_skills.update(skills)
+            previous_skills.update(self.extract_skills_from_job(job))
         
         # 計算變化
         all_skills = set(current_skills.keys()) | set(previous_skills.keys())

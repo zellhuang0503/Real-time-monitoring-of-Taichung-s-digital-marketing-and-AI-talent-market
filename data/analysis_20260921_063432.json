@@ -1,0 +1,9655 @@
+{
+  "analysis_date": "2026-09-21T06:33:07.554166",
+  "summary": {
+    "total_jobs": 3838,
+    "sources_distribution": {
+      "104": 3744,
+      "518": 94
+    },
+    "area_distribution": {
+      "taichung": 2138,
+      "changhua": 1029,
+      "nantou": 671
+    },
+    "salary_coverage": {
+      "with_salary": 2780,
+      "without_salary": 1058,
+      "coverage_rate": 72.4
+    },
+    "date_range": {
+      "earliest": "09/16",
+      "latest": "20260921"
+    }
+  },
+  "job_distribution": {
+    "by_search_keyword": [
+      {
+        "keyword": "數位行銷",
+        "count": 552,
+        "percentage": 14.4
+      },
+      {
+        "keyword": "AI",
+        "count": 273,
+        "percentage": 7.1
+      },
+      {
+        "keyword": "社群行銷",
+        "count": 260,
+        "percentage": 6.8
+      },
+      {
+        "keyword": "資料分析",
+        "count": 249,
+        "percentage": 6.5
+      },
+      {
+        "keyword": "社群媒體",
+        "count": 241,
+        "percentage": 6.3
+      },
+      {
+        "keyword": "UI 設計",
+        "count": 241,
+        "percentage": 6.3
+      },
+      {
+        "keyword": "Python",
+        "count": 232,
+        "percentage": 6.0
+      },
+      {
+        "keyword": "Adobe",
+        "count": 171,
+        "percentage": 4.5
+      },
+      {
+        "keyword": "前端",
+        "count": 148,
+        "percentage": 3.9
+      },
+      {
+        "keyword": "平面設計",
+        "count": 144,
+        "percentage": 3.8
+      },
+      {
+        "keyword": "Google Analytics",
+        "count": 143,
+        "percentage": 3.7
+      },
+      {
+        "keyword": "SEO",
+        "count": 133,
+        "percentage": 3.5
+      },
+      {
+        "keyword": "Power BI",
+        "count": 131,
+        "percentage": 3.4
+      },
+      {
+        "keyword": "ChatGPT",
+        "count": 130,
+        "percentage": 3.4
+      },
+      {
+        "keyword": "Prompt",
+        "count": 119,
+        "percentage": 3.1
+      },
+      {
+        "keyword": "Figma",
+        "count": 97,
+        "percentage": 2.5
+      },
+      {
+        "keyword": "React",
+        "count": 95,
+        "percentage": 2.5
+      },
+      {
+        "keyword": "LLM",
+        "count": 81,
+        "percentage": 2.1
+      },
+      {
+        "keyword": "GA4",
+        "count": 78,
+        "percentage": 2.0
+      },
+      {
+        "keyword": "Java",
+        "count": 76,
+        "percentage": 2.0
+      }
+    ],
+    "by_job_category": [
+      {
+        "category": "軟體工程師",
+        "count": 269,
+        "percentage": 7.0
+      },
+      {
+        "category": "行銷企劃",
+        "count": 156,
+        "percentage": 4.1
+      },
+      {
+        "category": "國內業務",
+        "count": 131,
+        "percentage": 3.4
+      },
+      {
+        "category": "平面設計／美編",
+        "count": 118,
+        "percentage": 3.1
+      },
+      {
+        "category": "門市／店員／專櫃人員",
+        "count": 107,
+        "percentage": 2.8
+      },
+      {
+        "category": "儲備幹部",
+        "count": 95,
+        "percentage": 2.5
+      },
+      {
+        "category": "",
+        "count": 94,
+        "percentage": 2.4
+      },
+      {
+        "category": "業務助理",
+        "count": 66,
+        "percentage": 1.7
+      },
+      {
+        "category": "網站行銷企劃",
+        "count": 65,
+        "percentage": 1.7
+      },
+      {
+        "category": "社群行銷",
+        "count": 62,
+        "percentage": 1.6
+      },
+      {
+        "category": "數位行銷",
+        "count": 51,
+        "percentage": 1.3
+      },
+      {
+        "category": "AI工程師",
+        "count": 51,
+        "percentage": 1.3
+      },
+      {
+        "category": "Internet程式設計師",
+        "count": 51,
+        "percentage": 1.3
+      },
+      {
+        "category": "國外業務",
+        "count": 48,
+        "percentage": 1.3
+      },
+      {
+        "category": "行政人員",
+        "count": 48,
+        "percentage": 1.3
+      }
+    ]
+  },
+  "skill_analysis": {
+    "total_jobs_analyzed": 3838,
+    "unique_skills_found": 35,
+    "top_skills": [
+      {
+        "skill": "Excel",
+        "count": 1131,
+        "percentage": 29.5
+      },
+      {
+        "skill": "Word",
+        "count": 1015,
+        "percentage": 26.4
+      },
+      {
+        "skill": "AI 應用",
+        "count": 949,
+        "percentage": 24.7
+      },
+      {
+        "skill": "PowerPoint",
+        "count": 841,
+        "percentage": 21.9
+      },
+      {
+        "skill": "Photoshop",
+        "count": 501,
+        "percentage": 13.1
+      },
+      {
+        "skill": "Illustrator",
+        "count": 441,
+        "percentage": 11.5
+      },
+      {
+        "skill": "SQL",
+        "count": 379,
+        "percentage": 9.9
+      },
+      {
+        "skill": "JavaScript",
+        "count": 375,
+        "percentage": 9.8
+      },
+      {
+        "skill": "Python",
+        "count": 354,
+        "percentage": 9.2
+      },
+      {
+        "skill": "ChatGPT",
+        "count": 325,
+        "percentage": 8.5
+      },
+      {
+        "skill": "HTML/CSS",
+        "count": 250,
+        "percentage": 6.5
+      },
+      {
+        "skill": "SEO",
+        "count": 242,
+        "percentage": 6.3
+      },
+      {
+        "skill": "GA4",
+        "count": 235,
+        "percentage": 6.1
+      },
+      {
+        "skill": "生成式 AI",
+        "count": 215,
+        "percentage": 5.6
+      },
+      {
+        "skill": "Canva",
+        "count": 196,
+        "percentage": 5.1
+      },
+      {
+        "skill": "Claude",
+        "count": 183,
+        "percentage": 4.8
+      },
+      {
+        "skill": "Google Ads",
+        "count": 156,
+        "percentage": 4.1
+      },
+      {
+        "skill": "Figma",
+        "count": 151,
+        "percentage": 3.9
+      },
+      {
+        "skill": "Vue",
+        "count": 139,
+        "percentage": 3.6
+      },
+      {
+        "skill": "Prompt 工程",
+        "count": 134,
+        "percentage": 3.5
+      },
+      {
+        "skill": "Node.js",
+        "count": 127,
+        "percentage": 3.3
+      },
+      {
+        "skill": "React",
+        "count": 120,
+        "percentage": 3.1
+      },
+      {
+        "skill": "Premiere",
+        "count": 113,
+        "percentage": 2.9
+      },
+      {
+        "skill": "Copilot",
+        "count": 105,
+        "percentage": 2.7
+      },
+      {
+        "skill": "Power BI",
+        "count": 92,
+        "percentage": 2.4
+      },
+      {
+        "skill": "TypeScript",
+        "count": 79,
+        "percentage": 2.1
+      },
+      {
+        "skill": "蝦皮",
+        "count": 71,
+        "percentage": 1.8
+      },
+      {
+        "skill": "Google Tag Manager",
+        "count": 56,
+        "percentage": 1.5
+      },
+      {
+        "skill": "After Effects",
+        "count": 55,
+        "percentage": 1.4
+      },
+      {
+        "skill": "Meta Ads",
+        "count": 50,
+        "percentage": 1.3
+      }
+    ],
+    "skill_by_category": {
+      "產品行銷企劃": [
+        {
+          "skill": "Excel",
+          "count": 8
+        },
+        {
+          "skill": "GA4",
+          "count": 8
+        },
+        {
+          "skill": "Photoshop",
+          "count": 7
+        },
+        {
+          "skill": "Word",
+          "count": 7
+        },
+        {
+          "skill": "蝦皮",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "SEO",
+          "count": 5
+        },
+        {
+          "skill": "Illustrator",
+          "count": 4
+        },
+        {
+          "skill": "Canva",
+          "count": 4
+        },
+        {
+          "skill": "Google Ads",
+          "count": 3
+        }
+      ],
+      "餐廚助手": [],
+      "小客車／計程車及小貨車司機": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "門市／店員／專櫃人員": [
+        {
+          "skill": "Excel",
+          "count": 19
+        },
+        {
+          "skill": "Word",
+          "count": 17
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 7
+        },
+        {
+          "skill": "Canva",
+          "count": 4
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "行政助理": [
+        {
+          "skill": "Excel",
+          "count": 22
+        },
+        {
+          "skill": "Word",
+          "count": 21
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 17
+        },
+        {
+          "skill": "AI 應用",
+          "count": 9
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 5
+        },
+        {
+          "skill": "Illustrator",
+          "count": 4
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "Canva",
+          "count": 3
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        }
+      ],
+      "國內業務": [
+        {
+          "skill": "Excel",
+          "count": 56
+        },
+        {
+          "skill": "Word",
+          "count": 54
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 49
+        },
+        {
+          "skill": "AI 應用",
+          "count": 22
+        },
+        {
+          "skill": "SEO",
+          "count": 8
+        },
+        {
+          "skill": "Photoshop",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 5
+        },
+        {
+          "skill": "Illustrator",
+          "count": 4
+        },
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "GA4",
+          "count": 3
+        }
+      ],
+      "廣告文案／企劃": [
+        {
+          "skill": "Photoshop",
+          "count": 11
+        },
+        {
+          "skill": "Excel",
+          "count": 11
+        },
+        {
+          "skill": "Illustrator",
+          "count": 10
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 9
+        },
+        {
+          "skill": "GA4",
+          "count": 9
+        },
+        {
+          "skill": "Word",
+          "count": 8
+        },
+        {
+          "skill": "SEO",
+          "count": 7
+        },
+        {
+          "skill": "Google Ads",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 5
+        }
+      ],
+      "直播主": [],
+      "行銷企劃": [
+        {
+          "skill": "Excel",
+          "count": 69
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 68
+        },
+        {
+          "skill": "Word",
+          "count": 64
+        },
+        {
+          "skill": "Photoshop",
+          "count": 60
+        },
+        {
+          "skill": "Illustrator",
+          "count": 52
+        },
+        {
+          "skill": "GA4",
+          "count": 49
+        },
+        {
+          "skill": "SEO",
+          "count": 47
+        },
+        {
+          "skill": "AI 應用",
+          "count": 41
+        },
+        {
+          "skill": "Google Ads",
+          "count": 37
+        },
+        {
+          "skill": "Canva",
+          "count": 27
+        }
+      ],
+      "電商行銷": [
+        {
+          "skill": "Excel",
+          "count": 16
+        },
+        {
+          "skill": "GA4",
+          "count": 16
+        },
+        {
+          "skill": "蝦皮",
+          "count": 11
+        },
+        {
+          "skill": "SEO",
+          "count": 10
+        },
+        {
+          "skill": "Photoshop",
+          "count": 7
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "Canva",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "Google Ads",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        }
+      ],
+      "測試人員": [
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "財務分析／財務人員": [
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Power BI",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        }
+      ],
+      "保險業務／經紀人": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "人力資源人員": [
+        {
+          "skill": "Excel",
+          "count": 21
+        },
+        {
+          "skill": "Word",
+          "count": 18
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 17
+        },
+        {
+          "skill": "AI 應用",
+          "count": 11
+        },
+        {
+          "skill": "Power BI",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 5
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "Copilot",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "人力資源助理": [
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "WordPress",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "秘書": [
+        {
+          "skill": "PowerPoint",
+          "count": 9
+        },
+        {
+          "skill": "Word",
+          "count": 9
+        },
+        {
+          "skill": "Excel",
+          "count": 9
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 7
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Canva",
+          "count": 3
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "機械加工技術人員": [],
+      "其他專案管理師": [
+        {
+          "skill": "AI 應用",
+          "count": 9
+        },
+        {
+          "skill": "Excel",
+          "count": 7
+        },
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "WordPress",
+          "count": 1
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 1
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        }
+      ],
+      "健康管理師": [
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "專案助理": [
+        {
+          "skill": "Excel",
+          "count": 10
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 9
+        },
+        {
+          "skill": "Word",
+          "count": 9
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 4
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Midjourney",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Figma",
+          "count": 1
+        }
+      ],
+      "醫藥業務代表": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        }
+      ],
+      "社群行銷": [
+        {
+          "skill": "Canva",
+          "count": 25
+        },
+        {
+          "skill": "Photoshop",
+          "count": 17
+        },
+        {
+          "skill": "Illustrator",
+          "count": 16
+        },
+        {
+          "skill": "AI 應用",
+          "count": 13
+        },
+        {
+          "skill": "GA4",
+          "count": 11
+        },
+        {
+          "skill": "Excel",
+          "count": 10
+        },
+        {
+          "skill": "Premiere",
+          "count": 10
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 9
+        },
+        {
+          "skill": "Word",
+          "count": 9
+        },
+        {
+          "skill": "Google Ads",
+          "count": 7
+        }
+      ],
+      "電話客服": [
+        {
+          "skill": "Word",
+          "count": 8
+        },
+        {
+          "skill": "Excel",
+          "count": 8
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "視覺設計師": [
+        {
+          "skill": "Illustrator",
+          "count": 15
+        },
+        {
+          "skill": "Photoshop",
+          "count": 15
+        },
+        {
+          "skill": "AI 應用",
+          "count": 7
+        },
+        {
+          "skill": "Premiere",
+          "count": 7
+        },
+        {
+          "skill": "Figma",
+          "count": 4
+        },
+        {
+          "skill": "After Effects",
+          "count": 4
+        },
+        {
+          "skill": "Midjourney",
+          "count": 4
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        }
+      ],
+      "平面設計／美編": [
+        {
+          "skill": "Illustrator",
+          "count": 96
+        },
+        {
+          "skill": "Photoshop",
+          "count": 92
+        },
+        {
+          "skill": "AI 應用",
+          "count": 42
+        },
+        {
+          "skill": "Word",
+          "count": 21
+        },
+        {
+          "skill": "Excel",
+          "count": 19
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 17
+        },
+        {
+          "skill": "Premiere",
+          "count": 15
+        },
+        {
+          "skill": "Canva",
+          "count": 11
+        },
+        {
+          "skill": "Figma",
+          "count": 9
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 7
+        }
+      ],
+      "食品研發人員": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "行銷助理": [
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Canva",
+          "count": 5
+        },
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        }
+      ],
+      "人力資源主管": [
+        {
+          "skill": "Word",
+          "count": 8
+        },
+        {
+          "skill": "Excel",
+          "count": 8
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        }
+      ],
+      "銀行辦事員": [],
+      "餐飲服務生": [
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "美術設計": [
+        {
+          "skill": "Photoshop",
+          "count": 18
+        },
+        {
+          "skill": "Illustrator",
+          "count": 16
+        },
+        {
+          "skill": "AI 應用",
+          "count": 14
+        },
+        {
+          "skill": "Figma",
+          "count": 13
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 7
+        },
+        {
+          "skill": "After Effects",
+          "count": 6
+        },
+        {
+          "skill": "Midjourney",
+          "count": 6
+        },
+        {
+          "skill": "Premiere",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 4
+        }
+      ],
+      "遊戲企劃": [
+        {
+          "skill": "Excel",
+          "count": 8
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 7
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "Figma",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 3
+        },
+        {
+          "skill": "Claude",
+          "count": 3
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "倉管／物料管理人員": [
+        {
+          "skill": "Excel",
+          "count": 13
+        },
+        {
+          "skill": "Word",
+          "count": 12
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        }
+      ],
+      "融資／信用業務人員": [
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        }
+      ],
+      "電話行銷人員": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "數位行銷": [
+        {
+          "skill": "GA4",
+          "count": 33
+        },
+        {
+          "skill": "SEO",
+          "count": 28
+        },
+        {
+          "skill": "Google Ads",
+          "count": 22
+        },
+        {
+          "skill": "AI 應用",
+          "count": 19
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 13
+        },
+        {
+          "skill": "Excel",
+          "count": 11
+        },
+        {
+          "skill": "Canva",
+          "count": 10
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 10
+        },
+        {
+          "skill": "Meta Ads",
+          "count": 9
+        },
+        {
+          "skill": "Illustrator",
+          "count": 8
+        }
+      ],
+      "飯店工作人員": [
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "採購主管": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Power BI",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "通路開發人員": [
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "店長／賣場管理人員": [
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "國內業務主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 8
+        },
+        {
+          "skill": "Excel",
+          "count": 8
+        },
+        {
+          "skill": "Word",
+          "count": 7
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        }
+      ],
+      "機構工程師": [
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "國外業務": [
+        {
+          "skill": "Excel",
+          "count": 24
+        },
+        {
+          "skill": "Word",
+          "count": 22
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 21
+        },
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Claude",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Meta Ads",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        }
+      ],
+      "媒體公關人員／主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "GA4",
+          "count": 3
+        },
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "Meta Ads",
+          "count": 1
+        }
+      ],
+      "總務": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "實習生／工讀生": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "儲備幹部": [
+        {
+          "skill": "AI 應用",
+          "count": 41
+        },
+        {
+          "skill": "Excel",
+          "count": 9
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "Claude",
+          "count": 3
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 2
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        }
+      ],
+      "業務助理": [
+        {
+          "skill": "Excel",
+          "count": 48
+        },
+        {
+          "skill": "Word",
+          "count": 47
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 36
+        },
+        {
+          "skill": "AI 應用",
+          "count": 17
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 13
+        },
+        {
+          "skill": "Illustrator",
+          "count": 5
+        },
+        {
+          "skill": "Canva",
+          "count": 5
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "Google Ads",
+          "count": 3
+        },
+        {
+          "skill": "GA4",
+          "count": 3
+        }
+      ],
+      "產品經理": [
+        {
+          "skill": "Figma",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "Claude",
+          "count": 3
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 2
+        },
+        {
+          "skill": "Adobe XD",
+          "count": 1
+        }
+      ],
+      "內勤業務": [
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "記帳／出納／一般會計": [
+        {
+          "skill": "Word",
+          "count": 20
+        },
+        {
+          "skill": "Excel",
+          "count": 20
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 13
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "主管司機": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "行政人員": [
+        {
+          "skill": "Word",
+          "count": 36
+        },
+        {
+          "skill": "Excel",
+          "count": 36
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 25
+        },
+        {
+          "skill": "Canva",
+          "count": 5
+        },
+        {
+          "skill": "Photoshop",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 4
+        },
+        {
+          "skill": "Illustrator",
+          "count": 3
+        },
+        {
+          "skill": "Adobe XD",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        }
+      ],
+      "主管特別助理": [
+        {
+          "skill": "Word",
+          "count": 9
+        },
+        {
+          "skill": "Excel",
+          "count": 9
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 7
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "剪輯師": [
+        {
+          "skill": "Premiere",
+          "count": 8
+        },
+        {
+          "skill": "Illustrator",
+          "count": 7
+        },
+        {
+          "skill": "Photoshop",
+          "count": 7
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "After Effects",
+          "count": 6
+        },
+        {
+          "skill": "Google Ads",
+          "count": 3
+        },
+        {
+          "skill": "Canva",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "SEO",
+          "count": 2
+        }
+      ],
+      "理財專員": [],
+      "網站行銷企劃": [
+        {
+          "skill": "SEO",
+          "count": 31
+        },
+        {
+          "skill": "GA4",
+          "count": 28
+        },
+        {
+          "skill": "Excel",
+          "count": 20
+        },
+        {
+          "skill": "Google Ads",
+          "count": 17
+        },
+        {
+          "skill": "Word",
+          "count": 17
+        },
+        {
+          "skill": "Photoshop",
+          "count": 16
+        },
+        {
+          "skill": "AI 應用",
+          "count": 14
+        },
+        {
+          "skill": "Illustrator",
+          "count": 12
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 11
+        },
+        {
+          "skill": "Canva",
+          "count": 9
+        }
+      ],
+      "媒體公關／宣傳採買": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "工業設計師": [
+        {
+          "skill": "Illustrator",
+          "count": 8
+        },
+        {
+          "skill": "Photoshop",
+          "count": 8
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "行銷主管": [
+        {
+          "skill": "GA4",
+          "count": 15
+        },
+        {
+          "skill": "SEO",
+          "count": 9
+        },
+        {
+          "skill": "Excel",
+          "count": 7
+        },
+        {
+          "skill": "Google Ads",
+          "count": 7
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "Canva",
+          "count": 5
+        },
+        {
+          "skill": "Photoshop",
+          "count": 4
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 4
+        }
+      ],
+      "快遞": [],
+      "廠務": [
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "Power BI",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 2
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "Node.js",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "作業員／包裝員": [
+        {
+          "skill": "蝦皮",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        }
+      ],
+      "其他類廚師": [],
+      "塑膠射出技術人員": [],
+      "產品企劃": [
+        {
+          "skill": "Photoshop",
+          "count": 4
+        },
+        {
+          "skill": "Illustrator",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "Figma",
+          "count": 3
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        }
+      ],
+      "AI工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 49
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 41
+        },
+        {
+          "skill": "Python",
+          "count": 38
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 24
+        },
+        {
+          "skill": "Claude",
+          "count": 21
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 20
+        },
+        {
+          "skill": "SQL",
+          "count": 19
+        },
+        {
+          "skill": "JavaScript",
+          "count": 18
+        },
+        {
+          "skill": "Copilot",
+          "count": 10
+        },
+        {
+          "skill": "Node.js",
+          "count": 8
+        }
+      ],
+      "商業設計": [
+        {
+          "skill": "Illustrator",
+          "count": 14
+        },
+        {
+          "skill": "Photoshop",
+          "count": 13
+        },
+        {
+          "skill": "Figma",
+          "count": 7
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "After Effects",
+          "count": 3
+        },
+        {
+          "skill": "Premiere",
+          "count": 2
+        },
+        {
+          "skill": "Adobe XD",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        }
+      ],
+      "金融營業員": [],
+      "產品企劃主管": [
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        }
+      ],
+      "中餐廚師": [],
+      "經營管理高階主管": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "多媒體動畫設計師": [
+        {
+          "skill": "Photoshop",
+          "count": 11
+        },
+        {
+          "skill": "AI 應用",
+          "count": 10
+        },
+        {
+          "skill": "Illustrator",
+          "count": 9
+        },
+        {
+          "skill": "After Effects",
+          "count": 8
+        },
+        {
+          "skill": "Premiere",
+          "count": 6
+        },
+        {
+          "skill": "Figma",
+          "count": 4
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 4
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 3
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        }
+      ],
+      "國貿人員": [
+        {
+          "skill": "Excel",
+          "count": 20
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 18
+        },
+        {
+          "skill": "Word",
+          "count": 18
+        },
+        {
+          "skill": "SEO",
+          "count": 10
+        },
+        {
+          "skill": "Shopify",
+          "count": 9
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 4
+        },
+        {
+          "skill": "蝦皮",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "材料研發人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "電機裝修工": [],
+      "藥師": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "生物學研究員": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "美容師": [
+        {
+          "skill": "Google Ads",
+          "count": 1
+        }
+      ],
+      "其他客服人員": [
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "補習班導師／管理人員": [
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "軟體工程師": [
+        {
+          "skill": "SQL",
+          "count": 142
+        },
+        {
+          "skill": "JavaScript",
+          "count": 130
+        },
+        {
+          "skill": "AI 應用",
+          "count": 116
+        },
+        {
+          "skill": "Python",
+          "count": 101
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 71
+        },
+        {
+          "skill": "Node.js",
+          "count": 53
+        },
+        {
+          "skill": "Vue",
+          "count": 52
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 40
+        },
+        {
+          "skill": "Claude",
+          "count": 38
+        },
+        {
+          "skill": "React",
+          "count": 37
+        }
+      ],
+      "攝影師": [
+        {
+          "skill": "Premiere",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "廣告AE業務": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "行銷企劃高階主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "影音企劃": [
+        {
+          "skill": "Premiere",
+          "count": 7
+        },
+        {
+          "skill": "Canva",
+          "count": 6
+        },
+        {
+          "skill": "Illustrator",
+          "count": 6
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 5
+        },
+        {
+          "skill": "After Effects",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "Photoshop",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        }
+      ],
+      "語文補習班老師": [
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        }
+      ],
+      "節目助理": [
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "After Effects",
+          "count": 1
+        }
+      ],
+      "櫃檯接待人員": [
+        {
+          "skill": "Word",
+          "count": 8
+        },
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "經營管理主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "Shopify",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "燈光／音響師": [],
+      "美編助理": [
+        {
+          "skill": "Illustrator",
+          "count": 13
+        },
+        {
+          "skill": "Photoshop",
+          "count": 11
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        },
+        {
+          "skill": "Midjourney",
+          "count": 2
+        },
+        {
+          "skill": "蝦皮",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "飯店或餐廳主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        }
+      ],
+      "影片製作技術人員": [
+        {
+          "skill": "Premiere",
+          "count": 7
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Illustrator",
+          "count": 4
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "Midjourney",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        }
+      ],
+      "連鎖店管理人員": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "大貨車及其他類司機": [],
+      "客服工程師": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        }
+      ],
+      "文字客服": [
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Shopify",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        }
+      ],
+      "總經理/副總": [],
+      "電信／通訊系統工程師": [],
+      "設計助理": [
+        {
+          "skill": "Photoshop",
+          "count": 9
+        },
+        {
+          "skill": "Illustrator",
+          "count": 8
+        },
+        {
+          "skill": "Excel",
+          "count": 7
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "Figma",
+          "count": 2
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Adobe XD",
+          "count": 1
+        }
+      ],
+      "活動企劃": [
+        {
+          "skill": "PowerPoint",
+          "count": 12
+        },
+        {
+          "skill": "Word",
+          "count": 12
+        },
+        {
+          "skill": "Excel",
+          "count": 12
+        },
+        {
+          "skill": "Photoshop",
+          "count": 5
+        },
+        {
+          "skill": "Canva",
+          "count": 4
+        },
+        {
+          "skill": "SEO",
+          "count": 3
+        },
+        {
+          "skill": "Figma",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 2
+        }
+      ],
+      "國外業務主管": [
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "Power BI",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "汽車銷售人員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "其他娛樂事業人員": [],
+      "不動產經紀人": [
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        }
+      ],
+      "CAD／CAM工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "西點／蛋糕師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "倉儲物流人員": [],
+      "旅遊休閒類主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "主持人": [
+        {
+          "skill": "HTML/CSS",
+          "count": 2
+        }
+      ],
+      "護理師及護士": [
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "採購人員": [
+        {
+          "skill": "Excel",
+          "count": 18
+        },
+        {
+          "skill": "Word",
+          "count": 14
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 13
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "醫師": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "廣告設計": [
+        {
+          "skill": "Photoshop",
+          "count": 12
+        },
+        {
+          "skill": "Illustrator",
+          "count": 11
+        },
+        {
+          "skill": "AI 應用",
+          "count": 10
+        },
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "Figma",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "營養師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "健身教練": [],
+      "醫美諮詢師": [
+        {
+          "skill": "Google Ads",
+          "count": 1
+        }
+      ],
+      "研究助理": [
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Python",
+          "count": 4
+        },
+        {
+          "skill": "SQL",
+          "count": 4
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 3
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "數位廣告行銷人員": [
+        {
+          "skill": "Google Ads",
+          "count": 6
+        },
+        {
+          "skill": "GA4",
+          "count": 6
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "SEO",
+          "count": 4
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 3
+        },
+        {
+          "skill": "Meta Ads",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        }
+      ],
+      "攝影助理": [],
+      "廣告企劃高階主管": [
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "醫院行政管理人員": [
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "Premiere",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "After Effects",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "導演／導播": [
+        {
+          "skill": "Premiere",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "After Effects",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "模特兒": [],
+      "公家機關相關人員": [],
+      "客服主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 1
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Meta Ads",
+          "count": 1
+        }
+      ],
+      "資訊助理": [
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "Claude",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        }
+      ],
+      "其他才藝類老師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "半導體設備工程師": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        }
+      ],
+      "文編／校對／文字工作者": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "軟體專案管理師": [
+        {
+          "skill": "Figma",
+          "count": 9
+        },
+        {
+          "skill": "AI 應用",
+          "count": 7
+        },
+        {
+          "skill": "SQL",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Claude",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        }
+      ],
+      "半導體工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 9
+        },
+        {
+          "skill": "Python",
+          "count": 9
+        },
+        {
+          "skill": "Copilot",
+          "count": 8
+        },
+        {
+          "skill": "Power BI",
+          "count": 8
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "半導體製程工程師": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "Power BI",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        }
+      ],
+      "化學工程研發人員": [
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "生產設備工程師": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "網路管理工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "Python",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "電子工程師": [
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "系統工程師": [
+        {
+          "skill": "SQL",
+          "count": 24
+        },
+        {
+          "skill": "Python",
+          "count": 14
+        },
+        {
+          "skill": "AI 應用",
+          "count": 11
+        },
+        {
+          "skill": "JavaScript",
+          "count": 11
+        },
+        {
+          "skill": "Excel",
+          "count": 10
+        },
+        {
+          "skill": "Word",
+          "count": 9
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 8
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 5
+        },
+        {
+          "skill": "Node.js",
+          "count": 4
+        },
+        {
+          "skill": "Copilot",
+          "count": 3
+        }
+      ],
+      "Internet程式設計師": [
+        {
+          "skill": "JavaScript",
+          "count": 47
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 40
+        },
+        {
+          "skill": "SQL",
+          "count": 38
+        },
+        {
+          "skill": "Vue",
+          "count": 21
+        },
+        {
+          "skill": "AI 應用",
+          "count": 20
+        },
+        {
+          "skill": "React",
+          "count": 16
+        },
+        {
+          "skill": "Node.js",
+          "count": 10
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 7
+        },
+        {
+          "skill": "TypeScript",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 5
+        }
+      ],
+      "顧問": [
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        }
+      ],
+      "韌體工程師": [
+        {
+          "skill": "Python",
+          "count": 9
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "硬體測試工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "電機技師／工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "幼教班老師": [],
+      "品管／檢驗人員": [
+        {
+          "skill": "Word",
+          "count": 15
+        },
+        {
+          "skill": "Excel",
+          "count": 15
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 12
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "運輸交通人員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "財務會計助理": [
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "驗光師": [],
+      "其他傳媒工作": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "品管／品保工程師": [
+        {
+          "skill": "Excel",
+          "count": 12
+        },
+        {
+          "skill": "Word",
+          "count": 10
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 9
+        }
+      ],
+      "環境工程人員 / 工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 4
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "安親班老師": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "社工": [
+        {
+          "skill": "PowerPoint",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "Excel",
+          "count": 6
+        }
+      ],
+      "物管／資材": [
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        }
+      ],
+      "線上客服": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        }
+      ],
+      "其他機械操作員": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "專案業務主管": [
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "蝦皮",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        }
+      ],
+      "供應鏈管理人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "職業安全衛生管理師": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "電腦組裝／測試": [],
+      "系統分析師": [
+        {
+          "skill": "SQL",
+          "count": 7
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "Figma",
+          "count": 4
+        },
+        {
+          "skill": "JavaScript",
+          "count": 4
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        }
+      ],
+      "廣告企劃主管": [
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "Meta Ads",
+          "count": 1
+        }
+      ],
+      "資訊設備管制人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "花藝／園藝人員": [],
+      "記者": [],
+      "工地監工／主任": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        }
+      ],
+      "職業安全衛生管理員": [
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        }
+      ],
+      "視聽工程人員": [
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "After Effects",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "編輯": [
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "網頁設計師": [
+        {
+          "skill": "HTML/CSS",
+          "count": 30
+        },
+        {
+          "skill": "JavaScript",
+          "count": 26
+        },
+        {
+          "skill": "Illustrator",
+          "count": 19
+        },
+        {
+          "skill": "Photoshop",
+          "count": 19
+        },
+        {
+          "skill": "Figma",
+          "count": 16
+        },
+        {
+          "skill": "React",
+          "count": 11
+        },
+        {
+          "skill": "Vue",
+          "count": 10
+        },
+        {
+          "skill": "Node.js",
+          "count": 10
+        },
+        {
+          "skill": "SEO",
+          "count": 9
+        },
+        {
+          "skill": "SQL",
+          "count": 9
+        }
+      ],
+      "專案經理": [
+        {
+          "skill": "AI 應用",
+          "count": 16
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 7
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "Claude",
+          "count": 5
+        },
+        {
+          "skill": "SEO",
+          "count": 4
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 4
+        },
+        {
+          "skill": "Figma",
+          "count": 4
+        },
+        {
+          "skill": "GA4",
+          "count": 3
+        }
+      ],
+      "前端工程師": [
+        {
+          "skill": "JavaScript",
+          "count": 34
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 24
+        },
+        {
+          "skill": "Vue",
+          "count": 21
+        },
+        {
+          "skill": "React",
+          "count": 20
+        },
+        {
+          "skill": "TypeScript",
+          "count": 16
+        },
+        {
+          "skill": "Node.js",
+          "count": 9
+        },
+        {
+          "skill": "Figma",
+          "count": 8
+        },
+        {
+          "skill": "SEO",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "SQL",
+          "count": 4
+        }
+      ],
+      "全端工程師": [
+        {
+          "skill": "JavaScript",
+          "count": 16
+        },
+        {
+          "skill": "AI 應用",
+          "count": 15
+        },
+        {
+          "skill": "SQL",
+          "count": 14
+        },
+        {
+          "skill": "Python",
+          "count": 11
+        },
+        {
+          "skill": "Node.js",
+          "count": 9
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 8
+        },
+        {
+          "skill": "React",
+          "count": 8
+        },
+        {
+          "skill": "Vue",
+          "count": 7
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 6
+        },
+        {
+          "skill": "TypeScript",
+          "count": 5
+        }
+      ],
+      "專案管理主管": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "市場調查／市場分析": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        }
+      ],
+      "網站企劃": [
+        {
+          "skill": "SEO",
+          "count": 3
+        },
+        {
+          "skill": "GA4",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Google Ads",
+          "count": 2
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 2
+        },
+        {
+          "skill": "蝦皮",
+          "count": 2
+        },
+        {
+          "skill": "WordPress",
+          "count": 1
+        },
+        {
+          "skill": "Figma",
+          "count": 1
+        }
+      ],
+      "水電及其他工程繪圖人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        }
+      ],
+      "建築設計師": [
+        {
+          "skill": "Photoshop",
+          "count": 7
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "Illustrator",
+          "count": 6
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        }
+      ],
+      "行銷總監": [
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        }
+      ],
+      "材料工程師": [],
+      "雲端工程師": [
+        {
+          "skill": "SEO",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "其他工程研發主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "電腦繪圖人員": [
+        {
+          "skill": "Photoshop",
+          "count": 7
+        },
+        {
+          "skill": "Illustrator",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "化工化學工程師": [
+        {
+          "skill": "Word",
+          "count": 8
+        },
+        {
+          "skill": "Excel",
+          "count": 8
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        }
+      ],
+      "水電工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "出版企劃": [
+        {
+          "skill": "SEO",
+          "count": 1
+        }
+      ],
+      "實驗化驗人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "ISO／品保人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "TypeScript",
+          "count": 1
+        }
+      ],
+      "室內設計師": [
+        {
+          "skill": "Photoshop",
+          "count": 5
+        },
+        {
+          "skill": "Illustrator",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Figma",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "印刷技術人員": [
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "軟韌體測試工程師": [
+        {
+          "skill": "Python",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "資安工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "生管": [
+        {
+          "skill": "Excel",
+          "count": 14
+        },
+        {
+          "skill": "Word",
+          "count": 12
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "統計學研究員": [
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "生產技術／製程工程師": [
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Copilot",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "資料工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "Python",
+          "count": 6
+        },
+        {
+          "skill": "SQL",
+          "count": 5
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 4
+        },
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 2
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "Claude",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "MES工程師": [
+        {
+          "skill": "SQL",
+          "count": 5
+        },
+        {
+          "skill": "JavaScript",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Node.js",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "其他補習班老師": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "品管或品保高階主管": [],
+      "MIS高階主管": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "營運管理師／系統整合／ERP專案師": [
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "SQL",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 4
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 4
+        },
+        {
+          "skill": "Claude",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        }
+      ],
+      "業務支援工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "可靠度工程師": [
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 2
+        },
+        {
+          "skill": "Power BI",
+          "count": 2
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        }
+      ],
+      "後端工程師": [
+        {
+          "skill": "SQL",
+          "count": 25
+        },
+        {
+          "skill": "AI 應用",
+          "count": 15
+        },
+        {
+          "skill": "JavaScript",
+          "count": 14
+        },
+        {
+          "skill": "Python",
+          "count": 13
+        },
+        {
+          "skill": "Node.js",
+          "count": 11
+        },
+        {
+          "skill": "React",
+          "count": 6
+        },
+        {
+          "skill": "Vue",
+          "count": 6
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 5
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 4
+        },
+        {
+          "skill": "Copilot",
+          "count": 4
+        }
+      ],
+      "統計精算人員": [
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        }
+      ],
+      "機械工程師": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        }
+      ],
+      "電源工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "量測／儀校人員": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "金融研究員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "助理工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "React",
+          "count": 2
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "Vue",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "Node.js",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "演算法工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 12
+        },
+        {
+          "skill": "Python",
+          "count": 11
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 8
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 4
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "保全人員／警衛": [
+        {
+          "skill": "AI 應用",
+          "count": 3
+        }
+      ],
+      "法務": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "軟體專案主管": [
+        {
+          "skill": "生成式 AI",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "生產管理主管": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "React",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "工廠主管": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "機械設計工程師": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "生管助理": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "營建主管": [
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "電子產品系統工程師": [
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "水產養殖工作者": [
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "安全／衛生相關檢驗人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "室內設計助理": [
+        {
+          "skill": "Photoshop",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "其他資訊專業人員": [
+        {
+          "skill": "SQL",
+          "count": 5
+        },
+        {
+          "skill": "Python",
+          "count": 5
+        },
+        {
+          "skill": "JavaScript",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 3
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "TypeScript",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        }
+      ],
+      "教保員": [
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "MIS程式設計師": [
+        {
+          "skill": "SQL",
+          "count": 10
+        },
+        {
+          "skill": "JavaScript",
+          "count": 5
+        },
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "Vue",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        },
+        {
+          "skill": "TypeScript",
+          "count": 1
+        }
+      ],
+      "醫事放射師": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "產品維修人員": [],
+      "CNC電腦程式編排人員": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "產品企劃高階主管": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "生物科技研發人員": [
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "品管／品保主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "硬體研發工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "通訊軟體工程師": [
+        {
+          "skill": "Python",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Node.js",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "工業工程師／生產線規劃": [
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        },
+        {
+          "skill": "React",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "EMC／電子安規工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "MIS／網管主管": [
+        {
+          "skill": "SQL",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "其他研究人員": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "水電學徒": [
+        {
+          "skill": "AI 應用",
+          "count": 3
+        }
+      ],
+      "水電工": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        }
+      ],
+      "機電技師／工程師": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "永續管理師": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        }
+      ],
+      "產品售後技術服務": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "智慧製造工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        },
+        {
+          "skill": "Node.js",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "FAE工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "稽核人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "會計師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "客戶支援人員": [
+        {
+          "skill": "Canva",
+          "count": 6
+        },
+        {
+          "skill": "Photoshop",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Illustrator",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "Claude",
+          "count": 2
+        }
+      ],
+      "服裝／皮包／鞋類設計": [
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Illustrator",
+          "count": 3
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Midjourney",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "主辦會計": [
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "財務或會計主管": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "金融交易員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "產品管理師": [
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        },
+        {
+          "skill": "React",
+          "count": 2
+        },
+        {
+          "skill": "Figma",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        }
+      ],
+      "英文老師": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "居家護理師": [
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "演員": [
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "理貨人員": [
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "國貿助理": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "專科護理師": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Canva",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        }
+      ],
+      "一般動物飼育工作者": [
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        }
+      ],
+      "電腦補習班老師": [
+        {
+          "skill": "ChatGPT",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 6
+        },
+        {
+          "skill": "Midjourney",
+          "count": 6
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 6
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 5
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 3
+        },
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "SQL",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        }
+      ],
+      "運輸物流類主管": [
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "自動控制工程師": [
+        {
+          "skill": "Python",
+          "count": 8
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "機器學習工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        }
+      ],
+      "講師": [
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "React",
+          "count": 1
+        },
+        {
+          "skill": "Vue",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "遊戲工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "Claude",
+          "count": 4
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "TypeScript",
+          "count": 1
+        },
+        {
+          "skill": "Copilot",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        }
+      ],
+      "編劇": [
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "After Effects",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Midjourney",
+          "count": 1
+        },
+        {
+          "skill": "Stable Diffusion",
+          "count": 1
+        }
+      ],
+      "UX設計師": [
+        {
+          "skill": "Figma",
+          "count": 6
+        },
+        {
+          "skill": "AI 應用",
+          "count": 5
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 4
+        },
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 3
+        },
+        {
+          "skill": "Claude",
+          "count": 3
+        },
+        {
+          "skill": "Illustrator",
+          "count": 3
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "Adobe XD",
+          "count": 2
+        }
+      ],
+      "數據分析師／資料分析師": [
+        {
+          "skill": "Python",
+          "count": 4
+        },
+        {
+          "skill": "Power BI",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "SQL",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "Meta Ads",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        },
+        {
+          "skill": "Prompt 工程",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "資料科學家": [
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        }
+      ],
+      "資安主管": [
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "其他特殊工程師": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "iOS工程師": [
+        {
+          "skill": "JavaScript",
+          "count": 3
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 2
+        },
+        {
+          "skill": "Claude",
+          "count": 2
+        },
+        {
+          "skill": "Figma",
+          "count": 2
+        },
+        {
+          "skill": "Vue",
+          "count": 2
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        },
+        {
+          "skill": "React",
+          "count": 1
+        }
+      ],
+      "Android工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 4
+        },
+        {
+          "skill": "React",
+          "count": 4
+        },
+        {
+          "skill": "生成式 AI",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Node.js",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "UI設計師": [
+        {
+          "skill": "Figma",
+          "count": 9
+        },
+        {
+          "skill": "Photoshop",
+          "count": 9
+        },
+        {
+          "skill": "Illustrator",
+          "count": 7
+        },
+        {
+          "skill": "Adobe XD",
+          "count": 2
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 2
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "After Effects",
+          "count": 1
+        }
+      ],
+      "軟體助理工程師": [
+        {
+          "skill": "SQL",
+          "count": 4
+        },
+        {
+          "skill": "Vue",
+          "count": 3
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 2
+        },
+        {
+          "skill": "JavaScript",
+          "count": 2
+        },
+        {
+          "skill": "TypeScript",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "React",
+          "count": 1
+        }
+      ],
+      "維修工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "SQL",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "產品設計師": [
+        {
+          "skill": "Illustrator",
+          "count": 7
+        },
+        {
+          "skill": "Photoshop",
+          "count": 7
+        },
+        {
+          "skill": "Figma",
+          "count": 3
+        },
+        {
+          "skill": "Google Tag Manager",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        },
+        {
+          "skill": "Adobe XD",
+          "count": 1
+        }
+      ],
+      "區塊鏈工程師": [
+        {
+          "skill": "Python",
+          "count": 1
+        },
+        {
+          "skill": "JavaScript",
+          "count": 1
+        }
+      ],
+      "牙醫助理": [],
+      "焊接人員": [],
+      "CNC機台操作人員": [],
+      "銑床人員": [],
+      "RF通訊工程師": [],
+      "領班": [],
+      "照顧服務員": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "資料庫管理人員": [
+        {
+          "skill": "SQL",
+          "count": 4
+        },
+        {
+          "skill": "Python",
+          "count": 3
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "通信測試維修人員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "其他醫療從業人員": [
+        {
+          "skill": "Word",
+          "count": 5
+        },
+        {
+          "skill": "Excel",
+          "count": 5
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        }
+      ],
+      "工程配管繪圖": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "結構技師／工程師": [
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "光學工程師": [
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "聲學／噪音工程師": [
+        {
+          "skill": "Python",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        }
+      ],
+      "IC封裝／測試工程師": [
+        {
+          "skill": "Python",
+          "count": 1
+        }
+      ],
+      "資材主管": [
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Power BI",
+          "count": 1
+        }
+      ],
+      "PCB佈線工程師": [],
+      "土木技師／工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "教授／副教授／助理教授": [
+        {
+          "skill": "AI 應用",
+          "count": 2
+        }
+      ],
+      "數學研究員": [
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "行政主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "運動教練": [],
+      "執行長": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "成本會計": [
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        }
+      ],
+      "土地開發人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        }
+      ],
+      "空運／船務／報關人員": [
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "醫療器材研發工程師": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        }
+      ],
+      "其他汽車／機車技術維修人員": [],
+      "農藝／畜產研究人員": [],
+      "紡織化學工程師": [],
+      "電機工程技術員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "廠長": [],
+      "供應商管理人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "空調冷凍技術人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "教育訓練人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "OP／旅行社人員": [],
+      "不動產／商場開發人員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        }
+      ],
+      "工程助理": [
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        }
+      ],
+      "總幹事": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "投資人關係": [
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "醫事檢驗師": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "升學補習班老師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "農藝作物栽培工作者": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        }
+      ],
+      "診所助理": [
+        {
+          "skill": "Word",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 4
+        },
+        {
+          "skill": "AI 應用",
+          "count": 3
+        }
+      ],
+      "工務人員／助理": [
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 4
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        }
+      ],
+      "清潔工／資源回收人員": [],
+      "數理補習班老師": [],
+      "特殊教育教師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "寵物美容師": [],
+      "藥師助理": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        }
+      ],
+      "內容行銷人員": [
+        {
+          "skill": "SEO",
+          "count": 2
+        },
+        {
+          "skill": "AI 應用",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "WordPress",
+          "count": 1
+        },
+        {
+          "skill": "HTML/CSS",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "Claude",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        }
+      ],
+      "編輯助理": [
+        {
+          "skill": "Google Tag Manager",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Google Ads",
+          "count": 1
+        },
+        {
+          "skill": "ChatGPT",
+          "count": 1
+        },
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "GA4",
+          "count": 1
+        }
+      ],
+      "傳播媒體企劃": [
+        {
+          "skill": "Google Ads",
+          "count": 2
+        },
+        {
+          "skill": "Photoshop",
+          "count": 2
+        },
+        {
+          "skill": "GA4",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Premiere",
+          "count": 1
+        },
+        {
+          "skill": "Figma",
+          "count": 1
+        },
+        {
+          "skill": "Canva",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        }
+      ],
+      "職能治療師": [],
+      "包裝設計": [
+        {
+          "skill": "Illustrator",
+          "count": 3
+        },
+        {
+          "skill": "Photoshop",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        }
+      ],
+      "3D建模師": [
+        {
+          "skill": "AI 應用",
+          "count": 1
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "售票／收銀人員": [],
+      "景觀設計師": [
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "塗裝技術人員": [],
+      "建築師": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "調酒師／吧台人員": [],
+      "醫藥研發人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "營造工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 6
+        },
+        {
+          "skill": "Word",
+          "count": 6
+        },
+        {
+          "skill": "Excel",
+          "count": 6
+        },
+        {
+          "skill": "Photoshop",
+          "count": 4
+        }
+      ],
+      "麵包師": [],
+      "金屬建材架構人員": [],
+      "美甲助理": [],
+      "零件工程師": [
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "總務主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "特用化學工程師": [],
+      "機械裝配員": [],
+      "沖壓模具技術人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "銷售工程師": [],
+      "內業工程師": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "粉末冶金模具技術人員": [
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "稽核主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "車床人員": [],
+      "護理長": [],
+      "美髮師": [],
+      "木工": [],
+      "社區秘書": [
+        {
+          "skill": "PowerPoint",
+          "count": 3
+        },
+        {
+          "skill": "Word",
+          "count": 3
+        },
+        {
+          "skill": "Excel",
+          "count": 3
+        }
+      ],
+      "資料輸入人員": [
+        {
+          "skill": "PowerPoint",
+          "count": 2
+        },
+        {
+          "skill": "Word",
+          "count": 2
+        },
+        {
+          "skill": "Excel",
+          "count": 2
+        }
+      ],
+      "採購助理": [
+        {
+          "skill": "Illustrator",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Photoshop",
+          "count": 1
+        }
+      ],
+      "廠務助理": [
+        {
+          "skill": "Excel",
+          "count": 2
+        },
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        }
+      ],
+      "法務助理": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "電子設備裝修工": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "律師": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "硬體工程研發高階主管": [
+        {
+          "skill": "PowerPoint",
+          "count": 1
+        },
+        {
+          "skill": "Word",
+          "count": 1
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        }
+      ],
+      "": []
+    }
+  },
+  "skill_combinations": [
+    {
+      "skills": [
+        "Excel",
+        "Word"
+      ],
+      "count": 707,
+      "description": "Excel + Word"
+    },
+    {
+      "skills": [
+        "Excel",
+        "PowerPoint"
+      ],
+      "count": 548,
+      "description": "Excel + PowerPoint"
+    },
+    {
+      "skills": [
+        "PowerPoint",
+        "Word"
+      ],
+      "count": 527,
+      "description": "PowerPoint + Word"
+    },
+    {
+      "skills": [
+        "Excel",
+        "PowerPoint",
+        "Word"
+      ],
+      "count": 521,
+      "description": "Excel + PowerPoint + Word"
+    },
+    {
+      "skills": [
+        "Illustrator",
+        "Photoshop"
+      ],
+      "count": 235,
+      "description": "Illustrator + Photoshop"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "Python"
+      ],
+      "count": 99,
+      "description": "AI 應用 + Python"
+    },
+    {
+      "skills": [
+        "JavaScript",
+        "SQL"
+      ],
+      "count": 89,
+      "description": "JavaScript + SQL"
+    },
+    {
+      "skills": [
+        "HTML/CSS",
+        "JavaScript"
+      ],
+      "count": 82,
+      "description": "HTML/CSS + JavaScript"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "生成式 AI"
+      ],
+      "count": 74,
+      "description": "AI 應用 + 生成式 AI"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "Excel"
+      ],
+      "count": 72,
+      "description": "AI 應用 + Excel"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "Word"
+      ],
+      "count": 59,
+      "description": "AI 應用 + Word"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "Photoshop"
+      ],
+      "count": 55,
+      "description": "AI 應用 + Photoshop"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "Excel",
+        "Word"
+      ],
+      "count": 55,
+      "description": "AI 應用 + Excel + Word"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "SQL"
+      ],
+      "count": 53,
+      "description": "AI 應用 + SQL"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "Illustrator"
+      ],
+      "count": 52,
+      "description": "AI 應用 + Illustrator"
+    },
+    {
+      "skills": [
+        "Python",
+        "SQL"
+      ],
+      "count": 50,
+      "description": "Python + SQL"
+    },
+    {
+      "skills": [
+        "GA4",
+        "SEO"
+      ],
+      "count": 49,
+      "description": "GA4 + SEO"
+    },
+    {
+      "skills": [
+        "HTML/CSS",
+        "SQL"
+      ],
+      "count": 49,
+      "description": "HTML/CSS + SQL"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "Illustrator",
+        "Photoshop"
+      ],
+      "count": 48,
+      "description": "AI 應用 + Illustrator + Photoshop"
+    },
+    {
+      "skills": [
+        "AI 應用",
+        "PowerPoint"
+      ],
+      "count": 48,
+      "description": "AI 應用 + PowerPoint"
+    }
+  ],
+  "salary_analysis": {
+    "total_analyzed": 3838,
+    "has_salary_info": 2527,
+    "salary_coverage_rate": 65.8,
+    "median_salary": 40000,
+    "mean_salary": 45331,
+    "min_salary": 8000,
+    "max_salary": 2520000,
+    "p25": 35000,
+    "p75": 46000,
+    "range_distribution": [
+      {
+        "range": "30K - 40K",
+        "count": 1206,
+        "percentage": 47.7
+      },
+      {
+        "range": "30K 以下",
+        "count": 27,
+        "percentage": 1.1
+      },
+      {
+        "range": "40K - 50K",
+        "count": 785,
+        "percentage": 31.1
+      },
+      {
+        "range": "50K - 60K",
+        "count": 263,
+        "percentage": 10.4
+      },
+      {
+        "range": "60K - 80K",
+        "count": 165,
+        "percentage": 6.5
+      },
+      {
+        "range": "80K 以上",
+        "count": 81,
+        "percentage": 3.2
+      }
+    ],
+    "salary_by_category": [
+      {
+        "category": "行銷企劃",
+        "count": 125,
+        "median": 38500,
+        "mean": 43359
+      },
+      {
+        "category": "軟體工程師",
+        "count": 125,
+        "median": 50000,
+        "mean": 51313
+      },
+      {
+        "category": "平面設計／美編",
+        "count": 108,
+        "median": 35000,
+        "mean": 36525
+      },
+      {
+        "category": "國內業務",
+        "count": 93,
+        "median": 46000,
+        "mean": 80095
+      },
+      {
+        "category": "儲備幹部",
+        "count": 92,
+        "median": 38250,
+        "mean": 41132
+      },
+      {
+        "category": "門市／店員／專櫃人員",
+        "count": 69,
+        "median": 39750,
+        "mean": 40399
+      },
+      {
+        "category": "業務助理",
+        "count": 63,
+        "median": 35000,
+        "mean": 36376
+      },
+      {
+        "category": "網站行銷企劃",
+        "count": 60,
+        "median": 39000,
+        "mean": 42350
+      },
+      {
+        "category": "社群行銷",
+        "count": 48,
+        "median": 37125,
+        "mean": 39459
+      },
+      {
+        "category": "行政人員",
+        "count": 46,
+        "median": 36000,
+        "mean": 36491
+      }
+    ],
+    "salary_by_experience": [
+      {
+        "experience": "10年以上",
+        "count": 12,
+        "median": 81750,
+        "mean": 97236
+      },
+      {
+        "experience": "1年以上",
+        "count": 481,
+        "median": 39500,
+        "mean": 42565
+      },
+      {
+        "experience": "2年以上",
+        "count": 344,
+        "median": 40000,
+        "mean": 44722
+      },
+      {
+        "experience": "3年以上",
+        "count": 245,
+        "median": 42500,
+        "mean": 46595
+      },
+      {
+        "experience": "4年以上",
+        "count": 11,
+        "median": 48500,
+        "mean": 63548
+      },
+      {
+        "experience": "5年以上",
+        "count": 69,
+        "median": 55000,
+        "mean": 58635
+      },
+      {
+        "experience": "8年以上",
+        "count": 6,
+        "median": 47500,
+        "mean": 58083
+      },
+      {
+        "experience": "不拘",
+        "count": 1345,
+        "median": 38300,
+        "mean": 44895
+      },
+      {
+        "experience": "無",
+        "count": 9,
+        "median": 39000,
+        "mean": 41305
+      }
+    ]
+  },
+  "salary_by_skill": {
+    "total_skills_analyzed": 35,
+    "top_paying_skills": [
+      {
+        "skill": "TypeScript",
+        "job_count": 42,
+        "median_salary": 52500,
+        "mean_salary": 56326,
+        "min_salary": 35000,
+        "max_salary": 108255
+      },
+      {
+        "skill": "生成式 AI",
+        "job_count": 124,
+        "median_salary": 50000,
+        "mean_salary": 55511,
+        "min_salary": 5000,
+        "max_salary": 200000
+      },
+      {
+        "skill": "Prompt 工程",
+        "job_count": 88,
+        "median_salary": 50000,
+        "mean_salary": 58656,
+        "min_salary": 33000,
+        "max_salary": 200000
+      },
+      {
+        "skill": "Python",
+        "job_count": 151,
+        "median_salary": 50000,
+        "mean_salary": 53888,
+        "min_salary": 32500,
+        "max_salary": 192000
+      },
+      {
+        "skill": "Vue",
+        "job_count": 74,
+        "median_salary": 50000,
+        "mean_salary": 56167,
+        "min_salary": 35000,
+        "max_salary": 184000
+      },
+      {
+        "skill": "React",
+        "job_count": 65,
+        "median_salary": 50000,
+        "mean_salary": 53461,
+        "min_salary": 29500,
+        "max_salary": 184000
+      },
+      {
+        "skill": "Node.js",
+        "job_count": 77,
+        "median_salary": 50000,
+        "mean_salary": 49878,
+        "min_salary": 34000,
+        "max_salary": 87500
+      },
+      {
+        "skill": "JavaScript",
+        "job_count": 222,
+        "median_salary": 47250,
+        "mean_salary": 51853,
+        "min_salary": 31360,
+        "max_salary": 192000
+      },
+      {
+        "skill": "Google Tag Manager",
+        "job_count": 41,
+        "median_salary": 45500,
+        "mean_salary": 48359,
+        "min_salary": 32000,
+        "max_salary": 80000
+      },
+      {
+        "skill": "Claude",
+        "job_count": 134,
+        "median_salary": 45000,
+        "mean_salary": 52096,
+        "min_salary": 30000,
+        "max_salary": 200000
+      },
+      {
+        "skill": "Meta Ads",
+        "job_count": 44,
+        "median_salary": 45000,
+        "mean_salary": 47092,
+        "min_salary": 32000,
+        "max_salary": 90000
+      },
+      {
+        "skill": "Copilot",
+        "job_count": 44,
+        "median_salary": 45000,
+        "mean_salary": 49204,
+        "min_salary": 31500,
+        "max_salary": 118500
+      },
+      {
+        "skill": "Power BI",
+        "job_count": 22,
+        "median_salary": 45000,
+        "mean_salary": 52739,
+        "min_salary": 31360,
+        "max_salary": 108333
+      },
+      {
+        "skill": "SQL",
+        "job_count": 215,
+        "median_salary": 45000,
+        "mean_salary": 50864,
+        "min_salary": 29750,
+        "max_salary": 145833
+      },
+      {
+        "skill": "HTML/CSS",
+        "job_count": 162,
+        "median_salary": 44500,
+        "mean_salary": 49431,
+        "min_salary": 31360,
+        "max_salary": 145833
+      }
+    ],
+    "skill_salary_details": [
+      {
+        "skill": "TypeScript",
+        "job_count": 42,
+        "median_salary": 52500,
+        "mean_salary": 56326,
+        "min_salary": 35000,
+        "max_salary": 108255
+      },
+      {
+        "skill": "生成式 AI",
+        "job_count": 124,
+        "median_salary": 50000,
+        "mean_salary": 55511,
+        "min_salary": 5000,
+        "max_salary": 200000
+      },
+      {
+        "skill": "Prompt 工程",
+        "job_count": 88,
+        "median_salary": 50000,
+        "mean_salary": 58656,
+        "min_salary": 33000,
+        "max_salary": 200000
+      },
+      {
+        "skill": "Python",
+        "job_count": 151,
+        "median_salary": 50000,
+        "mean_salary": 53888,
+        "min_salary": 32500,
+        "max_salary": 192000
+      },
+      {
+        "skill": "Vue",
+        "job_count": 74,
+        "median_salary": 50000,
+        "mean_salary": 56167,
+        "min_salary": 35000,
+        "max_salary": 184000
+      },
+      {
+        "skill": "React",
+        "job_count": 65,
+        "median_salary": 50000,
+        "mean_salary": 53461,
+        "min_salary": 29500,
+        "max_salary": 184000
+      },
+      {
+        "skill": "Node.js",
+        "job_count": 77,
+        "median_salary": 50000,
+        "mean_salary": 49878,
+        "min_salary": 34000,
+        "max_salary": 87500
+      },
+      {
+        "skill": "JavaScript",
+        "job_count": 222,
+        "median_salary": 47250,
+        "mean_salary": 51853,
+        "min_salary": 31360,
+        "max_salary": 192000
+      },
+      {
+        "skill": "Google Tag Manager",
+        "job_count": 41,
+        "median_salary": 45500,
+        "mean_salary": 48359,
+        "min_salary": 32000,
+        "max_salary": 80000
+      },
+      {
+        "skill": "Claude",
+        "job_count": 134,
+        "median_salary": 45000,
+        "mean_salary": 52096,
+        "min_salary": 30000,
+        "max_salary": 200000
+      },
+      {
+        "skill": "Meta Ads",
+        "job_count": 44,
+        "median_salary": 45000,
+        "mean_salary": 47092,
+        "min_salary": 32000,
+        "max_salary": 90000
+      },
+      {
+        "skill": "Copilot",
+        "job_count": 44,
+        "median_salary": 45000,
+        "mean_salary": 49204,
+        "min_salary": 31500,
+        "max_salary": 118500
+      },
+      {
+        "skill": "Power BI",
+        "job_count": 22,
+        "median_salary": 45000,
+        "mean_salary": 52739,
+        "min_salary": 31360,
+        "max_salary": 108333
+      },
+      {
+        "skill": "SQL",
+        "job_count": 215,
+        "median_salary": 45000,
+        "mean_salary": 50864,
+        "min_salary": 29750,
+        "max_salary": 145833
+      },
+      {
+        "skill": "HTML/CSS",
+        "job_count": 162,
+        "median_salary": 44500,
+        "mean_salary": 49431,
+        "min_salary": 31360,
+        "max_salary": 145833
+      },
+      {
+        "skill": "Figma",
+        "job_count": 115,
+        "median_salary": 44000,
+        "mean_salary": 45684,
+        "min_salary": 5000,
+        "max_salary": 95000
+      },
+      {
+        "skill": "WordPress",
+        "job_count": 37,
+        "median_salary": 43500,
+        "mean_salary": 45459,
+        "min_salary": 30000,
+        "max_salary": 70000
+      },
+      {
+        "skill": "Adobe XD",
+        "job_count": 25,
+        "median_salary": 43000,
+        "mean_salary": 43030,
+        "min_salary": 32000,
+        "max_salary": 57500
+      },
+      {
+        "skill": "Midjourney",
+        "job_count": 38,
+        "median_salary": 42500,
+        "mean_salary": 50348,
+        "min_salary": 5000,
+        "max_salary": 96000
+      },
+      {
+        "skill": "Google Ads",
+        "job_count": 126,
+        "median_salary": 41750,
+        "mean_salary": 56940,
+        "min_salary": 30000,
+        "max_salary": 1050000
+      },
+      {
+        "skill": "GA4",
+        "job_count": 181,
+        "median_salary": 41500,
+        "mean_salary": 47210,
+        "min_salary": 29500,
+        "max_salary": 175000
+      },
+      {
+        "skill": "SEO",
+        "job_count": 190,
+        "median_salary": 41500,
+        "mean_salary": 48185,
+        "min_salary": 29500,
+        "max_salary": 175000
+      },
+      {
+        "skill": "AI 應用",
+        "job_count": 632,
+        "median_salary": 41450,
+        "mean_salary": 46263,
+        "min_salary": 1200,
+        "max_salary": 200000
+      },
+      {
+        "skill": "Stable Diffusion",
+        "job_count": 12,
+        "median_salary": 41250,
+        "mean_salary": 44291,
+        "min_salary": 5000,
+        "max_salary": 87500
+      },
+      {
+        "skill": "ChatGPT",
+        "job_count": 253,
+        "median_salary": 40500,
+        "mean_salary": 58424,
+        "min_salary": 2550,
+        "max_salary": 2520000
+      },
+      {
+        "skill": "After Effects",
+        "job_count": 51,
+        "median_salary": 40500,
+        "mean_salary": 43257,
+        "min_salary": 32000,
+        "max_salary": 80000
+      },
+      {
+        "skill": "Shopify",
+        "job_count": 9,
+        "median_salary": 39000,
+        "mean_salary": 39444,
+        "min_salary": 36000,
+        "max_salary": 48500
+      },
+      {
+        "skill": "Word",
+        "job_count": 778,
+        "median_salary": 38000,
+        "mean_salary": 45580,
+        "min_salary": 500,
+        "max_salary": 2520000
+      },
+      {
+        "skill": "Excel",
+        "job_count": 854,
+        "median_salary": 38000,
+        "mean_salary": 44537,
+        "min_salary": 500,
+        "max_salary": 2520000
+      },
+      {
+        "skill": "PowerPoint",
+        "job_count": 610,
+        "median_salary": 38000,
+        "mean_salary": 47711,
+        "min_salary": 500,
+        "max_salary": 2520000
+      },
+      {
+        "skill": "蝦皮",
+        "job_count": 66,
+        "median_salary": 37750,
+        "mean_salary": 41065,
+        "min_salary": 30750,
+        "max_salary": 125000
+      },
+      {
+        "skill": "Canva",
+        "job_count": 172,
+        "median_salary": 37500,
+        "mean_salary": 39831,
+        "min_salary": 2550,
+        "max_salary": 144000
+      },
+      {
+        "skill": "Premiere",
+        "job_count": 104,
+        "median_salary": 37500,
+        "mean_salary": 38699,
+        "min_salary": 750,
+        "max_salary": 65000
+      },
+      {
+        "skill": "Photoshop",
+        "job_count": 445,
+        "median_salary": 37250,
+        "mean_salary": 39090,
+        "min_salary": 5000,
+        "max_salary": 92000
+      },
+      {
+        "skill": "Illustrator",
+        "job_count": 395,
+        "median_salary": 36500,
+        "mean_salary": 38620,
+        "min_salary": 750,
+        "max_salary": 92000
+      }
+    ]
+  },
+  "company_analysis": {
+    "total_companies": 1692,
+    "top_industries": [
+      {
+        "industry": "電腦軟體服務業",
+        "industry_name": "其他產業(電腦軟體服務業)",
+        "count": 228,
+        "percentage": 5.9
+      },
+      {
+        "industry": "消費性電子產品製造業",
+        "industry_name": "其他產業(消費性電子產品製造業)",
+        "count": 205,
+        "percentage": 5.3
+      },
+      {
+        "industry": "網際網路相關業",
+        "industry_name": "其他產業(網際網路相關業)",
+        "count": 150,
+        "percentage": 3.9
+      },
+      {
+        "industry": "綜合商品批發代理業",
+        "industry_name": "其他產業(綜合商品批發代理業)",
+        "count": 125,
+        "percentage": 3.3
+      },
+      {
+        "industry": "電腦系統整合服務業",
+        "industry_name": "其他產業(電腦系統整合服務業)",
+        "count": 121,
+        "percentage": 3.2
+      },
+      {
+        "industry": "醫院",
+        "industry_name": "其他產業(醫院)",
+        "count": 85,
+        "percentage": 2.2
+      },
+      {
+        "industry": "其他金屬相關製造業",
+        "industry_name": "其他產業(其他金屬相關製造業)",
+        "count": 77,
+        "percentage": 2.0
+      },
+      {
+        "industry": "量販流通相關業",
+        "industry_name": "其他產業(量販流通相關業)",
+        "count": 77,
+        "percentage": 2.0
+      },
+      {
+        "industry": "工商顧問服務業",
+        "industry_name": "其他產業(工商顧問服務業)",
+        "count": 74,
+        "percentage": 1.9
+      },
+      {
+        "industry": "廣告行銷公關業",
+        "industry_name": "其他產業(廣告行銷公關業)",
+        "count": 70,
+        "percentage": 1.8
+      },
+      {
+        "industry": "其它軟體及網路相關業",
+        "industry_name": "其他產業(其它軟體及網路相關業)",
+        "count": 70,
+        "percentage": 1.8
+      },
+      {
+        "industry": "餐館業",
+        "industry_name": "其他產業(餐館業)",
+        "count": 62,
+        "percentage": 1.6
+      },
+      {
+        "industry": "其他教育服務業",
+        "industry_name": "其他產業(其他教育服務業)",
+        "count": 61,
+        "percentage": 1.6
+      },
+      {
+        "industry": "百貨相關業",
+        "industry_name": "其他產業(百貨相關業)",
+        "count": 60,
+        "percentage": 1.6
+      },
+      {
+        "industry": "補習班",
+        "industry_name": "其他產業(補習班)",
+        "count": 60,
+        "percentage": 1.6
+      }
+    ],
+    "top_hiring_companies": [
+      {
+        "company": "環鴻科技股份有限公司",
+        "job_count": 169
+      },
+      {
+        "company": "全家便利商店股份有限公司",
+        "job_count": 74
+      },
+      {
+        "company": "弈樂科技股份有限公司",
+        "job_count": 31
+      },
+      {
+        "company": "寶成工業股份有限公司",
+        "job_count": 30
+      },
+      {
+        "company": "華邦電子股份有限公司",
+        "job_count": 30
+      },
+      {
+        "company": "大豐環保科技股份有限公司",
+        "job_count": 24
+      },
+      {
+        "company": "秀傳醫療體系_秀傳醫療社團法人秀傳紀念醫院",
+        "job_count": 23
+      },
+      {
+        "company": "紐洛琳英語學院_加宇國際教育股份有限公司",
+        "job_count": 21
+      },
+      {
+        "company": "薰衣草森林股份有限公司",
+        "job_count": 18
+      },
+      {
+        "company": "專佳管理顧問有限公司",
+        "job_count": 17
+      },
+      {
+        "company": "康是美_統一生活事業股份有限公司",
+        "job_count": 16
+      },
+      {
+        "company": "喬山健康科技股份有限公司",
+        "job_count": 16
+      },
+      {
+        "company": "彰化基督教醫療財團法人彰化基督教醫院",
+        "job_count": 16
+      },
+      {
+        "company": "樂學舍數位股份有限公司",
+        "job_count": 15
+      },
+      {
+        "company": "劦辰傳媒有限公司",
+        "job_count": 15
+      },
+      {
+        "company": "艾鉅有限公司",
+        "job_count": 15
+      },
+      {
+        "company": "台達電子工業股份有限公司 _DELTA ELECTRONICS INC.",
+        "job_count": 14
+      },
+      {
+        "company": "橋星廣告製作有限公司",
+        "job_count": 14
+      },
+      {
+        "company": "嚴謹資優英數理_臺中市私立嚴謹文理音樂美術短期補習班",
+        "job_count": 13
+      },
+      {
+        "company": "臺灣凡夫股份有限公司",
+        "job_count": 13
+      }
+    ],
+    "company_size_distribution": {
+      "large_scale": 35,
+      "medium_scale": 335,
+      "small_scale": 1322
+    }
+  },
+  "experience_requirements": {
+    "distribution": [
+      {
+        "experience": "經驗不拘",
+        "count": 1867,
+        "percentage": 48.6
+      },
+      {
+        "experience": "其他/未註明",
+        "count": 1247,
+        "percentage": 32.5
+      },
+      {
+        "experience": "1-3年",
+        "count": 493,
+        "percentage": 12.8
+      },
+      {
+        "experience": "3-5年",
+        "count": 194,
+        "percentage": 5.1
+      },
+      {
+        "experience": "5-10年",
+        "count": 35,
+        "percentage": 0.9
+      },
+      {
+        "experience": "1年以下",
+        "count": 2,
+        "percentage": 0.1
+      }
+    ],
+    "entry_level_friendly": {
+      "count": 1869,
+      "percentage": 48.7
+    }
+  },
+  "education_requirements": {
+    "distribution": [
+      {
+        "education": "大學",
+        "count": 1284,
+        "percentage": 33.5
+      },
+      {
+        "education": "專科",
+        "count": 1282,
+        "percentage": 33.4
+      },
+      {
+        "education": "高中/高職",
+        "count": 663,
+        "percentage": 17.3
+      },
+      {
+        "education": "學歷不拘",
+        "count": 453,
+        "percentage": 11.8
+      },
+      {
+        "education": "碩士以上",
+        "count": 120,
+        "percentage": 3.1
+      },
+      {
+        "education": "其他/未註明",
+        "count": 36,
+        "percentage": 0.9
+      }
+    ]
+  },
+  "trend_analysis": {
+    "job_count_change": {
+      "current": 3838,
+      "previous": 3994,
+      "change": -156,
+      "change_percentage": -3.9
+    },
+    "skill_trends": {
+      "rising_skills": [
+        {
+          "skill": "Photoshop",
+          "current_count": 501,
+          "previous_count": 430,
+          "change": 71,
+          "change_percentage": 16.5,
+          "trend": "up"
+        },
+        {
+          "skill": "Illustrator",
+          "current_count": 441,
+          "previous_count": 397,
+          "change": 44,
+          "change_percentage": 11.1,
+          "trend": "up"
+        },
+        {
+          "skill": "GA4",
+          "current_count": 235,
+          "previous_count": 211,
+          "change": 24,
+          "change_percentage": 11.4,
+          "trend": "up"
+        },
+        {
+          "skill": "生成式 AI",
+          "current_count": 215,
+          "previous_count": 195,
+          "change": 20,
+          "change_percentage": 10.3,
+          "trend": "up"
+        },
+        {
+          "skill": "Shopify",
+          "current_count": 20,
+          "previous_count": 13,
+          "change": 7,
+          "change_percentage": 53.8,
+          "trend": "up"
+        },
+        {
+          "skill": "WordPress",
+          "current_count": 44,
+          "previous_count": 37,
+          "change": 7,
+          "change_percentage": 18.9,
+          "trend": "up"
+        },
+        {
+          "skill": "Midjourney",
+          "current_count": 43,
+          "previous_count": 39,
+          "change": 4,
+          "change_percentage": 10.3,
+          "trend": "up"
+        }
+      ],
+      "declining_skills": [],
+      "all_trends": [
+        {
+          "skill": "AI 應用",
+          "current_count": 949,
+          "previous_count": 875,
+          "change": 74,
+          "change_percentage": 8.5,
+          "trend": "stable"
+        },
+        {
+          "skill": "Photoshop",
+          "current_count": 501,
+          "previous_count": 430,
+          "change": 71,
+          "change_percentage": 16.5,
+          "trend": "up"
+        },
+        {
+          "skill": "PowerPoint",
+          "current_count": 841,
+          "previous_count": 794,
+          "change": 47,
+          "change_percentage": 5.9,
+          "trend": "stable"
+        },
+        {
+          "skill": "Illustrator",
+          "current_count": 441,
+          "previous_count": 397,
+          "change": 44,
+          "change_percentage": 11.1,
+          "trend": "up"
+        },
+        {
+          "skill": "GA4",
+          "current_count": 235,
+          "previous_count": 211,
+          "change": 24,
+          "change_percentage": 11.4,
+          "trend": "up"
+        },
+        {
+          "skill": "生成式 AI",
+          "current_count": 215,
+          "previous_count": 195,
+          "change": 20,
+          "change_percentage": 10.3,
+          "trend": "up"
+        },
+        {
+          "skill": "SEO",
+          "current_count": 242,
+          "previous_count": 225,
+          "change": 17,
+          "change_percentage": 7.6,
+          "trend": "stable"
+        },
+        {
+          "skill": "Canva",
+          "current_count": 196,
+          "previous_count": 211,
+          "change": -15,
+          "change_percentage": -7.1,
+          "trend": "stable"
+        },
+        {
+          "skill": "Python",
+          "current_count": 354,
+          "previous_count": 365,
+          "change": -11,
+          "change_percentage": -3.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "HTML/CSS",
+          "current_count": 250,
+          "previous_count": 258,
+          "change": -8,
+          "change_percentage": -3.1,
+          "trend": "stable"
+        },
+        {
+          "skill": "React",
+          "current_count": 120,
+          "previous_count": 127,
+          "change": -7,
+          "change_percentage": -5.5,
+          "trend": "stable"
+        },
+        {
+          "skill": "Shopify",
+          "current_count": 20,
+          "previous_count": 13,
+          "change": 7,
+          "change_percentage": 53.8,
+          "trend": "up"
+        },
+        {
+          "skill": "WordPress",
+          "current_count": 44,
+          "previous_count": 37,
+          "change": 7,
+          "change_percentage": 18.9,
+          "trend": "up"
+        },
+        {
+          "skill": "Excel",
+          "current_count": 1131,
+          "previous_count": 1125,
+          "change": 6,
+          "change_percentage": 0.5,
+          "trend": "stable"
+        },
+        {
+          "skill": "ChatGPT",
+          "current_count": 325,
+          "previous_count": 331,
+          "change": -6,
+          "change_percentage": -1.8,
+          "trend": "stable"
+        },
+        {
+          "skill": "Google Ads",
+          "current_count": 156,
+          "previous_count": 151,
+          "change": 5,
+          "change_percentage": 3.3,
+          "trend": "stable"
+        },
+        {
+          "skill": "Figma",
+          "current_count": 151,
+          "previous_count": 146,
+          "change": 5,
+          "change_percentage": 3.4,
+          "trend": "stable"
+        },
+        {
+          "skill": "Prompt 工程",
+          "current_count": 134,
+          "previous_count": 129,
+          "change": 5,
+          "change_percentage": 3.9,
+          "trend": "stable"
+        },
+        {
+          "skill": "Word",
+          "current_count": 1015,
+          "previous_count": 1010,
+          "change": 5,
+          "change_percentage": 0.5,
+          "trend": "stable"
+        },
+        {
+          "skill": "Midjourney",
+          "current_count": 43,
+          "previous_count": 39,
+          "change": 4,
+          "change_percentage": 10.3,
+          "trend": "up"
+        },
+        {
+          "skill": "Copilot",
+          "current_count": 105,
+          "previous_count": 101,
+          "change": 4,
+          "change_percentage": 4.0,
+          "trend": "stable"
+        },
+        {
+          "skill": "蝦皮",
+          "current_count": 71,
+          "previous_count": 75,
+          "change": -4,
+          "change_percentage": -5.3,
+          "trend": "stable"
+        },
+        {
+          "skill": "Claude",
+          "current_count": 183,
+          "previous_count": 179,
+          "change": 4,
+          "change_percentage": 2.2,
+          "trend": "stable"
+        },
+        {
+          "skill": "SQL",
+          "current_count": 379,
+          "previous_count": 382,
+          "change": -3,
+          "change_percentage": -0.8,
+          "trend": "stable"
+        },
+        {
+          "skill": "After Effects",
+          "current_count": 55,
+          "previous_count": 58,
+          "change": -3,
+          "change_percentage": -5.2,
+          "trend": "stable"
+        },
+        {
+          "skill": "Power BI",
+          "current_count": 92,
+          "previous_count": 89,
+          "change": 3,
+          "change_percentage": 3.4,
+          "trend": "stable"
+        },
+        {
+          "skill": "Premiere",
+          "current_count": 113,
+          "previous_count": 111,
+          "change": 2,
+          "change_percentage": 1.8,
+          "trend": "stable"
+        },
+        {
+          "skill": "Google Tag Manager",
+          "current_count": 56,
+          "previous_count": 54,
+          "change": 2,
+          "change_percentage": 3.7,
+          "trend": "stable"
+        },
+        {
+          "skill": "Node.js",
+          "current_count": 127,
+          "previous_count": 126,
+          "change": 1,
+          "change_percentage": 0.8,
+          "trend": "stable"
+        },
+        {
+          "skill": "Vue",
+          "current_count": 139,
+          "previous_count": 138,
+          "change": 1,
+          "change_percentage": 0.7,
+          "trend": "stable"
+        }
+      ]
+    },
+    "salary_trends": {
+      "has_data": true,
+      "current_median": 39000,
+      "previous_median": 39000,
+      "change": 0,
+      "change_percentage": 0.0,
+      "trend": "stable",
+      "current_mean": 46450,
+      "previous_mean": 44249
+    }
+  },
+  "emerging_jobs": [],
+  "market_trends": {
+    "timestamp": "2026-09-21T06:33:22.409093",
+    "regional_unemployment": {
+      "data_period": "115年上半年（2026/01-06）",
+      "source": "行政院主計總處 人力資源調查",
+      "taiwan_total_unemployed": 400000,
+      "taiwan_unemployment_rate": 3.3,
+      "youth_ratio_in_unemployed": 0.248,
+      "regions": {
+        "北部": {
+          "total_unemployed": 183000,
+          "youth_unemployed_est": 45384,
+          "counties": [
+            {
+              "county": "臺北市",
+              "unemployed_persons": 40000,
+              "unemployment_rate": 3.3,
+              "youth_est": 9920
+            },
+            {
+              "county": "新北市",
+              "unemployed_persons": 71000,
+              "unemployment_rate": 3.4,
+              "youth_est": 17608
+            },
+            {
+              "county": "桃園市",
+              "unemployed_persons": 40000,
+              "unemployment_rate": 3.3,
+              "youth_est": 9920
+            },
+            {
+              "county": "基隆市",
+              "unemployed_persons": 6000,
+              "unemployment_rate": 3.4,
+              "youth_est": 1488
+            },
+            {
+              "county": "新竹市",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.2,
+              "youth_est": 1984
+            },
+            {
+              "county": "新竹縣",
+              "unemployed_persons": 10000,
+              "unemployment_rate": 3.4,
+              "youth_est": 2480
+            },
+            {
+              "county": "宜蘭縣",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.2,
+              "youth_est": 1984
+            }
+          ]
+        },
+        "中部（含苗栗）": {
+          "total_unemployed": 89000,
+          "youth_unemployed_est": 22072,
+          "counties": [
+            {
+              "county": "苗栗縣",
+              "unemployed_persons": 9000,
+              "unemployment_rate": 3.4,
+              "youth_est": 2232
+            },
+            {
+              "county": "臺中市",
+              "unemployed_persons": 51000,
+              "unemployment_rate": 3.4,
+              "youth_est": 12648
+            },
+            {
+              "county": "彰化縣",
+              "unemployed_persons": 21000,
+              "unemployment_rate": 3.3,
+              "youth_est": 5208
+            },
+            {
+              "county": "南投縣",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.3,
+              "youth_est": 1984
+            }
+          ]
+        },
+        "雲嘉（雲林+嘉義）": {
+          "total_unemployed": 23000,
+          "youth_unemployed_est": 5704,
+          "counties": [
+            {
+              "county": "雲林縣",
+              "unemployed_persons": 11000,
+              "unemployment_rate": 3.2,
+              "youth_est": 2728
+            },
+            {
+              "county": "嘉義市",
+              "unemployed_persons": 4000,
+              "unemployment_rate": 3.2,
+              "youth_est": 992
+            },
+            {
+              "county": "嘉義縣",
+              "unemployed_persons": 8000,
+              "unemployment_rate": 3.3,
+              "youth_est": 1984
+            }
+          ]
+        },
+        "南部（含高雄）": {
+          "total_unemployed": 95000,
+          "youth_unemployed_est": 23560,
+          "counties": [
+            {
+              "county": "臺南市",
+              "unemployed_persons": 34000,
+              "unemployment_rate": 3.3,
+              "youth_est": 8432
+            },
+            {
+              "county": "高雄市",
+              "unemployed_persons": 45000,
+              "unemployment_rate": 3.2,
+              "youth_est": 11160
+            },
+            {
+              "county": "屏東縣",
+              "unemployed_persons": 14000,
+              "unemployment_rate": 3.3,
+              "youth_est": 3472
+            },
+            {
+              "county": "澎湖縣",
+              "unemployed_persons": 2000,
+              "unemployment_rate": 3.4,
+              "youth_est": 496
+            }
+          ]
+        },
+        "東部": {
+          "total_unemployed": 8000,
+          "youth_unemployed_est": 1984,
+          "counties": [
+            {
+              "county": "花蓮縣",
+              "unemployed_persons": 5000,
+              "unemployment_rate": 3.3,
+              "youth_est": 1240
+            },
+            {
+              "county": "臺東縣",
+              "unemployed_persons": 3000,
+              "unemployment_rate": 3.3,
+              "youth_est": 744
+            }
+          ]
+        }
+      },
+      "note": "青年(15-29歲)估計人數 = 失業人數 × 24.8%（依勞動部113年調查比例推估）；縣市失業率為 115年上半年（2026/01-06） 開放資料，失業人數為 114年上半年（2025/01-06，靜態備援）",
+      "counts_period": "114年上半年（2025/01-06，靜態備援）"
+    },
+    "youth_stats": {
+      "period": "115年5月",
+      "source": "行政院主計總處 人力資源調查（2026/06/23 發布）",
+      "overall_rate": 3.27,
+      "age_15_24_rate": 11.14,
+      "age_25_29_rate": 5.79,
+      "insight": "115年5月 全國失業率 3.27%，15-24歲失業率 11.14%（約為整體 3.4 倍），25-29歲為 5.79%，待業青年仍為招生核心族群。資料來源：行政院主計總處 人力資源調查（2026/06/23 發布）"
+    },
+    "social_volume": {
+      "source": "PTT (Salary, Soft_Job, Tech_Job)",
+      "total_posts_analyzed": 0,
+      "keyword_counts": {
+        "待業": 0,
+        "面試": 0,
+        "找不到": 0,
+        "職訓": 0,
+        "新尖兵": 0,
+        "履歷": 0,
+        "轉職": 0,
+        "焦慮": 0
+      }
+    },
+    "search_trends": {
+      "timeframe": "過去 3 個月",
+      "trends": {
+        "找工作": {
+          "current_index": 27.0,
+          "trend_change_pct": -1.6,
+          "status": "持平 →"
+        },
+        "職訓": {
+          "current_index": 20.9,
+          "trend_change_pct": 4.3,
+          "status": "持平 →"
+        },
+        "履歷": {
+          "current_index": 30.4,
+          "trend_change_pct": -16.1,
+          "status": "下降 ↘"
+        },
+        "面試": {
+          "current_index": 72.6,
+          "trend_change_pct": -4.2,
+          "status": "持平 →"
+        },
+        "新尖兵": {
+          "current_index": 0.6,
+          "trend_change_pct": -42.9,
+          "status": "下降 ↘"
+        }
+      }
+    },
+    "unemployment_data": {
+      "update_date": "115年5月",
+      "overall_rate": 3.27,
+      "age_15_24_rate": 11.14,
+      "age_25_29_rate": 5.79,
+      "insight": "115年5月 全國失業率 3.27%，15-24歲失業率 11.14%（約為整體 3.4 倍），25-29歲為 5.79%，待業青年仍為招生核心族群。資料來源：行政院主計總處 人力資源調查（2026/06/23 發布）"
+    }
+  }
+}
